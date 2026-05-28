@@ -1,0 +1,51 @@
+department,public_dataset_count,coverage_status,structured_metadata_count,inferred_metadata_count,missing_metadata_count
+Inspectional Services,68,represented,0,68,0
+Transportation,47,represented,0,47,0
+Community Development,41,represented,0,41,0
+Public Works (DPW),36,represented,0,36,0
+Public Health,19,represented,0,19,0
+Police Department,16,represented,0,16,0
+Budget,10,represented,0,10,0
+Unassigned/Unknown,9,represented,0,0,9
+Assessing,8,represented,1,7,0
+Finance,7,represented,0,7,0
+Purchasing,3,represented,0,3,0
+Cambridge Arts,2,represented,0,2,0
+Human Service Programs,2,represented,0,2,0
+License Commission,2,represented,0,2,0
+School Department,2,represented,0,2,0
+Election Commission,1,represented,0,1,0
+Historical Commission,1,represented,0,1,0
+Information Technology,1,represented,0,1,0
+Law,1,represented,0,1,0
+Library,1,represented,0,1,0
+Office of Sustainability,1,represented,0,1,0
+Water Department,1,represented,0,1,0
+22-CityView,0,not represented,0,0,0
+American Freedmen Commission,0,not represented,0,0,0
+Animal Commission,0,not represented,0,0,0
+Auditing,0,not represented,0,0,0
+Capital Building Projects,0,not represented,0,0,0
+City Clerk's Office,0,not represented,0,0,0
+City Council,0,not represented,0,0,0
+City Manager's Office,0,not represented,0,0,0
+Commission for Persons with Disabilities,0,not represented,0,0,0
+Community Safety,0,not represented,0,0,0
+Consumers' Council,0,not represented,0,0,0
+Department of Equity & Inclusion,0,not represented,0,0,0
+Electrical,0,not represented,0,0,0
+Emergency Communications,0,not represented,0,0,0
+Family Policy Council,0,not represented,0,0,0
+Fire Department,0,not represented,0,0,0
+Human Resources,0,not represented,0,0,0
+Human Rights Commission,0,not represented,0,0,0
+Immigrant Rights & Citizenship (CIRC),0,not represented,0,0,0
+LGBTQ+ Commission,0,not represented,0,0,0
+Mayor's Office,0,not represented,0,0,0
+Peace Commission,0,not represented,0,0,0
+Police Review and Advisory Board,0,not represented,0,0,0
+Retirement Board,0,not represented,0,0,0
+Tourism Office,0,not represented,0,0,0
+Veterans' Services,0,not represented,0,0,0
+Weights & Measures,0,not represented,0,0,0
+Women's Commission,0,not represented,0,0,0

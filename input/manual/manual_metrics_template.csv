@@ -1,0 +1,7 @@
+metric_id,period_type,period_start,value,dimension,dimension_value,notes
+newsletter_subscribers,month,2026-01-01,,,,
+public_workshop_attendance,month,2026-01-01,,,,
+staff_training_attendance,month,2026-01-01,,,,
+cdag_attendance,month,2026-01-01,,,,
+privacy_inquiries_requests,month,2026-01-01,,,,
+documented_pilots,year,2026-01-01,,,,
