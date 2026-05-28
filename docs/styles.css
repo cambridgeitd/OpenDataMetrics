@@ -115,6 +115,14 @@ main {
   display: block;
 }
 
+.snapshot-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
 .kpi-grid {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -626,7 +634,8 @@ tr:last-child td {
 
 @media (max-width: 720px) {
   .app-header,
-  .panel-head {
+  .panel-head,
+  .snapshot-controls {
     align-items: flex-start;
     flex-direction: column;
   }

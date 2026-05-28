@@ -90,11 +90,6 @@ const latestMetricValue = (metricId, rows = state.data.metrics) => {
   return values.length ? values[values.length - 1].value : null;
 };
 
-const recentSum = (metricId, months = 12) => {
-  const values = numericRows(state.data.monthly.filter((row) => row.metric_id === metricId));
-  return values.slice(-months).reduce((sum, row) => sum + row.value, 0);
-};
-
 const isAccessMetric = (metricId) => Boolean(accessMetricConfig[metricId]);
 const normalizeQuery = (value) => String(value || "").trim().toLowerCase();
 
@@ -131,30 +126,12 @@ function colorForPercent(percent) {
   return `rgb(${rgb.join(", ")})`;
 }
 
-function rollingChange(metricId) {
+function pointChange(metricId, offsets = [
+  { size: 12, label: "vs 12 mo ago" },
+  { size: 3, label: "vs 3 mo ago" },
+  { size: 1, label: "vs last month" },
+]) {
   const values = numericRows(state.data.monthly.filter((row) => row.metric_id === metricId));
-  const windows = [
-    { size: 12, label: "vs prior 12 mo" },
-    { size: 3, label: "vs prior 3 mo" },
-    { size: 1, label: "vs prior month" },
-  ];
-  for (const window of windows) {
-    if (values.length >= window.size * 2) {
-      const current = values.slice(-window.size).reduce((sum, row) => sum + row.value, 0);
-      const previous = values.slice(-window.size * 2, -window.size).reduce((sum, row) => sum + row.value, 0);
-      return formatChange(current, previous, window.label);
-    }
-  }
-  return changeUnavailable("No baseline");
-}
-
-function pointChange(metricId) {
-  const values = numericRows(state.data.monthly.filter((row) => row.metric_id === metricId));
-  const offsets = [
-    { size: 12, label: "vs 12 mo ago" },
-    { size: 3, label: "vs 3 mo ago" },
-    { size: 1, label: "vs last month" },
-  ];
   for (const offset of offsets) {
     if (values.length > offset.size) {
       const current = values[values.length - 1].value;
@@ -163,6 +140,24 @@ function pointChange(metricId) {
     }
   }
   return changeUnavailable("No baseline");
+}
+
+function snapshotPointChange(metricId, days) {
+  const defaults = [
+    { size: 12, label: "vs 12 mo ago" },
+    { size: 3, label: "vs 3 mo ago" },
+    { size: 1, label: "vs last month" },
+  ];
+  const preferred = {
+    365: defaults[0],
+    90: defaults[1],
+    30: defaults[2],
+  }[days];
+  if (!preferred) return pointChange(metricId, defaults);
+  return pointChange(metricId, [
+    preferred,
+    ...defaults.filter((offset) => offset.size !== preferred.size),
+  ]);
 }
 
 function ensureTooltip() {
@@ -227,30 +222,34 @@ function setGeneratedAt() {
 
 function buildKpis() {
   const summary = state.data.summary;
+  const activityTotals = buildSnapshotActivityTotals(state.snapshotWindowDays);
+  const activityWindowText = windowLabel(state.snapshotWindowDays);
+  const activityNote = `Latest ${activityWindowText}`;
+  const activityChangeLabel = `vs prior ${activityWindowText}`;
   const cards = [
     {
       label: "Public Catalog Datasets",
       value: summary.totalPublicDatasets,
       note: `${summary.hiddenPublicDatasets} public-readable hidden tables excluded`,
-      change: pointChange("public_datasets_cumulative"),
+      change: snapshotPointChange("public_datasets_cumulative", state.snapshotWindowDays),
     },
     {
       label: "Dataset Views",
-      value: recentSum("public_dataset_page_views"),
-      note: "Last 12 months",
-      change: rollingChange("public_dataset_page_views"),
+      value: activityTotals.views,
+      note: activityNote,
+      change: formatChange(activityTotals.views, activityTotals.previousViews, activityChangeLabel),
     },
     {
       label: "Dataset Downloads",
-      value: recentSum("public_dataset_downloads"),
-      note: "Last 12 months",
-      change: rollingChange("public_dataset_downloads"),
+      value: activityTotals.downloads,
+      note: activityNote,
+      change: formatChange(activityTotals.downloads, activityTotals.previousDownloads, activityChangeLabel),
     },
     {
       label: "Dataset API Reads",
-      value: recentSum("public_dataset_api_reads"),
-      note: "Last 12 months",
-      change: rollingChange("public_dataset_api_reads"),
+      value: activityTotals.api_reads,
+      note: activityNote,
+      change: formatChange(activityTotals.api_reads, activityTotals.previousApiReads, activityChangeLabel),
     },
     {
       label: "Fresh On Schedule",
@@ -299,18 +298,78 @@ function windowLabel(days) {
   return `${days} days`;
 }
 
-function buildDatasetActivityRows(days) {
-  const datasetAssets = state.data.assets
-    .filter((asset) => asset.is_public_discoverable_dataset)
-    .sort((a, b) => a.name.localeCompare(b.name));
+function snapshotWindowBounds(days) {
   let latestTime = -Infinity;
   for (const row of state.data.datasetDailyActivity) {
     const time = Date.parse(`${row.day}T00:00:00Z`);
     if (time > latestTime) latestTime = time;
   }
+  if (!Number.isFinite(latestTime)) return null;
   const dayMs = 24 * 60 * 60 * 1000;
   const currentStart = latestTime - (days - 1) * dayMs;
   const previousStart = currentStart - days * dayMs;
+  return { currentStart, latestTime, previousStart };
+}
+
+function publicDatasetUidSet() {
+  return new Set(
+    state.data.assets
+      .filter((asset) => asset.is_public_discoverable_dataset)
+      .map((asset) => asset.uid)
+  );
+}
+
+function buildSnapshotActivityTotals(days) {
+  const bounds = snapshotWindowBounds(days);
+  const datasetUids = publicDatasetUidSet();
+  const totals = {
+    views: 0,
+    previousViews: 0,
+    downloads: 0,
+    previousDownloads: 0,
+    api_reads: 0,
+    previousApiReads: 0,
+  };
+  if (!bounds) return totals;
+
+  for (const activity of state.data.datasetDailyActivity) {
+    if (!datasetUids.has(activity.asset_uid)) continue;
+    const time = Date.parse(`${activity.day}T00:00:00Z`);
+    const isCurrent = time >= bounds.currentStart && time <= bounds.latestTime;
+    const isPrevious = time >= bounds.previousStart && time < bounds.currentStart;
+    if (!isCurrent && !isPrevious) continue;
+    if (isCurrent) {
+      totals.views += Number(activity.views || 0);
+      totals.downloads += Number(activity.downloads || 0);
+      totals.api_reads += Number(activity.api_reads || 0);
+    } else {
+      totals.previousViews += Number(activity.views || 0);
+      totals.previousDownloads += Number(activity.downloads || 0);
+      totals.previousApiReads += Number(activity.api_reads || 0);
+    }
+  }
+
+  return totals;
+}
+
+function addDatasetActivityChanges(row) {
+  const viewsChange = formatActivityChange(row.views, row.previousViews);
+  const downloadsChange = formatActivityChange(row.downloads, row.previousDownloads);
+  const apiChange = formatActivityChange(row.api_reads, row.previousApiReads);
+  return {
+    ...row,
+    viewsChange,
+    downloadsChange,
+    apiChange,
+    total: row.views + row.downloads + row.api_reads,
+  };
+}
+
+function buildDatasetActivityRows(days) {
+  const datasetAssets = state.data.assets
+    .filter((asset) => asset.is_public_discoverable_dataset)
+    .sort((a, b) => a.name.localeCompare(b.name));
+  const bounds = snapshotWindowBounds(days);
   const rowsByUid = new Map(datasetAssets.map((asset) => [asset.uid, {
     uid: asset.uid,
     name: asset.name,
@@ -323,13 +382,14 @@ function buildDatasetActivityRows(days) {
     api_reads: 0,
     previousApiReads: 0,
   }]));
+  if (!bounds) return [...rowsByUid.values()].map(addDatasetActivityChanges);
 
   for (const activity of state.data.datasetDailyActivity) {
     const row = rowsByUid.get(activity.asset_uid);
     if (!row) continue;
     const time = Date.parse(`${activity.day}T00:00:00Z`);
-    const isCurrent = time >= currentStart && time <= latestTime;
-    const isPrevious = time >= previousStart && time < currentStart;
+    const isCurrent = time >= bounds.currentStart && time <= bounds.latestTime;
+    const isPrevious = time >= bounds.previousStart && time < bounds.currentStart;
     if (!isCurrent && !isPrevious) continue;
     const targetPrefix = isCurrent ? "" : "previous";
     if (targetPrefix) {
@@ -343,18 +403,7 @@ function buildDatasetActivityRows(days) {
     }
   }
 
-  return [...rowsByUid.values()].map((row) => {
-    const viewsChange = formatActivityChange(row.views, row.previousViews);
-    const downloadsChange = formatActivityChange(row.downloads, row.previousDownloads);
-    const apiChange = formatActivityChange(row.api_reads, row.previousApiReads);
-    return {
-      ...row,
-      viewsChange,
-      downloadsChange,
-      apiChange,
-      total: row.views + row.downloads + row.api_reads,
-    };
-  });
+  return [...rowsByUid.values()].map(addDatasetActivityChanges);
 }
 
 function sortDatasetActivityRows(rows) {
@@ -430,6 +479,11 @@ function renderSnapshotDatasetTable() {
       `).join("")}
     </tbody>
   `;
+}
+
+function renderSnapshot() {
+  buildKpis();
+  renderSnapshotDatasetTable();
 }
 
 function populateMetricSelects() {
@@ -748,7 +802,7 @@ function bindEvents() {
       document.querySelectorAll("#snapshotWindowControl .segment").forEach((segment) => segment.classList.remove("is-active"));
       button.classList.add("is-active");
       state.snapshotWindowDays = Number(button.dataset.days);
-      renderSnapshotDatasetTable();
+      renderSnapshot();
     });
   });
   document.querySelector("#snapshotDatasetTable").addEventListener("click", (event) => {
@@ -775,8 +829,7 @@ async function init() {
   state.assetsByUid = new Map(state.data.assets.map((asset) => [asset.uid, asset]));
   setGeneratedAt();
   populateMetricSelects();
-  buildKpis();
-  renderSnapshotDatasetTable();
+  renderSnapshot();
   updateExplorer();
   renderBars("#categoryChart", state.data.categories, "category", "public_dataset_count");
   renderBars("#keywordChart", state.data.keywords, "keyword", "public_dataset_count");
