@@ -8,6 +8,14 @@ const state = {
   snapshotSortDir: "desc",
 };
 
+const DEFAULT_TAB_ID = "snapshot";
+const TAB_QUERY_PARAM = "tab";
+const TAB_ID_ALIASES = {
+  overview: "snapshot",
+  usage: "timeline",
+  portfolio: "coverage",
+};
+
 const colors = ["#2274a5", "#2f8f5b", "#b7791f", "#7156a5", "#217c7e", "#b64040"];
 const viewAccessTypes = new Set([
   "grid view",
@@ -67,6 +75,54 @@ const escapeHtml = (value) => String(value)
   .replaceAll("'", "&#039;");
 
 const definition = (metricId) => state.data.definitions.find((item) => item.metric_id === metricId) || {};
+
+const tabIds = () => new Set(Array.from(document.querySelectorAll(".tab-panel")).map((panel) => panel.id));
+
+const canonicalTabId = (tabId) => {
+  const candidate = String(tabId || "").trim().toLowerCase();
+  const canonical = TAB_ID_ALIASES[candidate] || candidate;
+  return tabIds().has(canonical) ? canonical : null;
+};
+
+const validTabId = (tabId) => canonicalTabId(tabId) || DEFAULT_TAB_ID;
+
+function tabIdFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get(TAB_QUERY_PARAM) || window.location.hash.replace(/^#/, "");
+}
+
+function updateTabUrl(tabId, replace = false) {
+  const url = new URL(window.location.href);
+  url.searchParams.set(TAB_QUERY_PARAM, tabId);
+  if (canonicalTabId(url.hash.replace(/^#/, "")) === tabId) url.hash = "";
+  const method = replace ? "replaceState" : "pushState";
+  window.history[method]({ tab: tabId }, "", url);
+}
+
+function syncInitialTabFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const requestedTabId = tabIdFromUrl();
+  const activeTabId = validTabId(requestedTabId);
+  activateTab(activeTabId);
+  if (requestedTabId && (requestedTabId.trim().toLowerCase() !== activeTabId || !params.has(TAB_QUERY_PARAM))) {
+    updateTabUrl(activeTabId, true);
+  }
+}
+
+function activateTab(tabId, options = {}) {
+  const activeTabId = validTabId(tabId);
+  document.querySelectorAll(".tab").forEach((button) => {
+    const isActive = button.dataset.tab === activeTabId;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-selected", String(isActive));
+  });
+  document.querySelectorAll(".tab-panel").forEach((panel) => {
+    const isActive = panel.id === activeTabId;
+    panel.classList.toggle("is-active", isActive);
+    panel.setAttribute("aria-hidden", String(!isActive));
+  });
+  if (options.updateUrl) updateTabUrl(activeTabId, options.replaceUrl);
+}
 
 const numericRows = (rows) => rows
   .filter((row) => row.value !== "" && row.dimension === "" && row.dimension_value === "")
@@ -800,12 +856,11 @@ function renderTables() {
 function bindEvents() {
   document.querySelectorAll(".tab").forEach((button) => {
     button.addEventListener("click", () => {
-      document.querySelectorAll(".tab").forEach((tab) => tab.classList.remove("is-active"));
-      document.querySelectorAll(".tab-panel").forEach((panel) => panel.classList.remove("is-active"));
-      button.classList.add("is-active");
-      document.querySelector(`#${button.dataset.tab}`).classList.add("is-active");
+      if (button.classList.contains("is-active")) return;
+      activateTab(button.dataset.tab, { updateUrl: true });
     });
   });
+  window.addEventListener("popstate", () => activateTab(tabIdFromUrl()));
 
   ["#metricSelect", "#periodSelect", "#rangeSelect"].forEach((selector) => {
     document.querySelector(selector).addEventListener("change", updateExplorer);
@@ -846,6 +901,7 @@ function bindEvents() {
 }
 
 async function init() {
+  syncInitialTabFromUrl();
   const response = await fetch("data/dashboard_data.json");
   state.data = await response.json();
   state.assetsByUid = new Map(state.data.assets.map((asset) => [asset.uid, asset]));
