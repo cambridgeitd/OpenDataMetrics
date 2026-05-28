@@ -616,16 +616,6 @@ function renderLineChart(target, rows, metricId, periodType = "month") {
   bindChartTooltips(container);
 }
 
-function renderMetricStrip(metricId, periodType, rows) {
-  const def = definition(metricId);
-  document.querySelector("#metricStrip").innerHTML = rows.slice(-8).map((row) => `
-    <div class="strip-cell">
-      <div class="period">${formatPeriod(row.period_start, periodType)}</div>
-      <div class="val">${formatNumber(row.value, def.unit)}</div>
-    </div>
-  `).join("");
-}
-
 function updateExplorer() {
   const metricId = document.querySelector("#metricSelect").value;
   const periodType = document.querySelector("#periodSelect").value;
@@ -633,7 +623,6 @@ function updateExplorer() {
   buildUsageFilterOptions(metricId);
   const rows = filteredSeries(metricId, periodType, range, getUsageFilters());
   renderLineChart("#metricChart", rows, metricId, periodType);
-  renderMetricStrip(metricId, periodType, rows);
 }
 
 function updateOverviewTrend() {
@@ -706,30 +695,22 @@ function renderTables() {
     `;
   }
 
-  const staleRows = state.data.staleDatasets.length
-    ? state.data.staleDatasets.map((row) => `
-      <tr>
-        <td><a href="${row.url}" target="_blank" rel="noreferrer">${row.name}</a></td>
-        <td>${row.estimated_update_frequency || "n/a"}</td>
-        <td>${formatNumber(row.last_data_updated_age_days)}</td>
-      </tr>
-    `).join("")
-    : `<tr><td colspan="3">No stale scheduled public datasets in the current snapshot.</td></tr>`;
-  document.querySelector("#staleDatasets").innerHTML = `
-    <thead><tr><th>Dataset</th><th>Schedule</th><th>Age Days</th></tr></thead>
-    <tbody>${staleRows}</tbody>
-  `;
-}
-
-function renderGaps() {
-  const priorityOrder = { "Priority 1": 1, "Priority 2": 2, "Priority 3/4": 3, "Priority 3": 4, "Priority 4": 5, "Priority 5": 6, "Priority 6": 7 };
-  const gaps = [...state.data.gaps].sort((a, b) => (priorityOrder[a.priority] || 99) - (priorityOrder[b.priority] || 99));
-  document.querySelector("#gapList").innerHTML = gaps.slice(0, 18).map((gap) => `
-    <div class="gap-item">
-      <strong>${gap.metric_id.replaceAll("_", " ")}</strong>
-      <span>${gap.priority} · ${gap.status}<br>${gap.notes}</span>
-    </div>
-  `).join("");
+  const staleTable = document.querySelector("#staleDatasets");
+  if (staleTable) {
+    const staleRows = state.data.staleDatasets.length
+      ? state.data.staleDatasets.map((row) => `
+        <tr>
+          <td><a href="${row.url}" target="_blank" rel="noreferrer">${row.name}</a></td>
+          <td>${row.estimated_update_frequency || "n/a"}</td>
+          <td>${formatNumber(row.last_data_updated_age_days)}</td>
+        </tr>
+      `).join("")
+      : `<tr><td colspan="3">No stale scheduled public datasets in the current snapshot.</td></tr>`;
+    staleTable.innerHTML = `
+      <thead><tr><th>Dataset</th><th>Schedule</th><th>Age Days</th></tr></thead>
+      <tbody>${staleRows}</tbody>
+    `;
+  }
 }
 
 function bindEvents() {
@@ -792,7 +773,6 @@ async function init() {
   renderBars("#categoryChart", state.data.categories, "category", "public_dataset_count");
   renderBars("#keywordChart", state.data.keywords, "keyword", "public_dataset_count");
   renderTables();
-  renderGaps();
   bindEvents();
 }
 

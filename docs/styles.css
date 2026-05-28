@@ -508,30 +508,6 @@ input[type="search"] {
   font-size: 0.9rem;
 }
 
-.data-strip {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 8px;
-  margin-top: 12px;
-}
-
-.strip-cell {
-  padding: 9px;
-  background: #f7f9fb;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-}
-
-.strip-cell .period {
-  color: var(--muted);
-  font-size: 0.78rem;
-}
-
-.strip-cell .val {
-  margin-top: 2px;
-  font-weight: 800;
-}
-
 .table-wrap {
   overflow: auto;
   border: 1px solid var(--line);

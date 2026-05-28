@@ -23,7 +23,7 @@
         <button class="tab is-active" data-tab="overview">Snapshot</button>
         <button class="tab" data-tab="usage">Timeline</button>
         <button class="tab" data-tab="portfolio">Coverage</button>
-        <button class="tab" data-tab="gaps">Gaps</button>
+        <button class="tab" data-tab="about">About</button>
       </nav>
 
       <section class="tab-panel is-active" id="overview">
@@ -73,7 +73,6 @@
           <datalist id="keywordOptions"></datalist>
           <div class="filter-note" id="usageFilterNote"></div>
           <div class="chart tall" id="metricChart"></div>
-          <div class="data-strip" id="metricStrip"></div>
         </section>
       </section>
 
@@ -94,20 +93,36 @@
         </section>
       </section>
 
-      <section class="tab-panel" id="gaps">
-        <section class="layout two-col">
-          <div class="panel">
+      <section class="tab-panel" id="about">
+        <section class="layout about-layout">
+          <div class="panel about-copy">
             <div class="panel-head">
-              <h2>Metric Gaps</h2>
+              <h2>About This Dashboard</h2>
             </div>
-            <div class="gap-list" id="gapList"></div>
+            <p>
+              This dashboard tracks selected measures for Cambridge's Open Data Program, aligning with the FY 2026-2028 strategic plan's focus on cultivating a sustainable data ecosystem. The plan frames open datasets as the "soil" that supports public transparency, City decision-making, community research, and responsible innovation.
+            </p>
+            <p>
+              The Open Data Program is the City's central hub for sharing and using data to improve transparency, collaboration, and decision-making. This placeholder should eventually summarize the metric sources, refresh cadence, and how the dashboard will be used to monitor progress.
+            </p>
           </div>
           <div class="panel">
             <div class="panel-head">
-              <h2>Stale Scheduled Datasets</h2>
+              <h2>Strategic Plan Themes</h2>
             </div>
-            <div class="table-wrap">
-              <table id="staleDatasets"></table>
+            <div class="about-list">
+              <div class="about-item">
+                <strong>Build the foundation</strong>
+                <span>Publish and steward high-value datasets that are reliable, current, documented, and easy to find.</span>
+              </div>
+              <div class="about-item">
+                <strong>Protect public trust</strong>
+                <span>Strengthen data governance, privacy practices, and clear documentation as the portal grows.</span>
+              </div>
+              <div class="about-item">
+                <strong>Engage and enable</strong>
+                <span>Use regular public engagement and department support to help more people turn open data into useful civic work.</span>
+              </div>
             </div>
           </div>
         </section>
