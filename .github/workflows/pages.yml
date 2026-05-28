@@ -30,10 +30,18 @@ jobs:
           SOCRATA_PASSWORD: ${{ secrets.SOCRATA_PASSWORD }}
           SOCRATA_DOMAIN: data.cambridgema.gov
         run: python scripts/fetch_metrics.py
+      - name: Upload dashboard artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dashboard-site
+          path: docs
       - uses: actions/configure-pages@v5
+        if: ${{ github.event.repository.private == false }}
         with:
           enablement: true
       - uses: actions/upload-pages-artifact@v3
+        if: ${{ github.event.repository.private == false }}
         with:
           path: docs
       - uses: actions/deploy-pages@v4
+        if: ${{ github.event.repository.private == false }}
