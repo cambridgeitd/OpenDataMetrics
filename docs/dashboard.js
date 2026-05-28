@@ -160,6 +160,21 @@ function snapshotPointChange(metricId, days) {
   ]);
 }
 
+function monthWindowSize(days) {
+  if (days === 365) return 12;
+  if (days === 90) return 3;
+  if (days === 30) return 1;
+  return Math.max(1, Math.round(days / 30));
+}
+
+function metricWindowTotals(metricId, days) {
+  const windowSize = monthWindowSize(days);
+  const values = numericRows(state.data.monthly.filter((row) => row.metric_id === metricId));
+  const current = values.slice(-windowSize).reduce((sum, row) => sum + row.value, 0);
+  const previous = values.slice(-windowSize * 2, -windowSize).reduce((sum, row) => sum + row.value, 0);
+  return { current, previous };
+}
+
 function ensureTooltip() {
   let tooltip = document.querySelector("#chartTooltip");
   if (!tooltip) {
@@ -226,12 +241,19 @@ function buildKpis() {
   const activityWindowText = windowLabel(state.snapshotWindowDays);
   const activityNote = `Latest ${activityWindowText}`;
   const activityChangeLabel = `vs prior ${activityWindowText}`;
+  const createdDatasets = metricWindowTotals("public_datasets_created", state.snapshotWindowDays);
   const cards = [
     {
-      label: "Public Catalog Datasets",
+      label: "Total Public Catalog Datasets",
       value: summary.totalPublicDatasets,
       note: `${summary.hiddenPublicDatasets} public-readable hidden tables excluded`,
       change: snapshotPointChange("public_datasets_cumulative", state.snapshotWindowDays),
+    },
+    {
+      label: "New Public Catalog Datasets",
+      value: createdDatasets.current,
+      note: activityNote,
+      change: formatChange(createdDatasets.current, createdDatasets.previous, activityChangeLabel),
     },
     {
       label: "Dataset Views",
