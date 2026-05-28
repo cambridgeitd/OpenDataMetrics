@@ -32,12 +32,30 @@ a {
 
 .app-header {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: 24px;
   padding: 28px clamp(18px, 4vw, 48px) 22px;
   background: #ffffff;
   border-bottom: 1px solid var(--line);
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.city-seal {
+  width: clamp(52px, 7vw, 76px);
+  height: auto;
+  flex: 0 0 auto;
+  filter: drop-shadow(0 3px 8px rgba(25, 37, 49, 0.16));
+}
+
+.header-title {
+  min-width: 0;
 }
 
 .eyebrow {
@@ -638,6 +656,15 @@ tr:last-child td {
   .snapshot-controls {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .header-brand {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .city-seal {
+    width: 54px;
   }
 
   .header-meta {
