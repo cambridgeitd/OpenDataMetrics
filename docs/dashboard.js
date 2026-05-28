@@ -25,6 +25,13 @@ const accessMetricConfig = {
   public_asset_downloads: { scope: "assets", access: "download" },
   public_asset_api_reads: { scope: "assets", access: "API read" },
 };
+const hiddenTimelineMetricIds = new Set([
+  "public_asset_views",
+  "public_asset_downloads",
+  "public_asset_api_reads",
+  "catalog_searches",
+  "distinct_catalog_search_terms",
+]);
 
 const formatNumber = (value, unit = "") => {
   if (value === "" || value === null || value === undefined || Number.isNaN(Number(value))) return "n/a";
@@ -428,6 +435,7 @@ function renderSnapshotDatasetTable() {
 function populateMetricSelects() {
   const monthlyDefs = state.data.definitions
     .filter((item) => item.period_type === "month")
+    .filter((item) => !hiddenTimelineMetricIds.has(item.metric_id))
     .sort((a, b) => `${a.priority} ${a.metric_name}`.localeCompare(`${b.priority} ${b.metric_name}`));
 
   const optionHtml = monthlyDefs.map((item) => `
