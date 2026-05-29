@@ -39,6 +39,7 @@ const hiddenTimelineMetricIds = new Set([
   "public_asset_api_reads",
   "catalog_searches",
   "distinct_catalog_search_terms",
+  "referrer_visits",
 ]);
 
 const formatNumber = (value, unit = "") => {
