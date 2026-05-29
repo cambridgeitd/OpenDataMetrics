@@ -182,6 +182,11 @@ function colorForPercent(percent) {
   return `rgb(${rgb.join(", ")})`;
 }
 
+function colorForScore(score) {
+  if (!Number.isFinite(score)) return "";
+  return colorForPercent((Math.max(0, Math.min(100, score)) - 50) * 2);
+}
+
 function pointChange(metricId, offsets = [
   { size: 12, label: "vs 12 mo ago" },
   { size: 3, label: "vs 3 mo ago" },
@@ -335,6 +340,7 @@ function buildKpis() {
       unit: "percent",
       note: `${summary.freshScheduledDatasets} of ${summary.scheduledDatasets} scheduled datasets`,
       change: changeUnavailable(),
+      score: summary.freshnessPercent,
     },
     {
       label: "PDDL Licensed",
@@ -342,17 +348,23 @@ function buildKpis() {
       unit: "percent",
       note: `${summary.pddlDatasets} datasets`,
       change: changeUnavailable(),
+      score: summary.pddlPercent,
     },
   ];
 
-  document.querySelector("#kpiGrid").innerHTML = cards.map((card) => `
-    <article class="kpi" style="${card.change.percent === null ? "" : `--kpi-bg: ${colorForPercent(card.change.percent)};`}">
-      <div class="label">${card.label}</div>
-      <div class="value">${formatNumber(card.value, card.unit)}</div>
-      <div class="change ${card.change.className}">${card.change.text}</div>
-      <div class="note">${card.note}</div>
-    </article>
-  `).join("");
+  document.querySelector("#kpiGrid").innerHTML = cards.map((card) => {
+    const background = card.score === undefined
+      ? colorForPercent(card.change.percent)
+      : colorForScore(card.score);
+    return `
+      <article class="kpi" style="${background ? `--kpi-bg: ${background};` : ""}">
+        <div class="label">${card.label}</div>
+        <div class="value">${formatNumber(card.value, card.unit)}</div>
+        <div class="change ${card.change.className}">${card.change.text}</div>
+        <div class="note">${card.note}</div>
+      </article>
+    `;
+  }).join("");
 }
 
 function formatActivityChange(current, previous) {
