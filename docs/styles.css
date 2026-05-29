@@ -232,6 +232,10 @@ main {
   grid-template-columns: minmax(0, 1.45fr) minmax(340px, 0.8fr);
 }
 
+.coverage-wide {
+  grid-column: 1 / -1;
+}
+
 .panel {
   min-width: 0;
   margin-bottom: 16px;
@@ -342,6 +346,10 @@ input[type="search"] {
 .bar-chart {
   min-height: 310px;
   width: 100%;
+}
+
+.bar-chart.is-compact {
+  min-height: 0;
 }
 
 .chart.tall {

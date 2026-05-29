@@ -1161,6 +1161,15 @@ def main() -> None:
             }
         )
 
+    update_frequency_counts = Counter(
+        row["estimated_update_frequency"] or "Not specified"
+        for row in inventory_export_rows
+    )
+    update_frequency_rows = [
+        {"estimated_update_frequency": frequency, "public_dataset_count": count}
+        for frequency, count in sorted(update_frequency_counts.items(), key=lambda item: (-item[1], item[0].lower()))
+    ]
+
     top_datasets = sorted(
         [
             {
@@ -1292,6 +1301,11 @@ def main() -> None:
     write_csv(PROCESSED_DIR / "dataset_category_summary.csv", category_rows, ["category", "public_dataset_count"])
     write_csv(PROCESSED_DIR / "dataset_keyword_summary.csv", keyword_rows, ["keyword", "public_dataset_count"])
     write_csv(
+        PROCESSED_DIR / "dataset_update_frequency_summary.csv",
+        update_frequency_rows,
+        ["estimated_update_frequency", "public_dataset_count"],
+    )
+    write_csv(
         PROCESSED_DIR / "hidden_public_datasets.csv",
         hidden_public_dataset_rows,
         ["uid", "name", "category", "url", "notes"],
@@ -1358,6 +1372,7 @@ def main() -> None:
         "snapshot": snapshot_rows,
         "categories": category_rows,
         "keywords": keyword_rows,
+        "updateFrequencies": update_frequency_rows,
         "departments": department_rows,
         "assets": asset_filter_rows,
         "topDatasets": top_datasets,

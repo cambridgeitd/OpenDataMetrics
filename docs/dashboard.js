@@ -800,6 +800,22 @@ function renderWatchlist() {
   `).join("");
 }
 
+function buildUpdateFrequencyRows() {
+  if (Array.isArray(state.data.updateFrequencies) && state.data.updateFrequencies.length) {
+    return state.data.updateFrequencies;
+  }
+
+  const counts = new Map();
+  for (const asset of state.data.assets || []) {
+    if (!asset.is_public_discoverable_dataset) continue;
+    const frequency = String(asset.estimated_update_frequency || "").trim() || "Not specified";
+    counts.set(frequency, (counts.get(frequency) || 0) + 1);
+  }
+  return [...counts.entries()]
+    .map(([estimated_update_frequency, public_dataset_count]) => ({ estimated_update_frequency, public_dataset_count }))
+    .sort((a, b) => b.public_dataset_count - a.public_dataset_count || a.estimated_update_frequency.localeCompare(b.estimated_update_frequency));
+}
+
 function renderBars(target, rows, labelKey, valueKey, limit = 18) {
   const container = document.querySelector(target);
   const visible = rows.slice(0, limit);
@@ -807,14 +823,25 @@ function renderBars(target, rows, labelKey, valueKey, limit = 18) {
   container.innerHTML = visible.map((row) => {
     const value = Number(row[valueKey]) || 0;
     const width = Math.max(2, (value / maxValue) * 100);
+    const label = escapeHtml(row[labelKey]);
     return `
       <div class="bar-row">
-        <div class="bar-label" title="${row[labelKey]}">${row[labelKey]}</div>
+        <div class="bar-label" title="${label}">${label}</div>
         <div class="bar-track"><div class="bar-fill" style="width:${width}%"></div></div>
         <div class="bar-value">${formatNumber(value)}</div>
       </div>
     `;
   }).join("");
+}
+
+function renderCoverage() {
+  renderBars("#categoryChart", state.data.categories, "category", "public_dataset_count");
+  renderBars("#keywordChart", state.data.keywords, "keyword", "public_dataset_count");
+  const updateFrequencyRows = buildUpdateFrequencyRows();
+  renderBars("#updateFrequencyChart", updateFrequencyRows, "estimated_update_frequency", "public_dataset_count");
+  const total = updateFrequencyRows.reduce((sum, row) => sum + Number(row.public_dataset_count || 0), 0);
+  const note = document.querySelector("#updateFrequencyNote");
+  if (note) note.textContent = `Counts ${formatNumber(total)} public-discoverable datasets by the Maintenance Plan estimated update frequency field.`;
 }
 
 function renderTables() {
@@ -909,8 +936,7 @@ async function init() {
   populateMetricSelects();
   renderSnapshot();
   updateExplorer();
-  renderBars("#categoryChart", state.data.categories, "category", "public_dataset_count");
-  renderBars("#keywordChart", state.data.keywords, "keyword", "public_dataset_count");
+  renderCoverage();
   renderTables();
   bindEvents();
 }
