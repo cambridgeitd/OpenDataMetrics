@@ -44,3 +44,5 @@ The current API-accessible Asset Access history starts in February 2020. Older p
 Several strategic-plan metrics are not available in Socrata system datasets: newsletter subscribers, event attendance, CDAG attendance, privacy requests, governance updates, pilots, partnerships, and external references. Add non-template files under `input/manual/` using the included templates, then rerun the fetch script.
 
 Program event tracking lives in `input/manual/training_events.csv`. Use ISO dates and months; rows marked `planned` are retained for tracking but are excluded from completed-event and attendance metrics until their status is updated.
+
+Newsletter subscriber tracking lives in `input/manual/newsletter_subscribers.csv`. Use ISO snapshot dates; the build carries each subscriber count forward monthly until the next captured snapshot so the dashboard can show both the latest count and a continuous timeline.

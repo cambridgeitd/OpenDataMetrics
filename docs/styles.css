@@ -268,9 +268,32 @@ main {
 
 .controls {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   gap: 8px;
   justify-content: flex-end;
+}
+
+.toggle-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 36px;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #ffffff;
+  color: var(--ink);
+  cursor: pointer;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.toggle-control input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--blue);
 }
 
 .segmented-control {

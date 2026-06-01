@@ -332,6 +332,9 @@ MANUAL_METRICS = [
 ]
 
 for metric_id, metric_name, priority, period_type, unit in MANUAL_METRICS:
+    aggregation = "sum" if period_type == "month" else "last"
+    if metric_id == "newsletter_subscribers":
+        aggregation = "last"
     METRIC_DEFINITIONS.append(
         {
             "metric_id": metric_id,
@@ -339,10 +342,10 @@ for metric_id, metric_name, priority, period_type, unit in MANUAL_METRICS:
             "priority": priority,
             "period_type": period_type,
             "unit": unit,
-            "aggregation": "sum" if period_type == "month" else "last",
+            "aggregation": aggregation,
             "status": "manual_required",
             "source": "Manual input template or future non-Socrata source",
-            "notes": "Not found in Socrata system datasets. Fill input/manual/manual_metrics.csv or structured event files.",
+            "notes": "Not found in Socrata system datasets. Fill input/manual/manual_metrics.csv or structured event/newsletter files.",
         }
     )
 
@@ -416,16 +419,18 @@ def discover_system_ids() -> dict[str, str]:
 def parse_ts(value: str | None) -> dt.datetime | None:
     if not value:
         return None
-    text = value.replace("Z", "+00:00")
+    text = value.strip().replace("Z", "+00:00")
     if text.endswith(".000"):
         text = text[:-4]
     try:
         return dt.datetime.fromisoformat(text)
     except ValueError:
-        try:
-            return dt.datetime.strptime(value[:10], "%Y-%m-%d")
-        except ValueError:
-            return None
+        for fmt in ("%Y-%m-%d", "%m/%d/%Y", "%m/%d/%y"):
+            try:
+                return dt.datetime.strptime(value.strip()[:10], fmt)
+            except ValueError:
+                continue
+        return None
 
 
 def month_start(value: dt.datetime | dt.date) -> str:
@@ -509,7 +514,7 @@ def parse_keywords(value: Any) -> list[str]:
 def write_csv(path: Path, rows: list[dict[str, Any]], fieldnames: list[str]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames, extrasaction="ignore")
+        writer = csv.DictWriter(handle, fieldnames=fieldnames, extrasaction="ignore", lineterminator="\n")
         writer.writeheader()
         for row in rows:
             writer.writerow({key: row.get(key, "") for key in fieldnames})
@@ -716,6 +721,49 @@ def load_manual_observations(generated_at: str) -> tuple[list[dict[str, Any]], l
                 source_detail=path.name,
                 notes=clean_text(row.get("notes")),
             )
+        loaded_files.append(path.name)
+
+    for path in sorted(MANUAL_DIR.glob("newsletter_subscribers*.csv")):
+        if "template" in path.name.lower():
+            continue
+        snapshots: list[dict[str, Any]] = []
+        for row in read_csv(path):
+            snapshot_date = parse_ts(row.get("snapshot_date") or row.get("date") or row.get("period_start"))
+            subscriber_count = to_int_or_none(row.get("subscriber_count") or row.get("value"))
+            if snapshot_date is None or subscriber_count is None:
+                continue
+            snapshots.append(
+                {
+                    "snapshot_date": snapshot_date.date(),
+                    "period_start": month_start(snapshot_date),
+                    "subscriber_count": subscriber_count,
+                    "notes": clean_text(row.get("notes")),
+                }
+            )
+        latest_by_month: dict[str, dict[str, Any]] = {}
+        for snapshot in sorted(snapshots, key=lambda item: item["snapshot_date"]):
+            latest_by_month[snapshot["period_start"]] = snapshot
+        if latest_by_month:
+            periods = iter_months(min(latest_by_month), month_start(dt.datetime.fromisoformat(generated_at)))
+            latest_snapshot: dict[str, Any] | None = None
+            for period in periods:
+                if period in latest_by_month:
+                    latest_snapshot = latest_by_month[period]
+                    notes = latest_snapshot["notes"]
+                elif latest_snapshot:
+                    notes = f"Carried forward from subscriber count captured on {latest_snapshot['snapshot_date'].isoformat()}."
+                else:
+                    continue
+                add_observation(
+                    observations,
+                    generated_at,
+                    "newsletter_subscribers",
+                    "month",
+                    period,
+                    latest_snapshot["subscriber_count"],
+                    source_detail=path.name,
+                    notes=notes,
+                )
         loaded_files.append(path.name)
 
     for path in sorted(MANUAL_DIR.glob("training_events*.csv")):

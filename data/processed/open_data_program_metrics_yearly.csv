@@ -1,4 +1,18 @@
 metric_id,period_type,period_start,value,dimension,dimension_value,source_detail,notes,generated_at
+academic_collaborations,year,2013-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+academic_collaborations,year,2014-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+academic_collaborations,year,2015-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+academic_collaborations,year,2016-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+academic_collaborations,year,2017-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+academic_collaborations,year,2018-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+academic_collaborations,year,2019-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+academic_collaborations,year,2020-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+academic_collaborations,year,2021-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+academic_collaborations,year,2022-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+academic_collaborations,year,2023-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+academic_collaborations,year,2024-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+academic_collaborations,year,2025-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+academic_collaborations,year,2026-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
 active_internal_portal_accounts,year,2020-01-01,11,,,,Aggregated from monthly values using max.,2026-06-01T22:56:27+00:00
 active_internal_portal_accounts,year,2021-01-01,14,,,,Aggregated from monthly values using max.,2026-06-01T22:56:27+00:00
 active_internal_portal_accounts,year,2022-01-01,17,,,,Aggregated from monthly values using max.,2026-06-01T22:56:27+00:00
@@ -13,6 +27,27 @@ catalog_searches,year,2023-01-01,245695,,,,Aggregated from monthly values using 
 catalog_searches,year,2024-01-01,242178,,,,Aggregated from monthly values using sum.,2026-06-01T22:56:27+00:00
 catalog_searches,year,2025-01-01,7936,,,,Aggregated from monthly values using sum.,2026-06-01T22:56:27+00:00
 catalog_searches,year,2026-01-01,13564,,,,Aggregated from monthly values using sum.,2026-06-01T22:56:27+00:00
+civic_tech_collaborations,year,2013-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+civic_tech_collaborations,year,2014-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+civic_tech_collaborations,year,2015-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+civic_tech_collaborations,year,2016-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+civic_tech_collaborations,year,2017-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+civic_tech_collaborations,year,2018-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+civic_tech_collaborations,year,2019-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+civic_tech_collaborations,year,2020-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+civic_tech_collaborations,year,2021-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+civic_tech_collaborations,year,2022-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+civic_tech_collaborations,year,2023-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+civic_tech_collaborations,year,2024-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+civic_tech_collaborations,year,2025-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+civic_tech_collaborations,year,2026-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+dataset_freshness_pct,snapshot,2026-06-01,97.74,,,rkcc-jee9,,2026-06-01T22:56:27+00:00
+datasets_with_automated_refresh,snapshot,2026-06-01,77,,,rkcc-jee9,,2026-06-01T22:56:27+00:00
+datasets_with_department_metadata,snapshot,2026-06-01,1,,,rkcc-jee9,,2026-06-01T22:56:27+00:00
+datasets_with_pddl_license,snapshot,2026-06-01,209,,,rkcc-jee9,,2026-06-01T22:56:27+00:00
+datasets_with_pddl_license_pct,snapshot,2026-06-01,74.91,,,rkcc-jee9,,2026-06-01T22:56:27+00:00
+datasets_with_privacy_geomasking_notes,snapshot,2026-06-01,2,,,rkcc-jee9,,2026-06-01T22:56:27+00:00
+discovery_api_public_datasets,snapshot,2026-06-01,279,,,rkcc-jee9,,2026-06-01T22:56:27+00:00
 distinct_catalog_search_terms,year,2020-01-01,344,,,,Aggregated from monthly values using max.,2026-06-01T22:56:27+00:00
 distinct_catalog_search_terms,year,2021-01-01,474,,,,Aggregated from monthly values using max.,2026-06-01T22:56:27+00:00
 distinct_catalog_search_terms,year,2022-01-01,9093,,,,Aggregated from monthly values using max.,2026-06-01T22:56:27+00:00
@@ -26,6 +61,51 @@ distinct_referrers,year,2023-01-01,83,,,,Aggregated from monthly values using ma
 distinct_referrers,year,2024-01-01,91,,,,Aggregated from monthly values using max.,2026-06-01T22:56:27+00:00
 distinct_referrers,year,2025-01-01,323,,,,Aggregated from monthly values using max.,2026-06-01T22:56:27+00:00
 distinct_referrers,year,2026-01-01,148,,,,Aggregated from monthly values using max.,2026-06-01T22:56:27+00:00
+documented_pilots,year,2013-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+documented_pilots,year,2014-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+documented_pilots,year,2015-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+documented_pilots,year,2016-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+documented_pilots,year,2017-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+documented_pilots,year,2018-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+documented_pilots,year,2019-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+documented_pilots,year,2020-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+documented_pilots,year,2021-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+documented_pilots,year,2022-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+documented_pilots,year,2023-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+documented_pilots,year,2024-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+documented_pilots,year,2025-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+documented_pilots,year,2026-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+emerging_tool_evaluations,year,2013-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+emerging_tool_evaluations,year,2014-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+emerging_tool_evaluations,year,2015-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+emerging_tool_evaluations,year,2016-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+emerging_tool_evaluations,year,2017-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+emerging_tool_evaluations,year,2018-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+emerging_tool_evaluations,year,2019-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+emerging_tool_evaluations,year,2020-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+emerging_tool_evaluations,year,2021-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+emerging_tool_evaluations,year,2022-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+emerging_tool_evaluations,year,2023-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+emerging_tool_evaluations,year,2024-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+emerging_tool_evaluations,year,2025-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+emerging_tool_evaluations,year,2026-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+external_references,year,2013-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+external_references,year,2014-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+external_references,year,2015-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+external_references,year,2016-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+external_references,year,2017-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+external_references,year,2018-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+external_references,year,2019-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+external_references,year,2020-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+external_references,year,2021-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+external_references,year,2022-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+external_references,year,2023-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+external_references,year,2024-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+external_references,year,2025-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+external_references,year,2026-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+newsletter_subscribers,year,2024-01-01,701,,,,Aggregated from monthly values using last.,2026-06-01T22:56:27+00:00
+newsletter_subscribers,year,2025-01-01,742,,,,Aggregated from monthly values using last.,2026-06-01T22:56:27+00:00
+newsletter_subscribers,year,2026-01-01,779,,,,Aggregated from monthly values using last.,2026-06-01T22:56:27+00:00
 portal_logins,year,2020-01-01,440,,,,Aggregated from monthly values using sum.,2026-06-01T22:56:27+00:00
 portal_logins,year,2021-01-01,449,,,,Aggregated from monthly values using sum.,2026-06-01T22:56:27+00:00
 portal_logins,year,2022-01-01,677,,,,Aggregated from monthly values using sum.,2026-06-01T22:56:27+00:00
@@ -115,80 +195,6 @@ referrer_visits,year,2023-01-01,20728,,,,Aggregated from monthly values using su
 referrer_visits,year,2024-01-01,38740,,,,Aggregated from monthly values using sum.,2026-06-01T22:56:27+00:00
 referrer_visits,year,2025-01-01,51018,,,,Aggregated from monthly values using sum.,2026-06-01T22:56:27+00:00
 referrer_visits,year,2026-01-01,38941,,,,Aggregated from monthly values using sum.,2026-06-01T22:56:27+00:00
-staff_training_attendance,year,2025-01-01,60,,,,Aggregated from monthly values using sum.,2026-06-01T22:56:27+00:00
-staff_trainings,year,2025-01-01,2,,,,Aggregated from monthly values using sum.,2026-06-01T22:56:27+00:00
-targeted_outreach_attendance,year,2025-01-01,116,,,,Aggregated from monthly values using sum.,2026-06-01T22:56:27+00:00
-targeted_outreach_events,year,2025-01-01,3,,,,Aggregated from monthly values using sum.,2026-06-01T22:56:27+00:00
-academic_collaborations,year,2013-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-academic_collaborations,year,2014-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-academic_collaborations,year,2015-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-academic_collaborations,year,2016-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-academic_collaborations,year,2017-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-academic_collaborations,year,2018-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-academic_collaborations,year,2019-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-academic_collaborations,year,2020-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-academic_collaborations,year,2021-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-academic_collaborations,year,2022-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-academic_collaborations,year,2023-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-academic_collaborations,year,2024-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-academic_collaborations,year,2025-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-academic_collaborations,year,2026-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-civic_tech_collaborations,year,2013-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-civic_tech_collaborations,year,2014-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-civic_tech_collaborations,year,2015-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-civic_tech_collaborations,year,2016-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-civic_tech_collaborations,year,2017-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-civic_tech_collaborations,year,2018-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-civic_tech_collaborations,year,2019-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-civic_tech_collaborations,year,2020-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-civic_tech_collaborations,year,2021-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-civic_tech_collaborations,year,2022-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-civic_tech_collaborations,year,2023-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-civic_tech_collaborations,year,2024-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-civic_tech_collaborations,year,2025-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-civic_tech_collaborations,year,2026-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-documented_pilots,year,2013-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-documented_pilots,year,2014-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-documented_pilots,year,2015-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-documented_pilots,year,2016-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-documented_pilots,year,2017-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-documented_pilots,year,2018-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-documented_pilots,year,2019-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-documented_pilots,year,2020-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-documented_pilots,year,2021-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-documented_pilots,year,2022-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-documented_pilots,year,2023-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-documented_pilots,year,2024-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-documented_pilots,year,2025-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-documented_pilots,year,2026-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-emerging_tool_evaluations,year,2013-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-emerging_tool_evaluations,year,2014-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-emerging_tool_evaluations,year,2015-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-emerging_tool_evaluations,year,2016-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-emerging_tool_evaluations,year,2017-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-emerging_tool_evaluations,year,2018-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-emerging_tool_evaluations,year,2019-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-emerging_tool_evaluations,year,2020-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-emerging_tool_evaluations,year,2021-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-emerging_tool_evaluations,year,2022-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-emerging_tool_evaluations,year,2023-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-emerging_tool_evaluations,year,2024-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-emerging_tool_evaluations,year,2025-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-emerging_tool_evaluations,year,2026-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-external_references,year,2013-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-external_references,year,2014-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-external_references,year,2015-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-external_references,year,2016-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-external_references,year,2017-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-external_references,year,2018-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-external_references,year,2019-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-external_references,year,2020-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-external_references,year,2021-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-external_references,year,2022-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-external_references,year,2023-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-external_references,year,2024-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-external_references,year,2025-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-external_references,year,2026-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
 regional_national_convenings,year,2013-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
 regional_national_convenings,year,2014-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
 regional_national_convenings,year,2015-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
@@ -217,6 +223,10 @@ shared_outputs_with_partners,year,2023-01-01,,,,,Manual metric not yet captured.
 shared_outputs_with_partners,year,2024-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
 shared_outputs_with_partners,year,2025-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
 shared_outputs_with_partners,year,2026-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
+staff_training_attendance,year,2025-01-01,60,,,,Aggregated from monthly values using sum.,2026-06-01T22:56:27+00:00
+staff_trainings,year,2025-01-01,2,,,,Aggregated from monthly values using sum.,2026-06-01T22:56:27+00:00
+targeted_outreach_attendance,year,2025-01-01,116,,,,Aggregated from monthly values using sum.,2026-06-01T22:56:27+00:00
+targeted_outreach_events,year,2025-01-01,3,,,,Aggregated from monthly values using sum.,2026-06-01T22:56:27+00:00
 tools_methods_adopted,year,2013-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
 tools_methods_adopted,year,2014-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
 tools_methods_adopted,year,2015-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
@@ -231,10 +241,3 @@ tools_methods_adopted,year,2023-01-01,,,,,Manual metric not yet captured.,2026-0
 tools_methods_adopted,year,2024-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
 tools_methods_adopted,year,2025-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
 tools_methods_adopted,year,2026-01-01,,,,,Manual metric not yet captured.,2026-06-01T22:56:27+00:00
-discovery_api_public_datasets,snapshot,2026-06-01,279,,,rkcc-jee9,,2026-06-01T22:56:27+00:00
-datasets_with_pddl_license,snapshot,2026-06-01,209,,,rkcc-jee9,,2026-06-01T22:56:27+00:00
-datasets_with_pddl_license_pct,snapshot,2026-06-01,74.91,,,rkcc-jee9,,2026-06-01T22:56:27+00:00
-datasets_with_automated_refresh,snapshot,2026-06-01,77,,,rkcc-jee9,,2026-06-01T22:56:27+00:00
-dataset_freshness_pct,snapshot,2026-06-01,97.74,,,rkcc-jee9,,2026-06-01T22:56:27+00:00
-datasets_with_privacy_geomasking_notes,snapshot,2026-06-01,2,,,rkcc-jee9,,2026-06-01T22:56:27+00:00
-datasets_with_department_metadata,snapshot,2026-06-01,1,,,rkcc-jee9,,2026-06-01T22:56:27+00:00

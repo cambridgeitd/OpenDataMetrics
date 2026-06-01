@@ -221,10 +221,12 @@ const movingAverage = (rows, windowSize = 3) => {
     .filter(Boolean);
 };
 
-const latestMetricValue = (metricId, rows = state.data.metrics) => {
+const latestMetricRow = (metricId, rows = state.data.metrics) => {
   const values = numericRows(rows.filter((row) => row.metric_id === metricId));
-  return values.length ? values[values.length - 1].value : null;
+  return values.length ? values[values.length - 1] : null;
 };
+
+const latestMetricValue = (metricId, rows = state.data.metrics) => latestMetricRow(metricId, rows)?.value ?? null;
 
 const isAccessMetric = (metricId) => Boolean(accessMetricConfig[metricId]);
 const normalizeQuery = (value) => String(value || "").trim().toLowerCase();
@@ -433,6 +435,7 @@ function buildKpis() {
     "targeted_outreach_attendance",
     "staff_training_attendance",
   ], state.snapshotWindowDays);
+  const newsletterSubscriberRow = latestMetricRow("newsletter_subscribers", state.data.monthly);
   const cards = [
     {
       label: "Total Public Catalog Datasets",
@@ -457,6 +460,12 @@ function buildKpis() {
       value: eventAttendance.current,
       note: "Actual attendees captured in event tracker",
       change: formatChange(eventAttendance.current, eventAttendance.previous, activityChangeLabel),
+    },
+    {
+      label: "Newsletter Subscribers",
+      value: newsletterSubscriberRow?.value,
+      note: newsletterSubscriberRow ? `Latest count, ${formatPeriod(newsletterSubscriberRow.period_start)}` : "Manual newsletter platform count",
+      change: snapshotPointChange("newsletter_subscribers", state.snapshotWindowDays),
     },
     {
       label: "Dataset Views",
@@ -834,14 +843,15 @@ function filteredSeries(metricId, periodType, range, filters = null) {
   return values;
 }
 
-function renderLineChart(target, rows, metricId, periodType = "month") {
+function renderLineChart(target, rows, metricId, periodType = "month", options = {}) {
   const container = document.querySelector(target);
   if (!rows.length) {
     container.innerHTML = `<div class="empty">No captured values for this metric.</div>`;
     return;
   }
 
-  const movingRows = movingAverage(rows);
+  const showMovingAverage = options.showMovingAverage ?? true;
+  const movingRows = showMovingAverage ? movingAverage(rows) : [];
   const movingLabel = periodType === "year" ? "3-year moving avg" : "3-month moving avg";
   const width = 980;
   const height = container.classList.contains("tall") ? 390 : 300;
@@ -919,7 +929,9 @@ function updateExplorer(options = {}) {
   state.metricId = metricId;
   buildUsageFilterOptions(metricId);
   const rows = filteredSeries(metricId, periodType, range, getUsageFilters());
-  renderLineChart("#metricChart", rows, metricId, periodType);
+  renderLineChart("#metricChart", rows, metricId, periodType, {
+    showMovingAverage: document.querySelector("#movingAverageToggle")?.checked ?? true,
+  });
   if (options.updateUrl) updateTimelineUrl(options.replaceUrl ?? true);
 }
 
@@ -1054,6 +1066,7 @@ function bindEvents() {
   ["#metricSelect", "#periodSelect", "#rangeSelect"].forEach((selector) => {
     document.querySelector(selector).addEventListener("change", () => updateExplorer({ updateUrl: true }));
   });
+  document.querySelector("#movingAverageToggle").addEventListener("change", () => updateExplorer());
   ["#assetFilter", "#categoryFilter", "#keywordFilter"].forEach((selector) => {
     document.querySelector(selector).addEventListener("input", () => updateExplorer({ updateUrl: true }));
   });
