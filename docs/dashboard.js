@@ -125,9 +125,15 @@ function activateTab(tabId, options = {}) {
   if (options.updateUrl) updateTabUrl(activeTabId, options.replaceUrl);
 }
 
+const numericValue = (value) => {
+  if (value === "" || value === null || value === undefined) return null;
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
+};
+
 const numericRows = (rows) => rows
-  .filter((row) => row.value !== "" && row.dimension === "" && row.dimension_value === "")
-  .map((row) => ({ ...row, value: Number(row.value) }))
+  .filter((row) => numericValue(row.value) !== null && row.dimension === "" && row.dimension_value === "")
+  .map((row) => ({ ...row, value: numericValue(row.value) }))
   .sort((a, b) => a.period_start.localeCompare(b.period_start));
 
 const movingAverage = (rows, windowSize = 3) => {
@@ -229,12 +235,52 @@ function monthWindowSize(days) {
   return Math.max(1, Math.round(days / 30));
 }
 
+function periodMonthIndex(period) {
+  const [year, month] = String(period || "").slice(0, 7).split("-").map(Number);
+  if (!Number.isFinite(year) || !Number.isFinite(month)) return null;
+  return year * 12 + month - 1;
+}
+
+function latestMonthlyIndex() {
+  let latest = -Infinity;
+  for (const row of state.data.monthly) {
+    if (numericValue(row.value) === null) continue;
+    const index = periodMonthIndex(row.period_start);
+    if (index !== null && index > latest) latest = index;
+  }
+  return Number.isFinite(latest) ? latest : null;
+}
+
 function metricWindowTotals(metricId, days) {
   const windowSize = monthWindowSize(days);
-  const values = numericRows(state.data.monthly.filter((row) => row.metric_id === metricId));
-  const current = values.slice(-windowSize).reduce((sum, row) => sum + row.value, 0);
-  const previous = values.slice(-windowSize * 2, -windowSize).reduce((sum, row) => sum + row.value, 0);
-  return { current, previous };
+  const latest = latestMonthlyIndex();
+  const totals = { current: 0, previous: 0 };
+  if (latest === null) return totals;
+  const currentStart = latest - windowSize + 1;
+  const previousStart = currentStart - windowSize;
+  const values = state.data.monthly
+    .filter((row) => row.metric_id === metricId && row.dimension === "" && row.dimension_value === "");
+  for (const row of values) {
+    const value = numericValue(row.value);
+    const index = periodMonthIndex(row.period_start);
+    if (value === null || index === null) continue;
+    if (index >= currentStart && index <= latest) {
+      totals.current += value;
+    } else if (index >= previousStart && index < currentStart) {
+      totals.previous += value;
+    }
+  }
+  return totals;
+}
+
+function metricWindowTotalsMany(metricIds, days) {
+  return metricIds.reduce((totals, metricId) => {
+    const metricTotals = metricWindowTotals(metricId, days);
+    return {
+      current: totals.current + metricTotals.current,
+      previous: totals.previous + metricTotals.previous,
+    };
+  }, { current: 0, previous: 0 });
 }
 
 function ensureTooltip() {
@@ -304,6 +350,16 @@ function buildKpis() {
   const activityNote = `Latest ${activityWindowText}`;
   const activityChangeLabel = `vs prior ${activityWindowText}`;
   const createdDatasets = metricWindowTotals("public_datasets_created", state.snapshotWindowDays);
+  const programEvents = metricWindowTotalsMany([
+    "public_workshops",
+    "targeted_outreach_events",
+    "staff_trainings",
+  ], state.snapshotWindowDays);
+  const eventAttendance = metricWindowTotalsMany([
+    "public_workshop_attendance",
+    "targeted_outreach_attendance",
+    "staff_training_attendance",
+  ], state.snapshotWindowDays);
   const cards = [
     {
       label: "Total Public Catalog Datasets",
@@ -316,6 +372,18 @@ function buildKpis() {
       value: createdDatasets.current,
       note: activityNote,
       change: formatChange(createdDatasets.current, createdDatasets.previous, activityChangeLabel),
+    },
+    {
+      label: "Program Events",
+      value: programEvents.current,
+      note: "Workshops, outreach, and staff trainings",
+      change: formatChange(programEvents.current, programEvents.previous, activityChangeLabel),
+    },
+    {
+      label: "Event Attendance",
+      value: eventAttendance.current,
+      note: "Actual attendees captured in event tracker",
+      change: formatChange(eventAttendance.current, eventAttendance.previous, activityChangeLabel),
     },
     {
       label: "Dataset Views",

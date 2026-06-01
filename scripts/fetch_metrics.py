@@ -457,6 +457,13 @@ def to_int(value: Any) -> int:
     return int(float(value))
 
 
+def to_int_or_none(value: Any) -> int | None:
+    text = clean_text(value)
+    if not text:
+        return None
+    return int(float(text))
+
+
 def to_float(value: Any) -> float | None:
     if value in (None, ""):
         return None
@@ -717,31 +724,39 @@ def load_manual_observations(generated_at: str) -> tuple[list[dict[str, Any]], l
         events_by_month: dict[str, Counter[str]] = defaultdict(Counter)
         departments_by_month: dict[str, set[str]] = defaultdict(set)
         for row in read_csv(path):
-            date = parse_ts(row.get("event_date"))
+            status = clean_text(row.get("event_status") or "completed").lower()
+            if status in {"planned", "scheduled", "tentative", "cancelled", "canceled"}:
+                continue
+            date = parse_ts(row.get("event_date") or row.get("event_month"))
             if date is None:
                 continue
             period = month_start(date)
             event_type = clean_text(row.get("event_type")).lower()
-            attendance = to_int(row.get("attendance"))
+            attendance = to_int_or_none(row.get("attendance"))
             dept_text = clean_text(row.get("departments_represented"))
-            for dept in re.split(r"[;|,]", dept_text):
-                if dept.strip():
-                    departments_by_month[period].add(dept.strip())
             if event_type in {"public_workshop", "workshop"}:
                 events_by_month[period]["public_workshops"] += 1
-                events_by_month[period]["public_workshop_attendance"] += attendance
+                if attendance is not None:
+                    events_by_month[period]["public_workshop_attendance"] += attendance
             elif event_type in {"staff_training", "training"}:
                 events_by_month[period]["staff_trainings"] += 1
-                events_by_month[period]["staff_training_attendance"] += attendance
+                if attendance is not None:
+                    events_by_month[period]["staff_training_attendance"] += attendance
             elif event_type in {"targeted_outreach", "outreach"}:
                 events_by_month[period]["targeted_outreach_events"] += 1
-                events_by_month[period]["targeted_outreach_attendance"] += attendance
+                if attendance is not None:
+                    events_by_month[period]["targeted_outreach_attendance"] += attendance
             elif event_type in {"big_issues", "big_issues_talk"}:
                 events_by_month[period]["big_issues_talks"] += 1
-                events_by_month[period]["big_issues_attendance"] += attendance
+                if attendance is not None:
+                    events_by_month[period]["big_issues_attendance"] += attendance
             elif event_type == "cdag":
                 events_by_month[period]["cdag_meetings"] += 1
-                events_by_month[period]["cdag_attendance"] += attendance
+                if attendance is not None:
+                    events_by_month[period]["cdag_attendance"] += attendance
+                for dept in re.split(r"[;|,]", dept_text):
+                    if dept.strip():
+                        departments_by_month[period].add(dept.strip())
         for period, counts in events_by_month.items():
             if departments_by_month[period]:
                 counts["departments_represented_in_cdag"] = len(departments_by_month[period])
