@@ -335,6 +335,10 @@ input[type="search"] {
   font: inherit;
 }
 
+select option:disabled {
+  color: var(--muted);
+}
+
 .usage-filters {
   display: grid;
   grid-template-columns: minmax(220px, 2fr) minmax(160px, 1fr) minmax(160px, 1fr) auto;

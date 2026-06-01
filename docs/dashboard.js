@@ -133,7 +133,7 @@ function activateTab(tabId, options = {}) {
   if (options.updateUrl) updateTabUrl(activeTabId, options.replaceUrl);
 }
 
-const optionValueExists = (select, value) => Boolean(select && value && Array.from(select.options).some((option) => option.value === value));
+const optionValueExists = (select, value) => Boolean(select && value && Array.from(select.options).some((option) => option.value === value && !option.disabled));
 
 const urlParam = (params, name) => String(params.get(name) || "").trim();
 
@@ -227,6 +227,12 @@ const latestMetricRow = (metricId, rows = state.data.metrics) => {
 };
 
 const latestMetricValue = (metricId, rows = state.data.metrics) => latestMetricRow(metricId, rows)?.value ?? null;
+
+const metricHasData = (metricId) => numericRows([
+  ...(state.data.monthly || []),
+  ...(state.data.yearly || []),
+  ...(state.data.snapshot || []),
+].filter((row) => row.metric_id === metricId)).length > 0;
 
 const isAccessMetric = (metricId) => Boolean(accessMetricConfig[metricId]);
 const normalizeQuery = (value) => String(value || "").trim().toLowerCase();
@@ -733,16 +739,26 @@ function populateMetricSelects() {
     .filter((item) => !hiddenTimelineMetricIds.has(item.metric_id))
     .sort((a, b) => `${a.priority} ${a.metric_name}`.localeCompare(`${b.priority} ${b.metric_name}`));
 
-  const optionHtml = monthlyDefs.map((item) => `
-    <option value="${item.metric_id}">${item.priority}: ${item.metric_name}</option>
-  `).join("");
+  const optionHtml = monthlyDefs.map((item) => {
+    const hasData = metricHasData(item.metric_id);
+    const unavailableLabel = hasData ? "" : " (No data yet)";
+    const disabled = hasData ? "" : " disabled";
+    return `
+      <option value="${item.metric_id}"${disabled}>${item.priority}: ${item.metric_name}${unavailableLabel}</option>
+    `;
+  }).join("");
 
   for (const selector of ["#metricSelect", "#overviewMetric"]) {
     const select = document.querySelector(selector);
     if (!select) continue;
     select.innerHTML = optionHtml;
-    select.value = selector === "#metricSelect" ? state.metricId : state.overviewMetricId;
+    const selectedMetricId = selector === "#metricSelect" ? state.metricId : state.overviewMetricId;
+    const selectedOption = Array.from(select.options).find((option) => option.value === selectedMetricId && !option.disabled);
+    const fallbackOption = Array.from(select.options).find((option) => !option.disabled);
+    select.value = selectedOption?.value || fallbackOption?.value || "";
   }
+  state.metricId = document.querySelector("#metricSelect")?.value || state.metricId;
+  state.overviewMetricId = document.querySelector("#overviewMetric")?.value || state.overviewMetricId;
 }
 
 function getUsageFilters() {
