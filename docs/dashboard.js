@@ -9,12 +9,14 @@ const state = {
 };
 
 const DEFAULT_TAB_ID = "snapshot";
+const TIMELINE_TAB_ID = "timeline";
 const TAB_QUERY_PARAM = "tab";
 const TAB_ID_ALIASES = {
   overview: "snapshot",
   usage: "timeline",
   portfolio: "coverage",
 };
+const TIMELINE_QUERY_PARAMS = ["metric", "period", "range", "asset", "asset_uid", "dataset", "category", "keyword"];
 
 const colors = ["#2274a5", "#2f8f5b", "#b7791f", "#7156a5", "#217c7e", "#b64040"];
 const viewAccessTypes = new Set([
@@ -87,9 +89,15 @@ const canonicalTabId = (tabId) => {
 
 const validTabId = (tabId) => canonicalTabId(tabId) || DEFAULT_TAB_ID;
 
+const hasTimelineUrlState = (params) => TIMELINE_QUERY_PARAMS.some((param) => params.has(param));
+
 function tabIdFromUrl() {
   const params = new URLSearchParams(window.location.search);
-  return params.get(TAB_QUERY_PARAM) || window.location.hash.replace(/^#/, "");
+  const tabParam = params.get(TAB_QUERY_PARAM);
+  if (tabParam) return tabParam;
+  const hashParam = window.location.hash.replace(/^#/, "");
+  if (hashParam) return hashParam;
+  return hasTimelineUrlState(params) ? TIMELINE_TAB_ID : "";
 }
 
 function updateTabUrl(tabId, replace = false) {
@@ -123,6 +131,71 @@ function activateTab(tabId, options = {}) {
     panel.setAttribute("aria-hidden", String(!isActive));
   });
   if (options.updateUrl) updateTabUrl(activeTabId, options.replaceUrl);
+}
+
+const optionValueExists = (select, value) => Boolean(select && value && Array.from(select.options).some((option) => option.value === value));
+
+const urlParam = (params, name) => String(params.get(name) || "").trim();
+
+function setOptionalParam(params, name, value) {
+  const cleaned = String(value || "").trim();
+  if (cleaned) {
+    params.set(name, cleaned);
+  } else {
+    params.delete(name);
+  }
+}
+
+function applyTimelineStateFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const metricSelect = document.querySelector("#metricSelect");
+  const periodSelect = document.querySelector("#periodSelect");
+  const rangeSelect = document.querySelector("#rangeSelect");
+  if (!metricSelect || !periodSelect || !rangeSelect) return;
+
+  const metricId = urlParam(params, "metric");
+  if (optionValueExists(metricSelect, metricId)) metricSelect.value = metricId;
+
+  const periodType = urlParam(params, "period").toLowerCase();
+  if (optionValueExists(periodSelect, periodType)) periodSelect.value = periodType;
+
+  const range = urlParam(params, "range").toLowerCase();
+  if (optionValueExists(rangeSelect, range)) rangeSelect.value = range;
+
+  const assetUid = urlParam(params, "asset_uid");
+  const assetFromUid = assetUid ? state.assetsByUid.get(assetUid)?.name : "";
+  document.querySelector("#assetFilter").value = assetFromUid || urlParam(params, "asset") || urlParam(params, "dataset");
+  document.querySelector("#categoryFilter").value = urlParam(params, "category");
+  document.querySelector("#keywordFilter").value = urlParam(params, "keyword");
+}
+
+function updateTimelineUrl(replace = true) {
+  const metricSelect = document.querySelector("#metricSelect");
+  const periodSelect = document.querySelector("#periodSelect");
+  const rangeSelect = document.querySelector("#rangeSelect");
+  if (!metricSelect || !periodSelect || !rangeSelect) return;
+
+  const url = new URL(window.location.href);
+  const params = url.searchParams;
+  params.set(TAB_QUERY_PARAM, TIMELINE_TAB_ID);
+  setOptionalParam(params, "metric", metricSelect.value);
+  setOptionalParam(params, "period", periodSelect.value);
+  setOptionalParam(params, "range", periodSelect.value === "year" ? "all" : rangeSelect.value);
+  setOptionalParam(params, "asset", document.querySelector("#assetFilter").value);
+  setOptionalParam(params, "category", document.querySelector("#categoryFilter").value);
+  setOptionalParam(params, "keyword", document.querySelector("#keywordFilter").value);
+  params.delete("asset_uid");
+  params.delete("dataset");
+  if (canonicalTabId(url.hash.replace(/^#/, "")) === TIMELINE_TAB_ID) url.hash = "";
+  const method = replace ? "replaceState" : "pushState";
+  window.history[method]({ tab: TIMELINE_TAB_ID }, "", url);
+}
+
+function normalizeTimelineUrlFromControls() {
+  const params = new URLSearchParams(window.location.search);
+  if (canonicalTabId(tabIdFromUrl()) === TIMELINE_TAB_ID && hasTimelineUrlState(params)) {
+    updateTimelineUrl(true);
+  }
 }
 
 const numericValue = (value) => {
@@ -837,13 +910,17 @@ function renderLineChart(target, rows, metricId, periodType = "month") {
   bindChartTooltips(container);
 }
 
-function updateExplorer() {
+function updateExplorer(options = {}) {
   const metricId = document.querySelector("#metricSelect").value;
   const periodType = document.querySelector("#periodSelect").value;
-  const range = periodType === "year" ? "all" : document.querySelector("#rangeSelect").value;
+  const rangeSelect = document.querySelector("#rangeSelect");
+  if (periodType === "year") rangeSelect.value = "all";
+  const range = periodType === "year" ? "all" : rangeSelect.value;
+  state.metricId = metricId;
   buildUsageFilterOptions(metricId);
   const rows = filteredSeries(metricId, periodType, range, getUsageFilters());
   renderLineChart("#metricChart", rows, metricId, periodType);
+  if (options.updateUrl) updateTimelineUrl(options.replaceUrl ?? true);
 }
 
 function updateOverviewTrend() {
@@ -968,19 +1045,23 @@ function bindEvents() {
       activateTab(button.dataset.tab, { updateUrl: true });
     });
   });
-  window.addEventListener("popstate", () => activateTab(tabIdFromUrl()));
+  window.addEventListener("popstate", () => {
+    syncInitialTabFromUrl();
+    applyTimelineStateFromUrl();
+    updateExplorer();
+  });
 
   ["#metricSelect", "#periodSelect", "#rangeSelect"].forEach((selector) => {
-    document.querySelector(selector).addEventListener("change", updateExplorer);
+    document.querySelector(selector).addEventListener("change", () => updateExplorer({ updateUrl: true }));
   });
   ["#assetFilter", "#categoryFilter", "#keywordFilter"].forEach((selector) => {
-    document.querySelector(selector).addEventListener("input", updateExplorer);
+    document.querySelector(selector).addEventListener("input", () => updateExplorer({ updateUrl: true }));
   });
   document.querySelector("#clearUsageFilters").addEventListener("click", () => {
     document.querySelector("#assetFilter").value = "";
     document.querySelector("#categoryFilter").value = "";
     document.querySelector("#keywordFilter").value = "";
-    updateExplorer();
+    updateExplorer({ updateUrl: true });
   });
   document.querySelectorAll("#snapshotWindowControl .segment").forEach((button) => {
     button.addEventListener("click", () => {
@@ -1015,6 +1096,8 @@ async function init() {
   state.assetsByUid = new Map(state.data.assets.map((asset) => [asset.uid, asset]));
   setGeneratedAt();
   populateMetricSelects();
+  applyTimelineStateFromUrl();
+  normalizeTimelineUrlFromControls();
   renderSnapshot();
   updateExplorer();
   renderCoverage();
