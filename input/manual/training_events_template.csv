@@ -1,3 +1,4 @@
-event_date,event_name,event_type,audience,attendance,departments_represented,notes
-2026-01-15,Cambridge Open Data Workshop,public_workshop,public,,,Example only; replace with real events.
-2026-02-15,Staff Data Training,staff_training,city_staff,,,Example only; replace with real events.
+event_date,event_month,event_name,event_type,audience,delivery_mode,location_platform,recorded,registrations,waitlist,registration_total,attendance,attendance_rate,rating_count,rating_average,event_status,notes
+2026-01-15,2026-01-01,Cambridge Open Data Workshop,public_workshop,General Public,In-Person,CPL: Community Room,No,40,,40,25,62.5,8,4.75,completed,Example only; replace with real events.
+2026-02-01,2026-02-01,Staff Data Training,staff_training,Staff,Virtual,Teams,Yes,30,,30,22,73.33,5,4.6,completed,Example only; replace with real events.
+,2026-03-01,Upcoming Public Workshop,public_workshop,General Public,Virtual,Zoom,No,,,,,,,,planned,Example planned event; event_date can stay blank until scheduled.

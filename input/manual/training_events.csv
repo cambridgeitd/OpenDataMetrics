@@ -1,0 +1,15 @@
+event_date,event_month,event_name,event_type,audience,delivery_mode,location_platform,recorded,registrations,waitlist,registration_total,attendance,attendance_rate,rating_count,rating_average,event_status,notes
+2024-12-16,2024-12-01,Cambridge Open Data Workshop,public_workshop,General Public,Virtual,Zoom,No,67,,67,36,53.73,2,4.5,completed,A lot of fumbling with the screen sharing hand offs -- rejigger so there is less of this for virtual.
+2025-03-24,2025-03-01,Cambridge Open Data Workshop,public_workshop,General Public,In-Person,CPL: Community Room,No,31,,31,,,5,5,completed,
+2025-04-17,2025-04-01,Cambridge Open Data Workshop for Staff,staff_training,Staff,Virtual,Teams,No,55,,55,30,54.55,3,4.67,completed,
+2025-05-20,2025-05-01,CRLS Open Data Workshop,targeted_outreach,High School Students,In-Person,CRLS AP Stats Classroom,No,,,,15,,,,completed,Lovely hand-written thank you note in lieu of a feedback form :-)
+2025-06-10,2025-06-01,Cambridge Open Data Workshop,public_workshop,General Public,Virtual,Zoom,No,85,,85,36,42.35,14,4.57,completed,
+2025-07-17,2025-07-01,AI In Cambridge,targeted_outreach,High School Students,In-Person,CPL: Community Room,No,,,,26,,,,completed,AI-focused session with Innovators For Purpose STEAM program
+2025-09-17,2025-09-01,Cambridge Open Data Workshop,public_workshop,General Public,In-Person,CPL: Community Room,No,60,17,77,40,66.67,17,4.65,completed,Community room pretty packed! Had to pull out extra chairs. Ran out of chromebooks.
+2025-09-22,2025-09-01,PHA Open Data Workshop,targeted_outreach,High School Students,In-Person,CPL: Lecture Hall,No,,,,75,,29,3.03,completed,Not a great setup for success -- lots of teenagers crammed into lecture hall. Follow-up meeting with just the 10th graders went much better.
+2025-11-13,2025-11-01,Cambridge Open Data Workshop for Staff,staff_training,Staff,Virtual,Teams,Yes,55,,55,30,54.55,7,4.86,completed,Our first recorded staff workshop
+2025-12-10,2025-12-01,Cambridge Open Data Workshop,public_workshop,General Public,Virtual,Zoom,Yes,43,,43,23,53.49,7,4.86,completed,Our first recorded public workshop
+2026-02-25,2026-02-01,Visualizing Cambridge Open Data Workshop,public_workshop,General Public,Virtual,Zoom,No,86,,86,40,46.51,13,4.14,completed,"Our first ""advanced"" visualization workshop"
+2026-04-14,2026-04-01,Cambridge Open Data Workshop,public_workshop,General Public,In-Person,CPL: Community Room,No,33,,33,15,45.45,7,4.57,completed,"Fewer registrations than usual (unclear why). Helpful feedback: back and forth from ppt to web distracting, community room bad sound and lighting, not really ""hands on"""
+,2026-06-01,Cambridge Intro to Open Data for Staff,staff_training,Staff,Virtual,Teams,Yes,,,,,,,,planned,
+,2026-07-01,Vibe Coding Cambridge Open Data Workshop,public_workshop,General Public,Virtual,Zoom,Yes,,,,,,,,planned,Actual hands on course. Use Codex desktop app as platform because at least some usage is free and probably the most widespread subscription.

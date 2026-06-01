@@ -178,6 +178,18 @@ main {
   border-left-color: var(--red);
 }
 
+.kpi:nth-child(7) {
+  border-left-color: var(--blue);
+}
+
+.kpi:nth-child(8) {
+  border-left-color: var(--green);
+}
+
+.kpi:nth-child(9) {
+  border-left-color: var(--gold);
+}
+
 .kpi .label {
   color: var(--muted);
   font-size: 0.82rem;
