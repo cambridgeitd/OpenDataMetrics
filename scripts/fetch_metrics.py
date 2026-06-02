@@ -73,7 +73,7 @@ FRESHNESS_DAYS = {
 METRIC_DEFINITIONS = [
     {
         "metric_id": "public_datasets_cumulative",
-        "metric_name": "Public-discoverable datasets, current inventory backcast by creation date",
+        "metric_name": "Total Public Catalog Datasets",
         "priority": "Priority 1",
         "period_type": "month",
         "unit": "datasets",
@@ -84,7 +84,7 @@ METRIC_DEFINITIONS = [
     },
     {
         "metric_id": "public_datasets_created",
-        "metric_name": "Public-discoverable datasets created",
+        "metric_name": "New Public Catalog Datasets",
         "priority": "Priority 1",
         "period_type": "month",
         "unit": "datasets",
@@ -95,7 +95,7 @@ METRIC_DEFINITIONS = [
     },
     {
         "metric_id": "discovery_api_public_datasets",
-        "metric_name": "Public-discoverable datasets visible in Socrata Discovery API",
+        "metric_name": "Public Catalog Datasets visible in Socrata Discovery API",
         "priority": "Priority 1",
         "period_type": "snapshot",
         "unit": "datasets",
@@ -106,36 +106,36 @@ METRIC_DEFINITIONS = [
     },
     {
         "metric_id": "public_dataset_page_views",
-        "metric_name": "Public-discoverable dataset page views",
+        "metric_name": "Public Catalog Dataset Page Views",
         "priority": "Priority 1",
         "period_type": "month",
         "unit": "views",
         "aggregation": "sum",
         "status": "populated_since_2020_02",
         "source": "Socrata Asset Access system dataset",
-        "notes": "Includes primer/grid/visualization-style views for current public-discoverable base datasets.",
+        "notes": "Includes primer/grid/visualization-style views for current public catalog base datasets.",
     },
     {
         "metric_id": "public_dataset_downloads",
-        "metric_name": "Public-discoverable dataset downloads",
+        "metric_name": "Public Catalog Dataset Downloads",
         "priority": "Priority 1",
         "period_type": "month",
         "unit": "downloads",
         "aggregation": "sum",
         "status": "populated_since_2020_02",
         "source": "Socrata Asset Access system dataset",
-        "notes": "Download/export actions for current public-discoverable base datasets.",
+        "notes": "Download/export actions for current public catalog base datasets.",
     },
     {
         "metric_id": "public_dataset_api_reads",
-        "metric_name": "Public-discoverable dataset API reads",
+        "metric_name": "Public Catalog Dataset API Reads",
         "priority": "Priority 1",
         "period_type": "month",
         "unit": "api reads",
         "aggregation": "sum",
         "status": "populated_since_2020_02",
         "source": "Socrata Asset Access system dataset",
-        "notes": "SODA/resource endpoint accesses for current public-discoverable base datasets.",
+        "notes": "SODA/resource endpoint accesses for current public catalog base datasets.",
     },
     {
         "metric_id": "public_asset_views",
@@ -238,7 +238,7 @@ METRIC_DEFINITIONS = [
     },
     {
         "metric_id": "datasets_with_pddl_license",
-        "metric_name": "Public-discoverable datasets with PDDL license",
+        "metric_name": "Public Catalog Datasets with PDDL license",
         "priority": "Priority 1",
         "period_type": "snapshot",
         "unit": "datasets",
@@ -249,7 +249,7 @@ METRIC_DEFINITIONS = [
     },
     {
         "metric_id": "datasets_with_pddl_license_pct",
-        "metric_name": "Public-discoverable datasets with PDDL license percentage",
+        "metric_name": "Public Catalog Datasets with PDDL license percentage",
         "priority": "Priority 1",
         "period_type": "snapshot",
         "unit": "percent",
@@ -260,7 +260,7 @@ METRIC_DEFINITIONS = [
     },
     {
         "metric_id": "datasets_with_automated_refresh",
-        "metric_name": "Public-discoverable datasets with automated refresh process",
+        "metric_name": "Public Catalog Datasets with automated refresh process",
         "priority": "Priority 1",
         "period_type": "snapshot",
         "unit": "datasets",
@@ -271,7 +271,7 @@ METRIC_DEFINITIONS = [
     },
     {
         "metric_id": "dataset_freshness_pct",
-        "metric_name": "Scheduled public-discoverable datasets fresh",
+        "metric_name": "Scheduled Public Catalog Datasets fresh",
         "priority": "Priority 1",
         "period_type": "snapshot",
         "unit": "percent",
@@ -282,7 +282,7 @@ METRIC_DEFINITIONS = [
     },
     {
         "metric_id": "datasets_with_privacy_geomasking_notes",
-        "metric_name": "Public-discoverable datasets with privacy or geomasking notes",
+        "metric_name": "Public Catalog Datasets with privacy or geomasking notes",
         "priority": "Priority 2",
         "period_type": "snapshot",
         "unit": "datasets",
@@ -293,7 +293,7 @@ METRIC_DEFINITIONS = [
     },
     {
         "metric_id": "datasets_with_department_metadata",
-        "metric_name": "Public-discoverable datasets with Maintenance Plan department metadata",
+        "metric_name": "Public Catalog Datasets with Maintenance Plan department metadata",
         "priority": "Priority 4",
         "period_type": "snapshot",
         "unit": "datasets",
@@ -310,6 +310,8 @@ MANUAL_METRICS = [
     ("odrb_public_attendance", "Public attendance at Open Data Review Board meetings", "Priority 2", "month", "attendees"),
     ("newsletter_issues_sent", "Newsletter issues sent", "Priority 3", "month", "issues"),
     ("newsletter_subscribers", "Newsletter subscribers", "Priority 3", "month", "subscribers"),
+    ("program_events", "Program Events", "Priority 1", "month", "events"),
+    ("program_event_attendance", "Event Attendance", "Priority 1", "month", "attendees"),
     ("public_workshops", "Public workshops", "Priority 3", "month", "events"),
     ("public_workshop_attendance", "Public workshop attendance", "Priority 3", "month", "attendees"),
     ("targeted_outreach_events", "Targeted outreach events", "Priority 3", "month", "events"),
@@ -743,27 +745,17 @@ def load_manual_observations(generated_at: str) -> tuple[list[dict[str, Any]], l
         latest_by_month: dict[str, dict[str, Any]] = {}
         for snapshot in sorted(snapshots, key=lambda item: item["snapshot_date"]):
             latest_by_month[snapshot["period_start"]] = snapshot
-        if latest_by_month:
-            periods = iter_months(min(latest_by_month), month_start(dt.datetime.fromisoformat(generated_at)))
-            latest_snapshot: dict[str, Any] | None = None
-            for period in periods:
-                if period in latest_by_month:
-                    latest_snapshot = latest_by_month[period]
-                    notes = latest_snapshot["notes"]
-                elif latest_snapshot:
-                    notes = f"Carried forward from subscriber count captured on {latest_snapshot['snapshot_date'].isoformat()}."
-                else:
-                    continue
-                add_observation(
-                    observations,
-                    generated_at,
-                    "newsletter_subscribers",
-                    "month",
-                    period,
-                    latest_snapshot["subscriber_count"],
-                    source_detail=path.name,
-                    notes=notes,
-                )
+        for snapshot in sorted(latest_by_month.values(), key=lambda item: item["period_start"]):
+            add_observation(
+                observations,
+                generated_at,
+                "newsletter_subscribers",
+                "month",
+                snapshot["period_start"],
+                snapshot["subscriber_count"],
+                source_detail=path.name,
+                notes=snapshot["notes"],
+            )
         loaded_files.append(path.name)
 
     for path in sorted(MANUAL_DIR.glob("training_events*.csv")):
@@ -783,16 +775,22 @@ def load_manual_observations(generated_at: str) -> tuple[list[dict[str, Any]], l
             attendance = to_int_or_none(row.get("attendance"))
             dept_text = clean_text(row.get("departments_represented"))
             if event_type in {"public_workshop", "workshop"}:
+                events_by_month[period]["program_events"] += 1
                 events_by_month[period]["public_workshops"] += 1
                 if attendance is not None:
+                    events_by_month[period]["program_event_attendance"] += attendance
                     events_by_month[period]["public_workshop_attendance"] += attendance
             elif event_type in {"staff_training", "training"}:
+                events_by_month[period]["program_events"] += 1
                 events_by_month[period]["staff_trainings"] += 1
                 if attendance is not None:
+                    events_by_month[period]["program_event_attendance"] += attendance
                     events_by_month[period]["staff_training_attendance"] += attendance
             elif event_type in {"targeted_outreach", "outreach"}:
+                events_by_month[period]["program_events"] += 1
                 events_by_month[period]["targeted_outreach_events"] += 1
                 if attendance is not None:
+                    events_by_month[period]["program_event_attendance"] += attendance
                     events_by_month[period]["targeted_outreach_attendance"] += attendance
             elif event_type in {"big_issues", "big_issues_talk"}:
                 events_by_month[period]["big_issues_talks"] += 1
@@ -876,7 +874,7 @@ def main() -> None:
     inventory_rows = soda_query(system_ids["asset_inventory"], "SELECT * LIMIT 50000")
     discovery_public_dataset_uids, discovery_count = get_discovery_public_dataset_ids()
     if not discovery_public_dataset_uids:
-        raise SystemExit("Could not load public-discoverable dataset IDs from Socrata Discovery API.")
+        raise SystemExit("Could not load Public Catalog Dataset IDs from Socrata Discovery API.")
     public_assets = [row for row in inventory_rows if is_public_asset(row)]
     public_asset_uids = {clean_text(row.get("uid")) for row in public_assets}
     public_readable_base_datasets = [row for row in inventory_rows if is_public_base_dataset(row)]
@@ -1286,7 +1284,7 @@ def main() -> None:
             "gap_type": "metadata_gap",
             "status": "mostly_missing",
             "recommended_source": "Populate Maintenance Plan: Department for every public dataset",
-            "notes": f"{department_metadata_count} of {total_public_datasets} current public-discoverable catalog datasets have structured department metadata.",
+            "notes": f"{department_metadata_count} of {total_public_datasets} current Public Catalog Datasets have structured department metadata.",
         },
         {
             "metric_id": "classes_and_trainings",
@@ -1449,7 +1447,7 @@ def main() -> None:
         json.dump(dashboard_data, handle, indent=2)
 
     print(f"Wrote {len(all_observations):,} metric observations.")
-    print(f"Current public-discoverable catalog datasets: {total_public_datasets:,}")
+    print(f"Current Public Catalog Datasets: {total_public_datasets:,}")
     print(f"Public-readable hidden base datasets excluded from dataset counts: {len(hidden_public_datasets):,}")
     print(f"Monthly Socrata usage history begins: {min(access_by_month) if access_by_month else 'n/a'}")
     print(f"Manual files loaded: {', '.join(manual_files) if manual_files else 'none'}")

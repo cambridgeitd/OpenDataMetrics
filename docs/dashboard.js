@@ -198,6 +198,15 @@ function normalizeTimelineUrlFromControls() {
   }
 }
 
+function timelineHref(metricId, period = "month", range = "all") {
+  const params = new URLSearchParams();
+  params.set(TAB_QUERY_PARAM, TIMELINE_TAB_ID);
+  params.set("metric", metricId);
+  params.set("period", period);
+  params.set("range", range);
+  return `?${params.toString()}`;
+}
+
 const numericValue = (value) => {
   if (value === "" || value === null || value === undefined) return null;
   const number = Number(value);
@@ -209,14 +218,18 @@ const numericRows = (rows) => rows
   .map((row) => ({ ...row, value: numericValue(row.value) }))
   .sort((a, b) => a.period_start.localeCompare(b.period_start));
 
-const movingAverage = (rows, windowSize = 3) => {
+const movingAverage = (rows, windowSize = 3, periodType = "month") => {
   if (rows.length < windowSize) return [];
   return rows
     .map((row, index) => {
       if (index < windowSize - 1) return null;
       const windowRows = rows.slice(index - windowSize + 1, index + 1);
+      const indexes = windowRows.map((item) => periodAxisIndex(item.period_start, periodType));
+      const isConsecutive = indexes.every((item) => item !== null)
+        && indexes.every((item, itemIndex) => itemIndex === 0 || item - indexes[itemIndex - 1] === 1);
+      if (!isConsecutive) return null;
       const value = windowRows.reduce((sum, item) => sum + item.value, 0) / windowSize;
-      return { ...row, index, value };
+      return { ...row, value };
     })
     .filter(Boolean);
 };
@@ -281,12 +294,12 @@ function pointChange(metricId, offsets = [
   { size: 1, label: "vs last month" },
 ]) {
   const values = numericRows(state.data.monthly.filter((row) => row.metric_id === metricId));
+  const current = values[values.length - 1];
+  const currentIndex = periodMonthIndex(current?.period_start);
+  if (!current || currentIndex === null) return changeUnavailable("No baseline");
   for (const offset of offsets) {
-    if (values.length > offset.size) {
-      const current = values[values.length - 1].value;
-      const previous = values[values.length - 1 - offset.size].value;
-      return formatChange(current, previous, offset.label);
-    }
+    const previous = values.find((row) => periodMonthIndex(row.period_start) === currentIndex - offset.size);
+    if (previous) return formatChange(current.value, previous.value, offset.label);
   }
   return changeUnavailable("No baseline");
 }
@@ -322,6 +335,14 @@ function periodMonthIndex(period) {
   return year * 12 + month - 1;
 }
 
+function periodAxisIndex(period, periodType = "month") {
+  if (periodType === "year") {
+    const year = Number(String(period || "").slice(0, 4));
+    return Number.isFinite(year) ? year : null;
+  }
+  return periodMonthIndex(period);
+}
+
 function latestMonthlyIndex() {
   let latest = -Infinity;
   for (const row of state.data.monthly) {
@@ -352,16 +373,6 @@ function metricWindowTotals(metricId, days) {
     }
   }
   return totals;
-}
-
-function metricWindowTotalsMany(metricIds, days) {
-  return metricIds.reduce((totals, metricId) => {
-    const metricTotals = metricWindowTotals(metricId, days);
-    return {
-      current: totals.current + metricTotals.current,
-      previous: totals.previous + metricTotals.previous,
-    };
-  }, { current: 0, previous: 0 });
 }
 
 function ensureTooltip() {
@@ -431,16 +442,8 @@ function buildKpis() {
   const activityNote = `Latest ${activityWindowText}`;
   const activityChangeLabel = `vs prior ${activityWindowText}`;
   const createdDatasets = metricWindowTotals("public_datasets_created", state.snapshotWindowDays);
-  const programEvents = metricWindowTotalsMany([
-    "public_workshops",
-    "targeted_outreach_events",
-    "staff_trainings",
-  ], state.snapshotWindowDays);
-  const eventAttendance = metricWindowTotalsMany([
-    "public_workshop_attendance",
-    "targeted_outreach_attendance",
-    "staff_training_attendance",
-  ], state.snapshotWindowDays);
+  const programEvents = metricWindowTotals("program_events", state.snapshotWindowDays);
+  const eventAttendance = metricWindowTotals("program_event_attendance", state.snapshotWindowDays);
   const newsletterSubscriberRow = latestMetricRow("newsletter_subscribers", state.data.monthly);
   const cards = [
     {
@@ -448,48 +451,56 @@ function buildKpis() {
       value: summary.totalPublicDatasets,
       note: `${summary.hiddenPublicDatasets} public-readable hidden tables excluded`,
       change: snapshotPointChange("public_datasets_cumulative", state.snapshotWindowDays),
+      timelineMetric: "public_datasets_cumulative",
     },
     {
       label: "New Public Catalog Datasets",
       value: createdDatasets.current,
       note: activityNote,
       change: formatChange(createdDatasets.current, createdDatasets.previous, activityChangeLabel),
+      timelineMetric: "public_datasets_created",
     },
     {
       label: "Program Events",
       value: programEvents.current,
       note: "Workshops, outreach, and staff trainings",
       change: formatChange(programEvents.current, programEvents.previous, activityChangeLabel),
+      timelineMetric: "program_events",
     },
     {
       label: "Event Attendance",
       value: eventAttendance.current,
       note: "Actual attendees captured in event tracker",
       change: formatChange(eventAttendance.current, eventAttendance.previous, activityChangeLabel),
+      timelineMetric: "program_event_attendance",
     },
     {
       label: "Newsletter Subscribers",
       value: newsletterSubscriberRow?.value,
       note: newsletterSubscriberRow ? `Latest count, ${formatPeriod(newsletterSubscriberRow.period_start)}` : "Manual newsletter platform count",
       change: snapshotPointChange("newsletter_subscribers", state.snapshotWindowDays),
+      timelineMetric: "newsletter_subscribers",
     },
     {
       label: "Dataset Views",
       value: activityTotals.views,
       note: activityNote,
       change: formatChange(activityTotals.views, activityTotals.previousViews, activityChangeLabel),
+      timelineMetric: "public_dataset_page_views",
     },
     {
       label: "Dataset Downloads",
       value: activityTotals.downloads,
       note: activityNote,
       change: formatChange(activityTotals.downloads, activityTotals.previousDownloads, activityChangeLabel),
+      timelineMetric: "public_dataset_downloads",
     },
     {
       label: "Dataset API Reads",
       value: activityTotals.api_reads,
       note: activityNote,
       change: formatChange(activityTotals.api_reads, activityTotals.previousApiReads, activityChangeLabel),
+      timelineMetric: "public_dataset_api_reads",
     },
     {
       label: "Fresh On Schedule",
@@ -513,13 +524,15 @@ function buildKpis() {
     const background = card.score === undefined
       ? colorForPercent(card.change.percent)
       : colorForScore(card.score);
+    const tagName = card.timelineMetric ? "a" : "article";
+    const href = card.timelineMetric ? ` href="${escapeHtml(timelineHref(card.timelineMetric))}" aria-label="Open ${escapeHtml(card.label)} in the timeline"` : "";
     return `
-      <article class="kpi" style="${background ? `--kpi-bg: ${background};` : ""}">
+      <${tagName} class="kpi${card.timelineMetric ? " kpi-link" : ""}"${href} style="${background ? `--kpi-bg: ${background};` : ""}">
         <div class="label">${card.label}</div>
         <div class="value">${formatNumber(card.value, card.unit)}</div>
         <div class="change ${card.change.className}">${card.change.text}</div>
         <div class="note">${card.note}</div>
-      </article>
+      </${tagName}>
     `;
   }).join("");
 }
@@ -867,7 +880,7 @@ function renderLineChart(target, rows, metricId, periodType = "month", options =
   }
 
   const showMovingAverage = options.showMovingAverage ?? true;
-  const movingRows = showMovingAverage ? movingAverage(rows) : [];
+  const movingRows = showMovingAverage ? movingAverage(rows, 3, periodType) : [];
   const movingLabel = periodType === "year" ? "3-year moving avg" : "3-month moving avg";
   const width = 980;
   const height = container.classList.contains("tall") ? 390 : 300;
@@ -877,10 +890,23 @@ function renderLineChart(target, rows, metricId, periodType = "month", options =
   const maxValue = Math.max(...rows.map((row) => row.value), 1);
   const minValue = Math.min(...rows.map((row) => row.value), 0);
   const span = maxValue - minValue || 1;
-  const x = (index) => margin.left + (rows.length === 1 ? innerWidth / 2 : (index / (rows.length - 1)) * innerWidth);
+  const axisIndexes = rows
+    .map((row) => periodAxisIndex(row.period_start, periodType))
+    .filter((index) => index !== null);
+  const minAxis = axisIndexes.length ? Math.min(...axisIndexes) : 0;
+  const maxAxis = axisIndexes.length ? Math.max(...axisIndexes) : 0;
+  const x = (row) => {
+    const axisIndex = periodAxisIndex(row.period_start, periodType);
+    if (axisIndex === null || minAxis === maxAxis) return margin.left + innerWidth / 2;
+    return margin.left + ((axisIndex - minAxis) / (maxAxis - minAxis)) * innerWidth;
+  };
   const y = (value) => margin.top + innerHeight - ((value - minValue) / span) * innerHeight;
-  const path = rows.map((row, index) => `${index === 0 ? "M" : "L"} ${x(index).toFixed(1)} ${y(row.value).toFixed(1)}`).join(" ");
-  const movingPath = movingRows.map((row, index) => `${index === 0 ? "M" : "L"} ${x(row.index).toFixed(1)} ${y(row.value).toFixed(1)}`).join(" ");
+  const linePath = (lineRows) => lineRows.map((row, index) => {
+    const command = index === 0 ? "M" : "L";
+    return `${command} ${x(row).toFixed(1)} ${y(row.value).toFixed(1)}`;
+  }).join(" ");
+  const path = linePath(rows);
+  const movingPath = linePath(movingRows);
   const ticks = Array.from({ length: 5 }, (_, index) => minValue + (span * index) / 4);
   const labelStep = Math.max(1, Math.ceil(rows.length / 8));
   const def = definition(metricId);
@@ -898,9 +924,9 @@ function renderLineChart(target, rows, metricId, periodType = "month", options =
       <path class="line-path" d="${path}" stroke="${colors[0]}"></path>
       ${movingRows.length ? `<path class="moving-average-path" d="${movingPath}"></path>` : ""}
       ${rows.map((row, index) => `
-        <circle class="point" cx="${x(index)}" cy="${y(row.value)}" r="3.2">
+        <circle class="point" cx="${x(row)}" cy="${y(row.value)}" r="3.2">
         </circle>
-        <circle class="tooltip-target" cx="${x(index)}" cy="${y(row.value)}" r="9"
+        <circle class="tooltip-target" cx="${x(row)}" cy="${y(row.value)}" r="9"
           tabindex="0"
           data-period="${escapeHtml(formatPeriod(row.period_start, periodType))}"
           data-metric="${metricName}"
@@ -909,9 +935,9 @@ function renderLineChart(target, rows, metricId, periodType = "month", options =
         </circle>
       `).join("")}
       ${movingRows.map((row) => `
-        <circle class="moving-average-point" cx="${x(row.index)}" cy="${y(row.value)}" r="2.5">
+        <circle class="moving-average-point" cx="${x(row)}" cy="${y(row.value)}" r="2.5">
         </circle>
-        <circle class="tooltip-target" cx="${x(row.index)}" cy="${y(row.value)}" r="9"
+        <circle class="tooltip-target" cx="${x(row)}" cy="${y(row.value)}" r="9"
           tabindex="0"
           data-period="${escapeHtml(formatPeriod(row.period_start, periodType))}"
           data-metric="${metricName}"
@@ -920,7 +946,7 @@ function renderLineChart(target, rows, metricId, periodType = "month", options =
         </circle>
       `).join("")}
       ${rows.map((row, index) => index % labelStep === 0 || index === rows.length - 1 ? `
-        <text class="chart-label" x="${x(index)}" y="${height - 15}" text-anchor="middle">${formatPeriod(row.period_start, periodType)}</text>
+        <text class="chart-label" x="${x(row)}" y="${height - 15}" text-anchor="middle">${formatPeriod(row.period_start, periodType)}</text>
       ` : "").join("")}
       <text class="chart-label" x="${margin.left}" y="14">${def.unit || ""}</text>
       <g class="chart-legend" transform="translate(${width - margin.right - 250}, 9)">
@@ -967,7 +993,7 @@ function renderWatchlist() {
     },
     {
       title: "Department metadata is mostly missing",
-      body: `${summary.departmentMetadataDatasets} of ${summary.totalPublicDatasets} public-discoverable datasets has the structured Maintenance Plan department field populated.`,
+      body: `${summary.departmentMetadataDatasets} of ${summary.totalPublicDatasets} Public Catalog Datasets have the structured Maintenance Plan department field populated.`,
     },
     {
       title: "Classes and trainings were not loaded",
@@ -975,7 +1001,7 @@ function renderWatchlist() {
     },
     {
       title: "Privacy documentation is sparse",
-      body: `${summary.privacyNotesDatasets} public-discoverable datasets have explicit privacy or geomasking notes in the structured metadata field.`,
+      body: `${summary.privacyNotesDatasets} Public Catalog Datasets have explicit privacy or geomasking notes in the structured metadata field.`,
     },
   ];
   document.querySelector("#watchlist").innerHTML = items.map((item) => `
@@ -1027,7 +1053,7 @@ function renderCoverage() {
   renderBars("#updateFrequencyChart", updateFrequencyRows, "estimated_update_frequency", "public_dataset_count");
   const total = updateFrequencyRows.reduce((sum, row) => sum + Number(row.public_dataset_count || 0), 0);
   const note = document.querySelector("#updateFrequencyNote");
-  if (note) note.textContent = `Counts ${formatNumber(total)} public-discoverable datasets by the Maintenance Plan estimated update frequency field.`;
+  if (note) note.textContent = `Counts ${formatNumber(total)} Public Catalog Datasets by the Maintenance Plan estimated update frequency field.`;
 }
 
 function renderTables() {

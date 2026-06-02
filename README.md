@@ -45,4 +45,4 @@ Several strategic-plan metrics are not available in Socrata system datasets: new
 
 Program event tracking lives in `input/manual/training_events.csv`. Use ISO dates and months; rows marked `planned` are retained for tracking but are excluded from completed-event and attendance metrics until their status is updated.
 
-Newsletter subscriber tracking lives in `input/manual/newsletter_subscribers.csv`. Use ISO snapshot dates; the build carries each subscriber count forward monthly until the next captured snapshot so the dashboard can show both the latest count and a continuous timeline.
+Newsletter subscriber tracking lives in `input/manual/newsletter_subscribers.csv`. Use ISO snapshot dates; the build records only months with captured snapshot counts so the dashboard does not imply values for missing months.
