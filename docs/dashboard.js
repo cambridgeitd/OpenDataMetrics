@@ -375,6 +375,29 @@ function metricWindowTotals(metricId, days) {
   return totals;
 }
 
+function metricWindowLatestChange(metricId, days, label) {
+  const windowSize = monthWindowSize(days);
+  const latest = latestMonthlyIndex();
+  if (latest === null) return changeUnavailable(`No prior ${windowLabel(days)}`);
+  const currentStart = latest - windowSize + 1;
+  const previousStart = currentStart - windowSize;
+  const values = numericRows(state.data.monthly.filter((row) => row.metric_id === metricId));
+  const current = values
+    .filter((row) => {
+      const index = periodMonthIndex(row.period_start);
+      return index !== null && index >= currentStart && index <= latest;
+    })
+    .at(-1);
+  const previous = values
+    .filter((row) => {
+      const index = periodMonthIndex(row.period_start);
+      return index !== null && index >= previousStart && index < currentStart;
+    })
+    .at(-1);
+  if (!current || !previous) return changeUnavailable(`No prior ${windowLabel(days)}`);
+  return formatChange(current.value, previous.value, label);
+}
+
 function ensureTooltip() {
   let tooltip = document.querySelector("#chartTooltip");
   if (!tooltip) {
@@ -478,7 +501,7 @@ function buildKpis() {
       label: "Newsletter Subscribers",
       value: newsletterSubscriberRow?.value,
       note: newsletterSubscriberRow ? `Latest count, ${formatPeriod(newsletterSubscriberRow.period_start)}` : "Manual newsletter platform count",
-      change: snapshotPointChange("newsletter_subscribers", state.snapshotWindowDays),
+      change: metricWindowLatestChange("newsletter_subscribers", state.snapshotWindowDays, activityChangeLabel),
       timelineMetric: "newsletter_subscribers",
     },
     {
