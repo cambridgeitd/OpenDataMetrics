@@ -6,8 +6,10 @@ const state = {
   snapshotWindowDays: 365,
   snapshotSortKey: "views",
   snapshotSortDir: "desc",
+  snapshotDatasetPage: 1,
 };
 
+const SNAPSHOT_DATASET_PAGE_SIZE = 50;
 const DEFAULT_TAB_ID = "snapshot";
 const TIMELINE_TAB_ID = "timeline";
 const TAB_QUERY_PARAM = "tab";
@@ -731,9 +733,16 @@ function renderSnapshotDatasetTable() {
   const table = document.querySelector("#snapshotDatasetTable");
   if (!table) return;
   const rows = sortDatasetActivityRows(buildDatasetActivityRows(state.snapshotWindowDays));
-  const shownRows = rows.filter((row) => row.total > 0).slice(0, 75);
+  const pageCount = Math.max(1, Math.ceil(rows.length / SNAPSHOT_DATASET_PAGE_SIZE));
+  state.snapshotDatasetPage = Math.min(Math.max(1, state.snapshotDatasetPage), pageCount);
+  const startIndex = (state.snapshotDatasetPage - 1) * SNAPSHOT_DATASET_PAGE_SIZE;
+  const shownRows = rows.slice(startIndex, startIndex + SNAPSHOT_DATASET_PAGE_SIZE);
   const note = document.querySelector("#datasetActivityNote");
-  note.textContent = `Showing ${shownRows.length.toLocaleString()} active public catalog datasets for the latest ${windowLabel(state.snapshotWindowDays)}, compared with the immediately preceding ${windowLabel(state.snapshotWindowDays)}. Click a column header to sort.`;
+  const rangeStart = rows.length ? startIndex + 1 : 0;
+  const rangeEnd = startIndex + shownRows.length;
+  note.textContent = rows.length
+    ? `Showing ${rangeStart.toLocaleString()}-${rangeEnd.toLocaleString()} of ${rows.length.toLocaleString()} public catalog datasets for the latest ${windowLabel(state.snapshotWindowDays)}, compared with the immediately preceding ${windowLabel(state.snapshotWindowDays)}. Click a column header to sort.`
+    : "No public catalog datasets are available in the current snapshot.";
   table.innerHTML = `
     <thead>
       <tr>
@@ -748,7 +757,7 @@ function renderSnapshotDatasetTable() {
       </tr>
     </thead>
     <tbody>
-      ${shownRows.map((row) => `
+      ${shownRows.length ? shownRows.map((row) => `
         <tr>
           <td class="dataset-name"><a href="${row.url}" target="_blank" rel="noreferrer">${escapeHtml(row.name)}</a></td>
           <td class="dataset-category">${escapeHtml(row.category || "Uncategorized")}</td>
@@ -759,8 +768,24 @@ function renderSnapshotDatasetTable() {
           <td class="metric-cell">${formatNumber(row.api_reads)}</td>
           ${changeCell(row.apiChange)}
         </tr>
-      `).join("")}
+      `).join("") : `<tr><td colspan="8">No public catalog datasets are available.</td></tr>`}
     </tbody>
+  `;
+  renderSnapshotDatasetPagination(rows.length, pageCount);
+}
+
+function renderSnapshotDatasetPagination(totalRows, pageCount) {
+  const pagination = document.querySelector("#snapshotDatasetPagination");
+  if (!pagination) return;
+  if (totalRows <= SNAPSHOT_DATASET_PAGE_SIZE) {
+    pagination.innerHTML = "";
+    return;
+  }
+  const page = state.snapshotDatasetPage;
+  pagination.innerHTML = `
+    <button class="pagination-button" type="button" data-page="${page - 1}"${page === 1 ? " disabled" : ""}>Previous</button>
+    <span class="pagination-status">Page ${page.toLocaleString()} of ${pageCount.toLocaleString()}</span>
+    <button class="pagination-button" type="button" data-page="${page + 1}"${page === pageCount ? " disabled" : ""}>Next</button>
   `;
 }
 
@@ -1146,6 +1171,7 @@ function bindEvents() {
       document.querySelectorAll("#snapshotWindowControl .segment").forEach((segment) => segment.classList.remove("is-active"));
       button.classList.add("is-active");
       state.snapshotWindowDays = Number(button.dataset.days);
+      state.snapshotDatasetPage = 1;
       renderSnapshot();
     });
   });
@@ -1159,6 +1185,15 @@ function bindEvents() {
       state.snapshotSortKey = sortKey;
       state.snapshotSortDir = sortKey === "name" || sortKey === "category" ? "asc" : "desc";
     }
+    state.snapshotDatasetPage = 1;
+    renderSnapshotDatasetTable();
+  });
+  document.querySelector("#snapshotDatasetPagination").addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-page]");
+    if (!button) return;
+    const page = Number(button.dataset.page);
+    if (!Number.isFinite(page)) return;
+    state.snapshotDatasetPage = page;
     renderSnapshotDatasetTable();
   });
   ["#overviewMetric", "#overviewRange"].forEach((selector) => {
