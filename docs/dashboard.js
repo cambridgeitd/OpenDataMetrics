@@ -7,6 +7,8 @@ const state = {
   snapshotSortKey: "views",
   snapshotSortDir: "desc",
   snapshotDatasetPage: 1,
+  snapshotDatasetFilter: "",
+  snapshotCategoryFilter: "",
 };
 
 const SNAPSHOT_DATASET_PAGE_SIZE = 50;
@@ -729,10 +731,23 @@ function changeCell(change) {
   return `<td class="change-cell" style="${background ? `background:${background};` : ""}">${escapeHtml(change.text)}</td>`;
 }
 
+function filterDatasetActivityRows(rows) {
+  const datasetQuery = state.snapshotDatasetFilter.trim().toLowerCase();
+  const categoryQuery = state.snapshotCategoryFilter;
+  if (!datasetQuery && !categoryQuery) return rows;
+  return rows.filter((row) => {
+    const matchesName = !datasetQuery || row.name.toLowerCase().includes(datasetQuery);
+    const matchesCategory = !categoryQuery || (row.category || "Uncategorized") === categoryQuery;
+    return matchesName && matchesCategory;
+  });
+}
+
 function renderSnapshotDatasetTable() {
   const table = document.querySelector("#snapshotDatasetTable");
   if (!table) return;
-  const rows = sortDatasetActivityRows(buildDatasetActivityRows(state.snapshotWindowDays));
+  const allRows = sortDatasetActivityRows(buildDatasetActivityRows(state.snapshotWindowDays));
+  const rows = filterDatasetActivityRows(allRows);
+  const hasFilter = Boolean(state.snapshotDatasetFilter.trim() || state.snapshotCategoryFilter);
   const pageCount = Math.max(1, Math.ceil(rows.length / SNAPSHOT_DATASET_PAGE_SIZE));
   state.snapshotDatasetPage = Math.min(Math.max(1, state.snapshotDatasetPage), pageCount);
   const startIndex = (state.snapshotDatasetPage - 1) * SNAPSHOT_DATASET_PAGE_SIZE;
@@ -741,8 +756,8 @@ function renderSnapshotDatasetTable() {
   const rangeStart = rows.length ? startIndex + 1 : 0;
   const rangeEnd = startIndex + shownRows.length;
   note.textContent = rows.length
-    ? `Showing ${rangeStart.toLocaleString()}-${rangeEnd.toLocaleString()} of ${rows.length.toLocaleString()} public catalog datasets for the latest ${windowLabel(state.snapshotWindowDays)}, compared with the immediately preceding ${windowLabel(state.snapshotWindowDays)}. Click a column header to sort.`
-    : "No public catalog datasets are available in the current snapshot.";
+    ? `Showing ${rangeStart.toLocaleString()}-${rangeEnd.toLocaleString()} of ${rows.length.toLocaleString()}${hasFilter ? " matching" : ""} public catalog datasets${hasFilter ? ` (of ${allRows.length.toLocaleString()} total)` : ""} for the latest ${windowLabel(state.snapshotWindowDays)}, compared with the immediately preceding ${windowLabel(state.snapshotWindowDays)}. Click a column header to sort.`
+    : (hasFilter ? "No public catalog datasets match the current filters." : "No public catalog datasets are available in the current snapshot.");
   table.innerHTML = `
     <thead>
       <tr>
@@ -768,7 +783,7 @@ function renderSnapshotDatasetTable() {
           <td class="metric-cell">${formatNumber(row.api_reads)}</td>
           ${changeCell(row.apiChange)}
         </tr>
-      `).join("") : `<tr><td colspan="8">No public catalog datasets are available.</td></tr>`}
+      `).join("") : `<tr><td colspan="8">${hasFilter ? "No public catalog datasets match the current filters." : "No public catalog datasets are available."}</td></tr>`}
     </tbody>
   `;
   renderSnapshotDatasetPagination(rows.length, pageCount);
@@ -787,6 +802,25 @@ function renderSnapshotDatasetPagination(totalRows, pageCount) {
     <span class="pagination-status">Page ${page.toLocaleString()} of ${pageCount.toLocaleString()}</span>
     <button class="pagination-button" type="button" data-page="${page + 1}"${page === pageCount ? " disabled" : ""}>Next</button>
   `;
+}
+
+function populateSnapshotFilters() {
+  const datasets = state.data.assets
+    .filter((asset) => asset.is_public_discoverable_dataset)
+    .sort((a, b) => a.name.localeCompare(b.name));
+  const datalist = document.querySelector("#snapshotDatasetOptions");
+  if (datalist) {
+    datalist.innerHTML = datasets
+      .map((asset) => `<option value="${escapeHtml(asset.name)}"></option>`)
+      .join("");
+  }
+  const categories = [...new Set(datasets.map((asset) => asset.category || "Uncategorized"))]
+    .sort((a, b) => a.localeCompare(b));
+  const select = document.querySelector("#snapshotCategoryFilter");
+  if (select) {
+    select.innerHTML = `<option value="">All categories</option>`
+      + categories.map((category) => `<option value="${escapeHtml(category)}">${escapeHtml(category)}</option>`).join("");
+  }
 }
 
 function renderSnapshot() {
@@ -1196,6 +1230,22 @@ function bindEvents() {
     state.snapshotDatasetPage = page;
     renderSnapshotDatasetTable();
   });
+  const snapshotDatasetFilterEl = document.querySelector("#snapshotDatasetFilter");
+  if (snapshotDatasetFilterEl) {
+    snapshotDatasetFilterEl.addEventListener("input", () => {
+      state.snapshotDatasetFilter = snapshotDatasetFilterEl.value;
+      state.snapshotDatasetPage = 1;
+      renderSnapshotDatasetTable();
+    });
+  }
+  const snapshotCategoryFilterEl = document.querySelector("#snapshotCategoryFilter");
+  if (snapshotCategoryFilterEl) {
+    snapshotCategoryFilterEl.addEventListener("change", () => {
+      state.snapshotCategoryFilter = snapshotCategoryFilterEl.value;
+      state.snapshotDatasetPage = 1;
+      renderSnapshotDatasetTable();
+    });
+  }
   ["#overviewMetric", "#overviewRange"].forEach((selector) => {
     const element = document.querySelector(selector);
     if (element) element.addEventListener("change", updateOverviewTrend);
@@ -1211,6 +1261,7 @@ async function init() {
   populateMetricSelects();
   applyTimelineStateFromUrl();
   normalizeTimelineUrlFromControls();
+  populateSnapshotFilters();
   renderSnapshot();
   updateExplorer();
   renderCoverage();

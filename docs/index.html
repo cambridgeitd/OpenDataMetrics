@@ -42,7 +42,14 @@
         <section class="panel">
           <div class="panel-head">
             <h2>Dataset Activity</h2>
+            <div class="controls snapshot-table-filters">
+              <input id="snapshotDatasetFilter" type="search" list="snapshotDatasetOptions" placeholder="Filter dataset..." aria-label="Filter by dataset name" autocomplete="off" />
+              <select id="snapshotCategoryFilter" aria-label="Filter by category">
+                <option value="">All categories</option>
+              </select>
+            </div>
           </div>
+          <datalist id="snapshotDatasetOptions"></datalist>
           <div class="filter-note" id="datasetActivityNote"></div>
           <div class="table-wrap">
             <table id="snapshotDatasetTable"></table>

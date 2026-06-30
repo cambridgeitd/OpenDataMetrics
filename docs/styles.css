@@ -293,6 +293,13 @@ main {
   justify-content: flex-end;
 }
 
+.snapshot-table-filters input[type="search"],
+.snapshot-table-filters select {
+  width: auto;
+  min-width: 150px;
+  max-width: 220px;
+}
+
 .toggle-control {
   display: inline-flex;
   align-items: center;
