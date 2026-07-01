@@ -23,6 +23,16 @@ const TAB_ID_ALIASES = {
 const TIMELINE_QUERY_PARAMS = ["metric", "period", "range", "asset", "asset_uid", "dataset", "category", "keyword"];
 
 const colors = ["#2274a5", "#2f8f5b", "#b7791f", "#7156a5", "#217c7e", "#b64040"];
+// Strategic plan priority -> accent color. Mirrored in styles.css (--priority-N)
+// and used for KPI card borders, timeline dropdown labels, and the About list.
+const PRIORITY_COLORS = {
+  1: "#2274a5",
+  2: "#2f8f5b",
+  3: "#b7791f",
+  4: "#7156a5",
+  5: "#217c7e",
+  6: "#b64040",
+};
 const viewAccessTypes = new Set([
   "grid view",
   "measure page view",
@@ -82,6 +92,21 @@ const escapeHtml = (value) => String(value)
   .replaceAll("'", "&#039;");
 
 const definition = (metricId) => state.data.definitions.find((item) => item.metric_id === metricId) || {};
+
+const priorityNumber = (priorityText) => {
+  const match = /(\d+)/.exec(String(priorityText ?? ""));
+  return match ? Number(match[1]) : null;
+};
+const priorityColor = (priorityText) => PRIORITY_COLORS[priorityNumber(priorityText)] || "";
+const metricPriorityColor = (metricId) => priorityColor(definition(metricId).priority);
+const topMetricIds = new Set(["public_datasets_cumulative"]);
+const metricOrderKey = (metric, fallbackName = "") => {
+  const topMetricKey = topMetricIds.has(metric.metric_id) ? "00" : "01";
+  const priority = priorityNumber(metric.priority);
+  const priorityKey = Number.isFinite(priority) ? String(priority).padStart(2, "0") : "99";
+  return `${topMetricKey} ${priorityKey} ${metric.metric_name || fallbackName}`;
+};
+const compareMetricDefinitions = (a, b) => metricOrderKey(a).localeCompare(metricOrderKey(b));
 
 const tabIds = () => new Set(Array.from(document.querySelectorAll(".tab-panel")).map((panel) => panel.id));
 
@@ -536,6 +561,7 @@ function buildKpis() {
       note: `${summary.freshScheduledDatasets} of ${summary.scheduledDatasets} scheduled datasets`,
       change: changeUnavailable(),
       score: summary.freshnessPercent,
+      priorityMetric: "dataset_freshness_pct",
     },
     {
       label: "PDDL Licensed",
@@ -544,17 +570,28 @@ function buildKpis() {
       note: `${summary.pddlDatasets} datasets`,
       change: changeUnavailable(),
       score: summary.pddlPercent,
+      priorityMetric: "datasets_with_pddl_license_pct",
     },
   ];
+  const orderedCards = cards.sort((a, b) => {
+    const aMetric = definition(a.timelineMetric || a.priorityMetric);
+    const bMetric = definition(b.timelineMetric || b.priorityMetric);
+    return metricOrderKey(aMetric, a.label).localeCompare(metricOrderKey(bMetric, b.label));
+  });
 
-  document.querySelector("#kpiGrid").innerHTML = cards.map((card) => {
+  document.querySelector("#kpiGrid").innerHTML = orderedCards.map((card) => {
     const background = card.score === undefined
       ? colorForPercent(card.change.percent)
       : colorForScore(card.score);
+    const accent = metricPriorityColor(card.timelineMetric || card.priorityMetric);
+    const styleParts = [];
+    if (accent) styleParts.push(`--kpi-accent: ${accent}`);
+    if (background) styleParts.push(`--kpi-bg: ${background}`);
+    const style = styleParts.length ? ` style="${styleParts.join("; ")};"` : "";
     const tagName = card.timelineMetric ? "a" : "article";
     const href = card.timelineMetric ? ` href="${escapeHtml(timelineHref(card.timelineMetric))}" aria-label="Open ${escapeHtml(card.label)} in the timeline"` : "";
     return `
-      <${tagName} class="kpi${card.timelineMetric ? " kpi-link" : ""}"${href} style="${background ? `--kpi-bg: ${background};` : ""}">
+      <${tagName} class="kpi${card.timelineMetric ? " kpi-link" : ""}"${href}${style}>
         <div class="label">${card.label}</div>
         <div class="value">${formatNumber(card.value, card.unit)}</div>
         <div class="change ${card.change.className}">${card.change.text}</div>
@@ -832,14 +869,16 @@ function populateMetricSelects() {
   const monthlyDefs = state.data.definitions
     .filter((item) => item.period_type === "month")
     .filter((item) => !hiddenTimelineMetricIds.has(item.metric_id))
-    .sort((a, b) => `${a.priority} ${a.metric_name}`.localeCompare(`${b.priority} ${b.metric_name}`));
+    .sort(compareMetricDefinitions);
 
   const optionHtml = monthlyDefs.map((item) => {
     const hasData = metricHasData(item.metric_id);
     const unavailableLabel = hasData ? "" : " (No data yet)";
     const disabled = hasData ? "" : " disabled";
+    const accent = priorityColor(item.priority);
+    const colorStyle = hasData && accent ? ` style="color: ${accent};"` : "";
     return `
-      <option value="${item.metric_id}"${disabled}>${item.priority}: ${item.metric_name}${unavailableLabel}</option>
+      <option value="${item.metric_id}"${disabled}${colorStyle}>${item.priority}: ${item.metric_name}${unavailableLabel}</option>
     `;
   }).join("");
 
