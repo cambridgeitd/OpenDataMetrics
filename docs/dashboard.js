@@ -558,7 +558,7 @@ function buildKpis() {
       label: "Fresh On Schedule",
       value: summary.freshnessPercent,
       unit: "percent",
-      note: `${summary.freshScheduledDatasets} of ${summary.scheduledDatasets} scheduled datasets`,
+      note: `${summary.freshScheduledDatasets} of ${summary.scheduledDatasets} scheduled datasets (${summary.scheduledDatasets} of ${summary.totalPublicDatasets} declare a schedule)`,
       change: changeUnavailable(),
       score: summary.freshnessPercent,
       priorityMetric: "dataset_freshness_pct",
@@ -950,7 +950,7 @@ function buildUsageFilterOptions(metricId) {
   if (!filterable) {
     controls.classList.add("is-disabled");
     filterControls.forEach((control) => { control.disabled = true; });
-    note.textContent = "Asset filters apply to Socrata Asset Access metrics such as views, downloads, and API reads.";
+    note.textContent = "Asset filters apply to portal usage metrics such as views, downloads, and API reads.";
     return;
   }
 
@@ -1110,7 +1110,7 @@ function renderWatchlist() {
   const items = [
     {
       title: "Usage history starts in February 2020",
-      body: "Current Socrata system analytics are available through the API from 2020-02 onward. Earlier traffic appears to require the legacy admin export path.",
+      body: "Current portal system analytics are available through the API from 2020-02 onward. Earlier traffic appears to require the legacy admin export path.",
     },
     {
       title: "Department metadata is mostly missing",

@@ -547,14 +547,6 @@ select option:disabled {
   border-radius: 4px;
 }
 
-.bar-row:nth-child(3n) .bar-fill {
-  background: var(--green);
-}
-
-.bar-row:nth-child(3n + 1) .bar-fill {
-  background: var(--gold);
-}
-
 .bar-value {
   color: var(--muted);
   font-variant-numeric: tabular-nums;
