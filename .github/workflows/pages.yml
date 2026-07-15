@@ -3,7 +3,7 @@ name: Refresh metrics and publish Pages
 on:
   workflow_dispatch:
   schedule:
-    - cron: "23 8 1 * *"
+    - cron: "23 8 * * *"
   push:
     branches: ["main"]
 
