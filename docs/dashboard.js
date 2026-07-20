@@ -372,6 +372,104 @@ function periodAxisIndex(period, periodType = "month") {
   return periodMonthIndex(period);
 }
 
+function dataThroughDate() {
+  const generated = new Date(state.data?.generatedAt);
+  return Number.isFinite(generated.getTime()) ? generated : new Date();
+}
+
+// Returns null when the period is complete, or details about the in-progress
+// period when data collection stopped before the period ended.
+function partialPeriodInfo(periodStart, periodType = "month") {
+  const start = new Date(`${periodStart}T00:00:00`);
+  if (!Number.isFinite(start.getTime())) return null;
+  const end = new Date(start);
+  if (periodType === "year") end.setFullYear(end.getFullYear() + 1);
+  else end.setMonth(end.getMonth() + 1);
+  const through = dataThroughDate();
+  if (through >= end) return null;
+  return {
+    label: periodType === "year" ? "Year in progress" : "Month in progress",
+    throughText: through.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }),
+  };
+}
+
+const DAILY_PACE_FIELDS = {
+  public_dataset_page_views: "views",
+  public_dataset_downloads: "downloads",
+  public_dataset_api_reads: "api_reads",
+};
+
+const isoDay = (date) => [
+  date.getFullYear(),
+  String(date.getMonth() + 1).padStart(2, "0"),
+  String(date.getDate()).padStart(2, "0"),
+].join("-");
+
+// Same-point pace comparison for an in-progress period: sums daily activity for
+// the elapsed part of the current period and the matching slice of the previous
+// period (e.g. Jul 1-20 vs Jun 1-20) so partial data can be compared fairly.
+function paceComparison(metricId, periodStart, periodType, filters) {
+  const field = DAILY_PACE_FIELDS[metricId];
+  const daily = state.data.datasetDailyActivity || [];
+  if (!field || !daily.length) return null;
+  const start = new Date(`${periodStart}T00:00:00`);
+  if (!Number.isFinite(start.getTime())) return null;
+
+  let minDay = daily[0].day;
+  let maxDay = daily[0].day;
+  for (const row of daily) {
+    if (row.day < minDay) minDay = row.day;
+    if (row.day > maxDay) maxDay = row.day;
+  }
+  if (maxDay < periodStart) return null;
+  const through = new Date(`${maxDay}T00:00:00`);
+
+  const prevStart = new Date(start);
+  const prevEnd = new Date(start);
+  if (periodType === "year") {
+    prevStart.setFullYear(prevStart.getFullYear() - 1);
+    prevEnd.setTime(through.getTime());
+    prevEnd.setFullYear(through.getFullYear() - 1);
+  } else {
+    prevStart.setMonth(prevStart.getMonth() - 1, 1);
+    const prevMonthDays = new Date(start.getFullYear(), start.getMonth(), 0).getDate();
+    prevEnd.setMonth(prevEnd.getMonth() - 1, Math.min(through.getDate(), prevMonthDays));
+  }
+  const prevStartStr = isoDay(prevStart);
+  const prevEndStr = isoDay(prevEnd);
+  if (prevStartStr < minDay) return null;
+
+  const activeFilters = filters || { asset: "", category: "", keyword: "" };
+  let current = 0;
+  let previous = 0;
+  for (const row of daily) {
+    const inCurrent = row.day >= periodStart && row.day <= maxDay;
+    const inPrevious = row.day >= prevStartStr && row.day <= prevEndStr;
+    if (!inCurrent && !inPrevious) continue;
+    const asset = state.assetsByUid.get(row.asset_uid);
+    if (!assetMatchesFilters(asset, metricId, activeFilters)) continue;
+    if (inCurrent) current += Number(row[field] || 0);
+    else previous += Number(row[field] || 0);
+  }
+
+  const monthDay = (date) => date.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+  const rangeText = periodType === "year"
+    ? `${prevStart.getFullYear()} through ${monthDay(prevEnd)}`
+    : `${monthDay(prevStart)}\u2013${prevEnd.getDate()}`;
+  let percentText = "";
+  if (previous > 0) {
+    const percent = ((current - previous) / previous) * 100;
+    const sign = percent > 0 ? "+" : "";
+    percentText = `${sign}${percent.toLocaleString(undefined, { maximumFractionDigits: 1 })}%`;
+  }
+  return {
+    label: `vs ${rangeText} (same point)`,
+    rangeText,
+    valueText: `${previous.toLocaleString()}${percentText ? ` (${percentText})` : ""}`,
+    percentText,
+  };
+}
+
 function latestMonthlyIndex() {
   let latest = -Infinity;
   for (const row of state.data.monthly) {
@@ -462,6 +560,12 @@ function showTooltip(event, target) {
       <span>${escapeHtml(target.dataset.series)}</span>
       <strong>${escapeHtml(target.dataset.value)}</strong>
     </div>
+    ${target.dataset.paceLabel ? `
+    <div class="tooltip-row">
+      <span>${escapeHtml(target.dataset.paceLabel)}</span>
+      <strong>${escapeHtml(target.dataset.paceValue)}</strong>
+    </div>` : ""}
+    ${target.dataset.note ? `<div class="tooltip-note">${escapeHtml(target.dataset.note)}</div>` : ""}
   `;
   tooltip.classList.add("is-visible");
   moveTooltip(event, target);
@@ -1000,8 +1104,15 @@ function renderLineChart(target, rows, metricId, periodType = "month", options =
     return;
   }
 
+  const def = definition(metricId);
+  const lastRow = rows[rows.length - 1];
+  const partialInfo = partialPeriodInfo(lastRow.period_start, periodType);
+  const pace = partialInfo ? paceComparison(metricId, lastRow.period_start, periodType, options.filters) : null;
+  const completedRows = partialInfo ? rows.slice(0, -1) : rows;
   const showMovingAverage = options.showMovingAverage ?? true;
-  const movingRows = showMovingAverage ? movingAverage(rows, 3, periodType) : [];
+  // A partial period would drag the moving average down for summed metrics.
+  const movingSource = partialInfo && def.aggregation === "sum" ? completedRows : rows;
+  const movingRows = showMovingAverage ? movingAverage(movingSource, 3, periodType) : [];
   const movingLabel = periodType === "year" ? "3-year moving avg" : "3-month moving avg";
   const width = 980;
   const height = container.classList.contains("tall") ? 390 : 300;
@@ -1026,11 +1137,11 @@ function renderLineChart(target, rows, metricId, periodType = "month", options =
     const command = index === 0 ? "M" : "L";
     return `${command} ${x(row).toFixed(1)} ${y(row.value).toFixed(1)}`;
   }).join(" ");
-  const path = linePath(rows);
+  const path = linePath(completedRows);
+  const partialPath = partialInfo && rows.length > 1 ? linePath(rows.slice(-2)) : "";
   const movingPath = linePath(movingRows);
   const ticks = Array.from({ length: 5 }, (_, index) => minValue + (span * index) / 4);
   const labelStep = Math.max(1, Math.ceil(rows.length / 8));
-  const def = definition(metricId);
   const metricName = escapeHtml(def.metric_name || metricId);
 
   container.innerHTML = `
@@ -1043,18 +1154,24 @@ function renderLineChart(target, rows, metricId, periodType = "month", options =
         `;
       }).join("")}
       <path class="line-path" d="${path}" stroke="${colors[0]}"></path>
+      ${partialPath ? `<path class="line-path-partial" d="${partialPath}"></path>` : ""}
       ${movingRows.length ? `<path class="moving-average-path" d="${movingPath}"></path>` : ""}
-      ${rows.map((row, index) => `
-        <circle class="point" cx="${x(row)}" cy="${y(row.value)}" r="3.2">
+      ${rows.map((row, index) => {
+        const isPartial = Boolean(partialInfo) && index === rows.length - 1;
+        return `
+        <circle class="point${isPartial ? " point-partial" : ""}" cx="${x(row)}" cy="${y(row.value)}" r="${isPartial ? 4 : 3.2}">
         </circle>
         <circle class="tooltip-target" cx="${x(row)}" cy="${y(row.value)}" r="9"
           tabindex="0"
           data-period="${escapeHtml(formatPeriod(row.period_start, periodType))}"
           data-metric="${metricName}"
           data-series="Actual"
-          data-value="${escapeHtml(formatPreciseNumber(row.value, def.unit))}">
+          data-value="${escapeHtml(formatPreciseNumber(row.value, def.unit))}"
+          ${isPartial ? `data-note="${escapeHtml(`${partialInfo.label} — data through ${partialInfo.throughText}`)}"` : ""}
+          ${isPartial && pace ? `data-pace-label="${escapeHtml(pace.label)}" data-pace-value="${escapeHtml(pace.valueText)}"` : ""}>
         </circle>
-      `).join("")}
+      `;
+      }).join("")}
       ${movingRows.map((row) => `
         <circle class="moving-average-point" cx="${x(row)}" cy="${y(row.value)}" r="2.5">
         </circle>
@@ -1079,6 +1196,7 @@ function renderLineChart(target, rows, metricId, periodType = "month", options =
         ` : ""}
       </g>
     </svg>
+    ${partialInfo ? `<p class="chart-note">${escapeHtml(formatPeriod(lastRow.period_start, periodType))} is incomplete (${periodType} in progress) — shown with a dashed line, data through ${escapeHtml(partialInfo.throughText)}.${pace && pace.percentText ? ` Same-point pace vs ${escapeHtml(pace.rangeText)}: ${escapeHtml(pace.percentText)}.` : ""}</p>` : ""}
   `;
   bindChartTooltips(container);
 }
@@ -1094,6 +1212,7 @@ function updateExplorer(options = {}) {
   const rows = filteredSeries(metricId, periodType, range, getUsageFilters());
   renderLineChart("#metricChart", rows, metricId, periodType, {
     showMovingAverage: document.querySelector("#movingAverageToggle")?.checked ?? true,
+    filters: getUsageFilters(),
   });
   if (options.updateUrl) updateTimelineUrl(options.replaceUrl ?? true);
 }
