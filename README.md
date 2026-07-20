@@ -2,6 +2,8 @@
 
 This repository builds a Socrata-ready metrics dataset and a GitHub Pages dashboard for tracking the Cambridge Open Data Program strategic plan.
 
+## [View the live Open Data Metrics dashboard](https://cambridgeitd.github.io/OpenDataMetrics/)
+
 ## What It Produces
 
 - `data/processed/open_data_program_metrics.csv`: long-format Socrata-ready metric observations.

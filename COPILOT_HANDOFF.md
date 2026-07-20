@@ -8,7 +8,7 @@ The repository itself contains the important project artifacts. A raw Codex conv
 
 Before this handoff file was added, the local worktree was clean on `main`, tracking `origin/main`.
 
-- Remote: `https://github.com/rengels-coc/OpenDataMetrics.git`
+- Remote: `https://github.com/cambridgeitd/OpenDataMetrics.git`
 - Last checked commit: `24f5cb8a5212eea7e88ec68e302347b586e5fff0`
 - Commit date: `2026-06-17 14:03:50 +0000`
 - Commit subject: `Refresh generated metrics [skip ci]`
@@ -30,7 +30,7 @@ The project combines:
 
 - `README.md`: current user-facing overview and refresh instructions.
 - `scripts/fetch_metrics.py`: main build script. Reads Socrata APIs and manual CSVs, writes processed data and dashboard JSON.
-- `.github/workflows/pages.yml`: monthly/manual/push workflow that refreshes generated data, commits changes, uploads the dashboard artifact, and deploys Pages when the repo is public.
+- `.github/workflows/pages.yml`: nightly/manual/push workflow that refreshes generated data, commits changes, uploads the dashboard artifact, and deploys Pages when the repo is public.
 - `docs/index.html`, `docs/dashboard.js`, `docs/styles.css`: static dashboard.
 - `data/processed/open_data_program_metrics.csv`: long-format Socrata-ready metric observations.
 - `data/processed/open_data_program_metric_definitions.csv`: definitions, statuses, sources, caveats.
