@@ -11,5 +11,5 @@ event_date,event_month,event_name,event_type,audience,delivery_mode,location_pla
 2025-12-10,2025-12-01,Cambridge Open Data Workshop,public_workshop,General Public,Virtual,Zoom,Yes,43,,43,23,53.49,7,4.86,completed,Our first recorded public workshop
 2026-02-25,2026-02-01,Visualizing Cambridge Open Data Workshop,public_workshop,General Public,Virtual,Zoom,No,86,,86,40,46.51,13,4.14,completed,"Our first ""advanced"" visualization workshop"
 2026-04-14,2026-04-01,Cambridge Open Data Workshop,public_workshop,General Public,In-Person,CPL: Community Room,No,33,,33,15,45.45,7,4.57,completed,"Fewer registrations than usual (unclear why). Helpful feedback: back and forth from ppt to web distracting, community room bad sound and lighting, not really ""hands on"""
-,2026-06-01,Cambridge Intro to Open Data for Staff,staff_training,Staff,Virtual,Teams,Yes,,,,,,,,planned,
+2026-06-16,2026-06-01,Cambridge Intro to Open Data for Staff,staff_training,Staff,Virtual,Teams,Yes,25,,25,17,68.00,8,4.875,completed,"My favorite feedback comment ""Somewhere between Tron and Magic School bus"""
 ,2026-07-01,Vibe Coding Cambridge Open Data Workshop,public_workshop,General Public,Virtual,Zoom,Yes,,,,,,,,planned,Actual hands on course. Use Codex desktop app as platform because at least some usage is free and probably the most widespread subscription.
