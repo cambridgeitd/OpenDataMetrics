@@ -1,7 +1,7 @@
 keyword,public_dataset_count
 housing and development,54
 health and safety,52
-permits,49
+permits,50
 gis,36
 transportation,22
 covid-19,20
@@ -9,8 +9,8 @@ map,19
 vision zero,19
 government and finance,18
 parking,18
+construction,16
 glocal,16
-construction,15
 building energy use disclosure ordinance - beudo,12
 census,12
 community development department - cdd,12
@@ -30,12 +30,12 @@ fire department,7
 motor vehicles,7
 streets,7
 budget,6
+buildings,6
 commuting,6
 residential,6
 sidewalks,6
 art,5
 bicycle count,5
-buildings,5
 cambridge public schools - cps,5
 climate,5
 electricity,5
@@ -64,6 +64,7 @@ commercial,3
 compost,3
 condominiums,3
 crash,3
+demolition,3
 disabled,3
 ems,3
 environment,3
@@ -83,6 +84,7 @@ street intersections,3
 traffic counts,3
 water,3
 311,2
+alteration,2
 bluebikes,2
 catering,2
 city council,2
@@ -90,7 +92,6 @@ commercial districts,2
 computer-aided dispatch - cad,2
 congressional districts,2
 crime,2
-demolition,2
 development log,2
 eco-totem,2
 entertainment,2
@@ -115,7 +116,6 @@ accessible,1
 air conditioning,1
 air quality,1
 airbnb,1
-alteration,1
 ambulance,1
 appliances,1
 asbestos,1

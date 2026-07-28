@@ -1,23 +1,23 @@
 uid,name,type,category,keywords,is_public_base_dataset,is_public_discoverable_dataset,url
 8ypp-4946,(DEPRECATED) Miovision Traffic Data,dataset,Transportation,"bicycles, bicycle count, motor vehicles, traffic counts",True,True,https://data.cambridgema.gov/d/8ypp-4946
-gyig-vxkp,"(OBSOLETE) Dumpster License Violations (Ord. 1329, Chp. 8.25)",dataset,Inspectional Services,"violations, health and safety, dumpsters",True,True,https://data.cambridgema.gov/d/gyig-vxkp
+gyig-vxkp,"(OBSOLETE) Dumpster License Violations (Ord. 1329, Chp. 8.25)",dataset,Inspectional Services,"health and safety, dumpsters, violations",True,True,https://data.cambridgema.gov/d/gyig-vxkp
 5d8j-6wzj,2016 Presidential and State Election Results,dataset,Uncategorized,"elections, government and finance",True,True,https://data.cambridgema.gov/d/5d8j-6wzj
-w3yf-stdn,2019 Cambridge Building Energy and Water Use Disclosure Data,filter,Energy and the Environment,"glocal, building energy use disclosure ordinance - beudo",False,False,https://data.cambridgema.gov/d/w3yf-stdn
+w3yf-stdn,2019 Cambridge Building Energy and Water Use Disclosure Data,filter,Energy and the Environment,"building energy use disclosure ordinance - beudo, glocal",False,False,https://data.cambridgema.gov/d/w3yf-stdn
 qtun-pwr4,2024 Salaries by Department Pie Chart,chart,Budget/Finance,,False,False,https://data.cambridgema.gov/d/qtun-pwr4
 9deu-zhmw,2024 Salaries Sorted,filter,Budget/Finance,"budget, government and finance, fiscal year",False,False,https://data.cambridgema.gov/d/9deu-zhmw
 gk6y-9f8q,2025 Salaries by Department,chart,Budget/Finance,,False,False,https://data.cambridgema.gov/d/gk6y-9f8q
 x7wt-rgru,Age Distribution by Neighborhood,chart,Neighborhood Census Data,,False,False,https://data.cambridgema.gov/d/x7wt-rgru
-kkn6-hyu9,Aggregated Street Occupancy Permits,dataset,Transportation,"street, parking, permit",True,True,https://data.cambridgema.gov/d/kkn6-hyu9
+kkn6-hyu9,Aggregated Street Occupancy Permits,dataset,Transportation,"street, permit, parking",True,True,https://data.cambridgema.gov/d/kkn6-hyu9
 uf56-abrr,all dog names,chart,General Government,,False,False,https://data.cambridgema.gov/d/uf56-abrr
-jabj-v7kz,American Community Survey 5-Year Estimates by Neighborhood: Basic Demographics,dataset,Neighborhood Census Data,"housing and development, american community survey, census, glocal, neighborhoods, population",True,True,https://data.cambridgema.gov/d/jabj-v7kz
-mayq-xm5d,American Community Survey 5-Year Estimates by Neighborhood: Housing Statistics,dataset,Neighborhood Census Data,"housing and development, population, neighborhoods, census, american community survey, glocal",True,True,https://data.cambridgema.gov/d/mayq-xm5d
-maef-iias,American Community Survey 5-Year Estimates by Neighborhood: Median Income,dataset,Neighborhood Census Data,"income, census, glocal, housing and development, neighborhoods",True,True,https://data.cambridgema.gov/d/maef-iias
-m9gy-vc6p,American Community Survey 5-Year Estimates by Neighborhood: Socio-Economic Characteristics,dataset,Neighborhood Census Data,"glocal, language, income, housing and development, equity, education, census, american community survey",True,True,https://data.cambridgema.gov/d/m9gy-vc6p
+jabj-v7kz,American Community Survey 5-Year Estimates by Neighborhood: Basic Demographics,dataset,Neighborhood Census Data,"glocal, neighborhoods, american community survey, census, housing and development, population",True,True,https://data.cambridgema.gov/d/jabj-v7kz
+mayq-xm5d,American Community Survey 5-Year Estimates by Neighborhood: Housing Statistics,dataset,Neighborhood Census Data,"census, glocal, housing and development, neighborhoods, population, american community survey",True,True,https://data.cambridgema.gov/d/mayq-xm5d
+maef-iias,American Community Survey 5-Year Estimates by Neighborhood: Median Income,dataset,Neighborhood Census Data,"housing and development, census, glocal, neighborhoods, income",True,True,https://data.cambridgema.gov/d/maef-iias
+m9gy-vc6p,American Community Survey 5-Year Estimates by Neighborhood: Socio-Economic Characteristics,dataset,Neighborhood Census Data,"american community survey, language, income, housing and development, glocal, equity, education, census",True,True,https://data.cambridgema.gov/d/m9gy-vc6p
 qbqh-siv3,announcement_category_tile,dataset,Uncategorized,,True,False,https://data.cambridgema.gov/d/qbqh-siv3
 46sm-9zs4,Annual Town Gown Report Higher Education Statistics 2000 - Present,dataset,Planning,"planning, education, university",True,True,https://data.cambridgema.gov/d/46sm-9zs4
 vvah-wzep,Annual Usership Graph - Fresh Pond Reservation,chart,Uncategorized,,False,False,https://data.cambridgema.gov/d/vvah-wzep
-rrgw-vvzj,Appliance Large Items Permits,dataset,Public Works,"permits, appliances",True,True,https://data.cambridgema.gov/d/rrgw-vvzj
-tdg3-whvc,Application to Modify Building Plans,dataset,Inspectional Services,"buildings, permit, construction",True,True,https://data.cambridgema.gov/d/tdg3-whvc
+rrgw-vvzj,Appliance Large Items Permits,dataset,Public Works,"appliances, permits",True,True,https://data.cambridgema.gov/d/rrgw-vvzj
+tdg3-whvc,Application to Modify Building Plans,dataset,Inspectional Services,"permit, buildings, construction",True,True,https://data.cambridgema.gov/d/tdg3-whvc
 qkz3-neu2,ARPA,dataset,Uncategorized,,True,False,https://data.cambridgema.gov/d/qkz3-neu2
 dnix-ftda,ARPA Funding by Category,chart,Uncategorized,,False,False,https://data.cambridgema.gov/d/dnix-ftda
 kfev-2g53,ARPA Funding by Category and Priority,chart,Uncategorized,,False,False,https://data.cambridgema.gov/d/kfev-2g53
@@ -26,9 +26,9 @@ kpan-zqej,ARPA Funding by Scope of Service,chart,Uncategorized,,False,False,http
 ytyq-x9wy,ARPA Funding Pie,chart,Uncategorized,,False,False,https://data.cambridgema.gov/d/ytyq-x9wy
 ir7y-req8,ARPA_Totals,dataset,Uncategorized,,True,False,https://data.cambridgema.gov/d/ir7y-req8
 b2gz-4dd7,Art Organizations in Cambridge,dataset,Uncategorized,"non-profit, art",True,True,https://data.cambridgema.gov/d/b2gz-4dd7
-ay64-ymwq,Article 22 Green Building Review Projects,dataset,Energy and the Environment,"housing and development, zoning, sustainability, phius, passive house, leed, enterprise green communities, energy efficiency, energy",True,True,https://data.cambridgema.gov/d/ay64-ymwq
+ay64-ymwq,Article 22 Green Building Review Projects,dataset,Energy and the Environment,"zoning, sustainability, passive house, energy, energy efficiency, enterprise green communities, housing and development, leed, phius",True,True,https://data.cambridgema.gov/d/ay64-ymwq
 c6c3-nvcx,Asbestos Removal Permit Map - Based on Asbestos Removal Permits,map,Inspectional Services,,False,False,https://data.cambridgema.gov/d/c6c3-nvcx
-jrxr-y9ty,Asbestos Removal Permits,dataset,Inspectional Services,"construction, asbestos, health and safety, permits, environment",True,True,https://data.cambridgema.gov/d/jrxr-y9ty
+jrxr-y9ty,Asbestos Removal Permits,dataset,Inspectional Services,"environment, permits, asbestos, construction, health and safety",True,True,https://data.cambridgema.gov/d/jrxr-y9ty
 693a-ehdm,ASSESSING_ParcelsFY2016,dataset,Assessing,"parcels, obsolete",True,True,https://data.cambridgema.gov/d/693a-ehdm
 v43b-kqeq,Average Daily Traffic Counts 1972 to 2017 (Historical),dataset,Transportation,"traffic counts, vision zero",True,True,https://data.cambridgema.gov/d/v43b-kqeq
 su9g-f9j7,Average Daily Traffic Counts Map - 1972 to 2017 (Historical),map,Transportation,traffic counts,False,False,https://data.cambridgema.gov/d/su9g-f9j7
@@ -57,113 +57,114 @@ fr2i-rdxb,BEUDO Buildings 2024,dataset,Energy and the Environment,building energ
 s3x7-twmx,BEUDO Data,story,Uncategorized,,False,False,https://data.cambridgema.gov/stories/s/s3x7-twmx
 iud6-avxc,Bid List (Historical),dataset,Purchasing,,True,True,https://data.cambridgema.gov/d/iud6-avxc
 pmii-ykdf,Bid List: Construction (Historical),dataset,Purchasing,,True,True,https://data.cambridgema.gov/d/pmii-ykdf
-9aey-9g9p,Bike Facilities,dataset,Public Works,"gis, vision zero, bicycles",True,True,https://data.cambridgema.gov/d/9aey-9g9p
+9aey-9g9p,Bike Facilities,dataset,Public Works,"gis, bicycles, vision zero",True,True,https://data.cambridgema.gov/d/9aey-9g9p
 rpti-wwqr,Bike Facilities Map,map,Geographic Information (GIS),,False,False,https://data.cambridgema.gov/d/rpti-wwqr
-i2em-9w6g,Block Party Permits,dataset,Transportation,"permits, neighborhoods, parking, streets",True,True,https://data.cambridgema.gov/d/i2em-9w6g
-cc2f-bntg,Bluebikes Data Summarized,dataset,Transportation,"bicycles, bluebikes",True,True,https://data.cambridgema.gov/d/cc2f-bntg
-urfm-usws,Board of Zoning Appeal Requests,dataset,Inspectional Services,"permits, housing and development, zoning, board of zoning appeal - bza",True,True,https://data.cambridgema.gov/d/urfm-usws
+i2em-9w6g,Block Party Permits,dataset,Transportation,"permits, streets, neighborhoods, parking",True,True,https://data.cambridgema.gov/d/i2em-9w6g
+cc2f-bntg,Bluebikes Data Summarized,dataset,Transportation,"bluebikes, bicycles",True,True,https://data.cambridgema.gov/d/cc2f-bntg
+urfm-usws,Board of Zoning Appeal Requests,dataset,Inspectional Services,"housing and development, permits, zoning, board of zoning appeal - bza",True,True,https://data.cambridgema.gov/d/urfm-usws
 9chi-2ed3,Budget - Capital,dataset,Budget/Finance,"fiscal year, government and finance, budget",True,True,https://data.cambridgema.gov/d/9chi-2ed3
 yvt6-qmqd,Budget - Capital FY17-FY21 (Archive),dataset,Budget/Finance,government and finance,True,True,https://data.cambridgema.gov/d/yvt6-qmqd
 5bn4-5wey,Budget - Operating Expenditures,dataset,Budget/Finance,,True,True,https://data.cambridgema.gov/d/5bn4-5wey
-ixyv-mje6,Budget - Operating Revenues,dataset,Budget/Finance,"budget, government and finance, fiscal year",True,True,https://data.cambridgema.gov/d/ixyv-mje6
-ixg8-tyau,Budget - Salaries,dataset,Budget/Finance,"government and finance, fiscal year, budget",True,True,https://data.cambridgema.gov/d/ixg8-tyau
+ixyv-mje6,Budget - Operating Revenues,dataset,Budget/Finance,"government and finance, budget, fiscal year",True,True,https://data.cambridgema.gov/d/ixyv-mje6
+ixg8-tyau,Budget - Salaries,dataset,Budget/Finance,"budget, government and finance, fiscal year",True,True,https://data.cambridgema.gov/d/ixg8-tyau
 fe9r-dqee,Budget - Salaries- FY 2025,filter,Budget/Finance,,False,False,https://data.cambridgema.gov/d/fe9r-dqee
 fdgz-2wqe,Budget - Salaries- FY 2026,filter,Budget/Finance,,False,False,https://data.cambridgema.gov/d/fdgz-2wqe
-52p4-36ct,Building Permits: 1 and 2 Family - DEPRECATED,dataset,Inspectional Services,"housing and development, permits, construction",True,True,https://data.cambridgema.gov/d/52p4-36ct
-qu2z-8suj,Building Permits: Addition/Alteration,dataset,Inspectional Services,"housing and development, construction, alteration, permits",True,True,https://data.cambridgema.gov/d/qu2z-8suj
-9qm7-wbdc,Building Permits: New Construction,dataset,Inspectional Services,"construction, permits, plumbing, housing and development",True,True,https://data.cambridgema.gov/d/9qm7-wbdc
+52p4-36ct,Building Permits: 1 and 2 Family - DEPRECATED,dataset,Inspectional Services,"construction, permits, housing and development",True,True,https://data.cambridgema.gov/d/52p4-36ct
+qu2z-8suj,Building Permits: Addition/Alteration,dataset,Inspectional Services,"construction, housing and development, permits, alteration",True,True,https://data.cambridgema.gov/d/qu2z-8suj
+9qm7-wbdc,Building Permits: New Construction,dataset,Inspectional Services,"housing and development, permits, construction, plumbing",True,True,https://data.cambridgema.gov/d/9qm7-wbdc
+ex75-8iwq,Building Permits: Short Form,dataset,Inspectional Services,"demolition, alteration, buildings, construction, permits",True,True,https://data.cambridgema.gov/d/ex75-8iwq
 5zhg-nwb3,Buildings,dataset,Planning,"buildings, gis, housing and development",True,True,https://data.cambridgema.gov/d/5zhg-nwb3
 4ftb-8ne5,Cambridge Address Points,dataset,Planning,"housing and development, address, gis",True,True,https://data.cambridgema.gov/d/4ftb-8ne5
 r6cw-9qe2,Cambridge Address Points Map,map,General Government,,False,False,https://data.cambridgema.gov/d/r6cw-9qe2
-wrqt-2qw9,Cambridge Arts Grants 2007-Present,dataset,General Government,"art, grants, entertainment, government and finance",True,True,https://data.cambridgema.gov/d/wrqt-2qw9
+wrqt-2qw9,Cambridge Arts Grants 2007-Present,dataset,General Government,"art, grants, government and finance, entertainment",True,True,https://data.cambridgema.gov/d/wrqt-2qw9
 bb3q-ybbc,Cambridge Arts Grants by Category,chart,General Government,,False,False,https://data.cambridgema.gov/d/bb3q-ybbc
 tram-4cbh,Cambridge Arts Grants: Total Funding by Year,chart,General Government,,False,False,https://data.cambridgema.gov/d/tram-4cbh
 x55n-q9yc,Cambridge Arts Street Performer Permits 2000-2016,dataset,General Government,"entertainment, permits",True,True,https://data.cambridgema.gov/d/x55n-q9yc
 bdjh-g8un,Cambridge Bluebikes Data,dataset,Transportation,"bicycles, bluebikes",True,True,https://data.cambridgema.gov/d/bdjh-g8un
 72g6-j7aq,Cambridge Building Energy Use Disclosure Ordinance (BEUDO) Data 2015-2024,dataset,Energy and the Environment,"building energy use disclosure ordinance - beudo, sustainability, housing and development, glocal",True,True,https://data.cambridgema.gov/d/72g6-j7aq
 w6y6-mg5w,Cambridge Buildings Map,map,Geographic Information (GIS),,False,False,https://data.cambridgema.gov/d/w6y6-mg5w
-2b3j-9kdn,Cambridge Business Diversity Directory,dataset,Economic Development,"disabled, planning, business, economic development, diversity",True,True,https://data.cambridgema.gov/d/2b3j-9kdn
-eiuf-6ksy,Cambridge Community Wide Greenhouse Gas Inventory 2012,dataset,Energy and the Environment,"energy, glocal, greenhouse gas - ghg, climate, sustainability",True,True,https://data.cambridgema.gov/d/eiuf-6ksy
+2b3j-9kdn,Cambridge Business Diversity Directory,dataset,Economic Development,"economic development, business, disabled, diversity, planning",True,True,https://data.cambridgema.gov/d/2b3j-9kdn
+eiuf-6ksy,Cambridge Community Wide Greenhouse Gas Inventory 2012,dataset,Energy and the Environment,"sustainability, glocal, greenhouse gas - ghg, energy, climate",True,True,https://data.cambridgema.gov/d/eiuf-6ksy
 tif9-pmiw,Cambridge Disclaimer Release,file,Uncategorized,,False,False,https://data.cambridgema.gov/d/tif9-pmiw
 wtcw-2b22,Cambridge Featured Data Projects Gallery,dataset,General Government,open data,True,True,https://data.cambridgema.gov/d/wtcw-2b22
 ffk4-z4mu,Cambridge Historic Districts Map,map,Geographic Information (GIS),,False,False,https://data.cambridgema.gov/d/ffk4-z4mu
-ify2-i22z,Cambridge Homeless Point-in-Time Count data: 2012-present,dataset,Department of Human Service Programs (DHSP),"housing and development, census, health and safety, homeless",True,True,https://data.cambridgema.gov/d/ify2-i22z
+ify2-i22z,Cambridge Homeless Point-in-Time Count data: 2012-present,dataset,Department of Human Service Programs (DHSP),"homeless, housing and development, census, health and safety",True,True,https://data.cambridgema.gov/d/ify2-i22z
 5mkn-v2bf,Cambridge Intersections Map,map,Transportation,,False,False,https://data.cambridgema.gov/d/5mkn-v2bf
 4ych-7366,Cambridge Municipal 2021 Electric Use and Cost Data,dataset,Uncategorized,"greenhouse gas - ghg, energy, solar, climate, electricity",True,True,https://data.cambridgema.gov/d/4ych-7366
-m5zs-2fuf,Cambridge Municipal Greenhouse Gas Inventory 2008 - 2012 (Historical),dataset,Planning,"glocal, energy, climate, sustainability, greenhouse gas - ghg",True,True,https://data.cambridgema.gov/d/m5zs-2fuf
-k3pi-9823,Cambridge Neighborhood Polygons,dataset,Planning,"map, housing and development, neighborhoods, shapefile, gis",True,True,https://data.cambridgema.gov/d/k3pi-9823
+m5zs-2fuf,Cambridge Municipal Greenhouse Gas Inventory 2008 - 2012 (Historical),dataset,Planning,"greenhouse gas - ghg, glocal, energy, climate, sustainability",True,True,https://data.cambridgema.gov/d/m5zs-2fuf
+k3pi-9823,Cambridge Neighborhood Polygons,dataset,Planning,"neighborhoods, shapefile, map, housing and development, gis",True,True,https://data.cambridgema.gov/d/k3pi-9823
 juds-r584,Cambridge Neighborhood Polygons Map,map,Geographic Information (GIS),,False,False,https://data.cambridgema.gov/d/juds-r584
 tf4d-q3qs,Cambridge Open Data Ordinance 092115,file,General Government,open data,False,False,https://data.cambridgema.gov/d/tf4d-q3qs
-c392-hjk3,Cambridge Parcel Data,dataset,Assessing,"parcels, gis",True,True,https://data.cambridgema.gov/d/c392-hjk3
+c392-hjk3,Cambridge Parcel Data,dataset,Assessing,"gis, parcels",True,True,https://data.cambridgema.gov/d/c392-hjk3
 nz6r-3fde,Cambridge Parcel Data Map,map,Assessing,,False,False,https://data.cambridgema.gov/d/nz6r-3fde
-m7ew-safu,Cambridge Parcel Information - FY2014 (Historical),dataset,Assessing,"assessing, housing and development, parcels",True,True,https://data.cambridgema.gov/d/m7ew-safu
-vnxa-cuyr,Cambridge Parking Tickets,dataset,Transportation,"violations, vision zero, parking meter",True,True,https://data.cambridgema.gov/d/vnxa-cuyr
+m7ew-safu,Cambridge Parcel Information - FY2014 (Historical),dataset,Assessing,"parcels, assessing, housing and development",True,True,https://data.cambridgema.gov/d/m7ew-safu
+vnxa-cuyr,Cambridge Parking Tickets,dataset,Transportation,"vision zero, parking meter, violations",True,True,https://data.cambridgema.gov/d/vnxa-cuyr
 sqsm-xwgu,Cambridge Parking Tickets - Bike Lane,filter,Transportation,violations,False,False,https://data.cambridgema.gov/d/sqsm-xwgu
 3wsm-e5jx,Cambridge Permit Finder,dataset,General Government,permits,True,True,https://data.cambridgema.gov/d/3wsm-e5jx
-crnm-mw9n,Cambridge Property Database FY2015,dataset,Assessing,"housing and development, buildings, assessing",True,True,https://data.cambridgema.gov/d/crnm-mw9n
-3giz-nc7p,Cambridge Property Database FY2016,filter,Assessing,"condo, residential, cambridge, commercial, assessing",False,False,https://data.cambridgema.gov/d/3giz-nc7p
-eey2-rv59,Cambridge Property Database FY2016-FY2026,dataset,Assessing,"housing and development, commercial, assessing, residential, condominiums",True,True,https://data.cambridgema.gov/d/eey2-rv59
-u7pm-vxas,Cambridge Property Database FY2017,filter,Assessing,"condo, residential, assessing, commercial",False,False,https://data.cambridgema.gov/d/u7pm-vxas
-drvk-cbn5,Cambridge Property Database FY2018,filter,Assessing,"condo, commercial, assessing, cambridge, residential, glocal",False,False,https://data.cambridgema.gov/d/drvk-cbn5
-ntbr-bfjb,Cambridge Property Database FY2019,filter,Assessing,"assessing, cambridge, residential, condo, commercial",False,False,https://data.cambridgema.gov/d/ntbr-bfjb
-aezj-8mpy,Cambridge Property Database FY2020,filter,Assessing,"commercial, assessing, cambridge, condo, residential",False,False,https://data.cambridgema.gov/d/aezj-8mpy
-k3sc-zkk7,Cambridge Property Database FY2021,filter,Assessing,"condo, commercial, residential, cambridge, assessing",False,False,https://data.cambridgema.gov/d/k3sc-zkk7
-v2zs-xwpu,Cambridge Property Database FY2022,filter,Assessing,"cambridge, commercial, assessing, condo, residential",False,False,https://data.cambridgema.gov/d/v2zs-xwpu
-9fxi-einu,Cambridge Property Database FY2023,filter,Assessing,"residential, assessing, commercial, condominiums, housing and development",False,False,https://data.cambridgema.gov/d/9fxi-einu
+crnm-mw9n,Cambridge Property Database FY2015,dataset,Assessing,"buildings, housing and development, assessing",True,True,https://data.cambridgema.gov/d/crnm-mw9n
+3giz-nc7p,Cambridge Property Database FY2016,filter,Assessing,"condo, assessing, commercial, residential, cambridge",False,False,https://data.cambridgema.gov/d/3giz-nc7p
+eey2-rv59,Cambridge Property Database FY2016-FY2026,dataset,Assessing,"commercial, condominiums, housing and development, assessing, residential",True,True,https://data.cambridgema.gov/d/eey2-rv59
+u7pm-vxas,Cambridge Property Database FY2017,filter,Assessing,"assessing, residential, condo, commercial",False,False,https://data.cambridgema.gov/d/u7pm-vxas
+drvk-cbn5,Cambridge Property Database FY2018,filter,Assessing,"cambridge, assessing, commercial, condo, residential, glocal",False,False,https://data.cambridgema.gov/d/drvk-cbn5
+ntbr-bfjb,Cambridge Property Database FY2019,filter,Assessing,"residential, commercial, cambridge, assessing, condo",False,False,https://data.cambridgema.gov/d/ntbr-bfjb
+aezj-8mpy,Cambridge Property Database FY2020,filter,Assessing,"assessing, residential, condo, commercial, cambridge",False,False,https://data.cambridgema.gov/d/aezj-8mpy
+k3sc-zkk7,Cambridge Property Database FY2021,filter,Assessing,"condo, assessing, cambridge, commercial, residential",False,False,https://data.cambridgema.gov/d/k3sc-zkk7
+v2zs-xwpu,Cambridge Property Database FY2022,filter,Assessing,"commercial, assessing, cambridge, condo, residential",False,False,https://data.cambridgema.gov/d/v2zs-xwpu
+9fxi-einu,Cambridge Property Database FY2023,filter,Assessing,"housing and development, condominiums, commercial, assessing, residential",False,False,https://data.cambridgema.gov/d/9fxi-einu
 qugn-fei2,Cambridge Property Database FY2024,filter,Assessing,,False,False,https://data.cambridgema.gov/d/qugn-fei2
 wb6g-ebmw,Cambridge Property Database FY2025,filter,Assessing,,False,False,https://data.cambridgema.gov/d/wb6g-ebmw
 waa7-ibdu,Cambridge Property Database FY2026,filter,Assessing,,False,False,https://data.cambridgema.gov/d/waa7-ibdu
-d4vz-292e,Cambridge Public Library Locations,dataset,General Government,"map, libraries",True,True,https://data.cambridgema.gov/d/d4vz-292e
+d4vz-292e,Cambridge Public Library Locations,dataset,General Government,"libraries, map",True,True,https://data.cambridgema.gov/d/d4vz-292e
 xknp-6pfh,Cambridge Public Library Map,map,General Government,,False,False,https://data.cambridgema.gov/d/xknp-6pfh
-7rc3-kgve,Cambridge Public School Department Salaries - FY23,dataset,Uncategorized,"education, budget, cambridge public schools - cps, salaries, government and finance",True,True,https://data.cambridgema.gov/d/7rc3-kgve
+7rc3-kgve,Cambridge Public School Department Salaries - FY23,dataset,Uncategorized,"salaries, education, cambridge public schools - cps, budget, government and finance",True,True,https://data.cambridgema.gov/d/7rc3-kgve
 9xx9-tt7e,Cambridge Public School Locations,dataset,General Government,cambridge public schools - cps,True,True,https://data.cambridgema.gov/d/9xx9-tt7e
-mga7-6ran,Cambridge Public Schools Free & Reduced Price Meal Participation (2006-07 to 2023-24),dataset,Planning,"cambridge public schools - cps, income, health and safety, equity",True,True,https://data.cambridgema.gov/d/mga7-6ran
-8h83-7a8h,Cambridge Public Schools Low-Income and Economically Disadvantaged Students,dataset,Planning,"education, income, equity, cambridge public schools - cps",True,True,https://data.cambridgema.gov/d/8h83-7a8h
+mga7-6ran,Cambridge Public Schools Free & Reduced Price Meal Participation (2006-07 to 2023-24),dataset,Planning,"health and safety, cambridge public schools - cps, equity, income",True,True,https://data.cambridgema.gov/d/mga7-6ran
+8h83-7a8h,Cambridge Public Schools Low-Income and Economically Disadvantaged Students,dataset,Planning,"education, cambridge public schools - cps, income, equity",True,True,https://data.cambridgema.gov/d/8h83-7a8h
 dn4u-ry7v,Cambridge Public Schools Map,map,General Government,,False,False,https://data.cambridgema.gov/d/dn4u-ry7v
 rehw-u8cf,Cambridge Residents Experiencing Homelessness By Race,chart,General Government,,False,False,https://data.cambridgema.gov/d/rehw-u8cf
 arm7-ne38,Cambridge Results for the 2016 Presidential Election,chart,Uncategorized,,False,False,https://data.cambridgema.gov/d/arm7-ne38
-nnhv-kdrr,Cambridge Roads Polygon,dataset,Planning,"gis, transportation, vision zero",True,True,https://data.cambridgema.gov/d/nnhv-kdrr
-66td-u88k,Cambridge Vaccination Demographics 3/15/2021-3/29/2023,dataset,Public Health,"covid-19, health and safety, vaccination",True,True,https://data.cambridgema.gov/d/66td-u88k
-r3q4-v3ae,Cambridge Vaccine Demographics by Week 3/18/2021-3/29/2023 (Historical),dataset,Public Health,"health and safety, covid-19, vaccination",True,True,https://data.cambridgema.gov/d/r3q4-v3ae
+nnhv-kdrr,Cambridge Roads Polygon,dataset,Planning,"vision zero, gis, transportation",True,True,https://data.cambridgema.gov/d/nnhv-kdrr
+66td-u88k,Cambridge Vaccination Demographics 3/15/2021-3/29/2023,dataset,Public Health,"covid-19, vaccination, health and safety",True,True,https://data.cambridgema.gov/d/66td-u88k
+r3q4-v3ae,Cambridge Vaccine Demographics by Week 3/18/2021-3/29/2023 (Historical),dataset,Public Health,"vaccination, covid-19, health and safety",True,True,https://data.cambridgema.gov/d/r3q4-v3ae
 2r9a-3kit,Capital Project Details List,filter,Budget/Finance,,False,False,https://data.cambridgema.gov/d/2r9a-3kit
 4a8a-9kqx,category_tiles,dataset,Uncategorized,,True,False,https://data.cambridgema.gov/d/4a8a-9kqx
-b395-a6b2,Catering Permits,dataset,Inspectional Services,"permits, health and safety, catering, temporary permits",True,True,https://data.cambridgema.gov/d/b395-a6b2
+b395-a6b2,Catering Permits,dataset,Inspectional Services,"permits, temporary permits, health and safety, catering",True,True,https://data.cambridgema.gov/d/b395-a6b2
 gsft-4pvq,Census Blocks 2010,map,Neighborhood Census Data,"census, population",False,False,https://data.cambridgema.gov/d/gsft-4pvq
 39c4-zj8t,Census Blocks 2010,dataset,Neighborhood Census Data,"census, population",True,True,https://data.cambridgema.gov/d/39c4-zj8t
-kwni-34ce,Census Blocks 2020,dataset,Neighborhood Census Data,"population, census, gis",True,True,https://data.cambridgema.gov/d/kwni-34ce
+kwni-34ce,Census Blocks 2020,dataset,Neighborhood Census Data,"census, gis, population",True,True,https://data.cambridgema.gov/d/kwni-34ce
 qwvv-deed,Certificates of Occupancy,dataset,Inspectional Services,permits,True,True,https://data.cambridgema.gov/d/qwvv-deed
-4wmm-yatk,Certified Sustainable Buildings,dataset,Energy and the Environment,"building energy use disclosure ordinance - beudo, community development department - cdd, housing and development, sustainability, leed",True,True,https://data.cambridgema.gov/d/4wmm-yatk
-kuj7-awvi,Certified Sustainable Buildings Map,map,Energy and the Environment,"passive house, sustainability, energy star, leed, enterprise green communities",False,False,https://data.cambridgema.gov/d/kuj7-awvi
+4wmm-yatk,Certified Sustainable Buildings,dataset,Energy and the Environment,"sustainability, leed, community development department - cdd, building energy use disclosure ordinance - beudo, housing and development",True,True,https://data.cambridgema.gov/d/4wmm-yatk
+kuj7-awvi,Certified Sustainable Buildings Map,map,Energy and the Environment,"sustainability, leed, energy star, enterprise green communities, passive house",False,False,https://data.cambridgema.gov/d/kuj7-awvi
 x8p2-63cc,Chart of Housing Starts 1996-present,chart,Housing,,False,False,https://data.cambridgema.gov/d/x8p2-63cc
 49rk-kacd,City Boundary Map,map,Geographic Information (GIS),,False,False,https://data.cambridgema.gov/d/49rk-kacd
-wnyg-j5fh,City Boundary Polygon,dataset,General Government,"boundary, shapefile, gis",True,True,https://data.cambridgema.gov/d/wnyg-j5fh
+wnyg-j5fh,City Boundary Polygon,dataset,General Government,"shapefile, gis, boundary",True,True,https://data.cambridgema.gov/d/wnyg-j5fh
 wzr3-7kz8,City Council Election 2013,dataset,General Government,"city council, elections",True,True,https://data.cambridgema.gov/d/wzr3-7kz8
-43xr-6qqz,City Council Roll Call Votes 2016-2017,dataset,General Government,"city council, government and finance",True,True,https://data.cambridgema.gov/d/43xr-6qqz
+43xr-6qqz,City Council Roll Call Votes 2016-2017,dataset,General Government,"government and finance, city council",True,True,https://data.cambridgema.gov/d/43xr-6qqz
 3g59-fvq4,City Council Roll Call Votes 2018-2019,dataset,General Government,government and finance,True,True,https://data.cambridgema.gov/d/3g59-fvq4
-uuej-6t9x,City Senior Center Interval Energy Data,dataset,Energy and the Environment,"energy, sustainability, glocal, electricity",True,True,https://data.cambridgema.gov/d/uuej-6t9x
+uuej-6t9x,City Senior Center Interval Energy Data,dataset,Energy and the Environment,"sustainability, electricity, energy, glocal",True,True,https://data.cambridgema.gov/d/uuej-6t9x
 wt64-has2,cityscape_tiles,dataset,Uncategorized,,True,False,https://data.cambridgema.gov/d/wt64-has2
 ijm6-q7em,Citywide Bicycle Counts,dataset,Transportation,"transportation, bicycles, bicycle count",True,True,https://data.cambridgema.gov/d/ijm6-q7em
 x96z-hdnh,Civic Innovation Challenge Inventory,dataset,General Government,open data,True,True,https://data.cambridgema.gov/d/x96z-hdnh
-ibuz-brbz,Commercial District Customer Intercept Survey Responses - Historical,dataset,Planning,"commercial districts, business, survey, economic development",True,True,https://data.cambridgema.gov/d/ibuz-brbz
-ejhf-g6hj,Commercial District Customer Intercept Survey Responses - Updated,dataset,Economic Development,"survey, central square, commercial districts",True,True,https://data.cambridgema.gov/d/ejhf-g6hj
-2sji-f9xu,Commercial Parcel Data - FY2015 (Historical),dataset,Assessing,"assessing, housing and development, commercial",True,True,https://data.cambridgema.gov/d/2sji-f9xu
-ad63-87vz,Commercial Parcel Data FY2016,dataset,Assessing,"assessing, commercial, housing and development",True,True,https://data.cambridgema.gov/d/ad63-87vz
+ibuz-brbz,Commercial District Customer Intercept Survey Responses - Historical,dataset,Planning,"business, commercial districts, survey, economic development",True,True,https://data.cambridgema.gov/d/ibuz-brbz
+ejhf-g6hj,Commercial District Customer Intercept Survey Responses - Updated,dataset,Economic Development,"commercial districts, central square, survey",True,True,https://data.cambridgema.gov/d/ejhf-g6hj
+2sji-f9xu,Commercial Parcel Data - FY2015 (Historical),dataset,Assessing,"assessing, commercial, housing and development",True,True,https://data.cambridgema.gov/d/2sji-f9xu
+ad63-87vz,Commercial Parcel Data FY2016,dataset,Assessing,"commercial, assessing, housing and development",True,True,https://data.cambridgema.gov/d/ad63-87vz
 pjd4-dh4n,Commercial Parking,dataset,Transportation,"parking, map, gis",True,True,https://data.cambridgema.gov/d/pjd4-dh4n
-t8tm-muns,Commercial Parking,map,Transportation,"gis, map, parking",False,False,https://data.cambridgema.gov/d/t8tm-muns
+t8tm-muns,Commercial Parking,map,Transportation,"parking, gis, map",False,False,https://data.cambridgema.gov/d/t8tm-muns
 ueap-jbji,Commercial Parking Lots,map,Transportation,parking,False,False,https://data.cambridgema.gov/d/ueap-jbji
 mcm9-zryb,Commonwealth Connect Bike Lane Obstruction Heat Map,map,Public Works,,False,False,https://data.cambridgema.gov/d/mcm9-zryb
-2z9k-mv9g,Commonwealth Connect Service Requests,dataset,Public Works,"vision zero, 311, health and safety, glocal, transportation, department of public works - dpw, see click fix",True,True,https://data.cambridgema.gov/d/2z9k-mv9g
+2z9k-mv9g,Commonwealth Connect Service Requests,dataset,Public Works,"health and safety, glocal, vision zero, department of public works - dpw, 311, transportation, see click fix",True,True,https://data.cambridgema.gov/d/2z9k-mv9g
 8er6-fseb,"Commonwealth Connect Service Requests - ""Other"" Category",filter,Public Works,311,False,False,https://data.cambridgema.gov/d/8er6-fseb
 bstz-ic97,Commonwealth Connect Service Requests - Open Tickets,filter,Public Works,311,False,False,https://data.cambridgema.gov/d/bstz-ic97
 uz4w-baz5,Commonwealth Connect Service Requests - Rodent Sightings,filter,Public Works,311,False,False,https://data.cambridgema.gov/d/uz4w-baz5
 82vf-hw8v,Commonwealth Connect Service Requests - Rodent Sightings Heat Map,map,Public Works,,False,False,https://data.cambridgema.gov/d/82vf-hw8v
 xsgk-42ks,Commonwealth Connect Service Requests by Issue Type,chart,Public Works,,False,False,https://data.cambridgema.gov/d/xsgk-42ks
 df8c-ms9f,Communicable Disease Cases: Annual Summary,dataset,Public Health,"health and safety, covid-19",True,True,https://data.cambridgema.gov/d/df8c-ms9f
-yc3q-q3hf,Community Development Department Zoning Districts,dataset,Planning,"housing and development, zoning, community development department - cdd, gis, map",True,True,https://data.cambridgema.gov/d/yc3q-q3hf
+yc3q-q3hf,Community Development Department Zoning Districts,dataset,Planning,"zoning, gis, housing and development, map, community development department - cdd",True,True,https://data.cambridgema.gov/d/yc3q-q3hf
 q8gd-y4wz,Community Development Department Zoning Districts Map,map,Planning,,False,False,https://data.cambridgema.gov/d/q8gd-y4wz
-ppai-cur6,Computer Aided Dispatch Entries,dataset,Public Safety,"emergency, 911, computer-aided dispatch - cad, vision zero, health and safety",True,True,https://data.cambridgema.gov/d/ppai-cur6
+ppai-cur6,Computer Aided Dispatch Entries,dataset,Public Safety,"vision zero, emergency, computer-aided dispatch - cad, 911, health and safety",True,True,https://data.cambridgema.gov/d/ppai-cur6
 88at-7ucq,Condominium Data Report FY2015 (Historical),dataset,Assessing,"condominiums, assessing, housing and development",True,True,https://data.cambridgema.gov/d/88at-7ucq
-59zb-i8zk,Condominium Data Report FY2016,dataset,Assessing,"condominiums, assessing, housing and development",True,True,https://data.cambridgema.gov/d/59zb-i8zk
+59zb-i8zk,Condominium Data Report FY2016,dataset,Assessing,"assessing, condominiums, housing and development",True,True,https://data.cambridgema.gov/d/59zb-i8zk
 4nyp-vuze,Confirmed Cambridge COVID-19 Cases 4/1/2020,dataset,Public Safety,"covid-19, health and safety",True,True,https://data.cambridgema.gov/d/4nyp-vuze
 f3mc-t92v,Congressional District Map,map,General Government,,False,False,https://data.cambridgema.gov/d/f3mc-t92v
 jgbr-p6wp,Congressional Districts,dataset,General Government,"gis, congressional districts, government and finance, map",True,True,https://data.cambridgema.gov/d/jgbr-p6wp
@@ -175,76 +176,76 @@ knas-mbrz,COVID-19 and Influenza Cases: Monthly Summary,dataset,Public Health,"c
 axxk-jvk8,COVID-19 Case Count by Date 3/1/2020-11/24/2022,dataset,Public Health,"health and safety, covid-19",True,True,https://data.cambridgema.gov/d/axxk-jvk8
 ikju-95st,COVID-19 Case Type Breakdown 5/11/2023 (Historical),dataset,Public Health,"health and safety, covid-19",True,True,https://data.cambridgema.gov/d/ikju-95st
 gqt6-sbp6,COVID-19 Cases in Cambridge,chart,Public Safety,,False,False,https://data.cambridgema.gov/d/gqt6-sbp6
-inw8-ircw,COVID-19 Cases in Cambridge (Historical),dataset,Public Health,"covid-19, health and safety",True,True,https://data.cambridgema.gov/d/inw8-ircw
+inw8-ircw,COVID-19 Cases in Cambridge (Historical),dataset,Public Health,"health and safety, covid-19",True,True,https://data.cambridgema.gov/d/inw8-ircw
 5dms-3pz8,COVID-19 Cases in Cambridge - Daily Snapshot 5/11/2023,dataset,Uncategorized,"covid-19, health and safety",True,True,https://data.cambridgema.gov/d/5dms-3pz8
 jpj7-da7k,COVID-19 Community Cases 5/11/2023 (Historical),dataset,Uncategorized,"covid-19, health and safety",True,True,https://data.cambridgema.gov/d/jpj7-da7k
 negp-icdt,COVID-19 Counts by Age Cohort 5/11/2023,dataset,Public Health,"health and safety, covid-19",True,True,https://data.cambridgema.gov/d/negp-icdt
 qk7z-9chm,COVID-19 Cumulative Cases by Date,chart,Public Safety,,False,False,https://data.cambridgema.gov/d/qk7z-9chm
 tdt9-vq5y,COVID-19 Cumulative Cases by Date 12/8/2020,dataset,Public Health,"health and safety, covid-19",True,True,https://data.cambridgema.gov/d/tdt9-vq5y
 2izy-6d7e,COVID-19 Cumulative Cases by Date Graph,chart,Public Safety,,False,False,https://data.cambridgema.gov/d/2izy-6d7e
-5rax-scyt,COVID-19 Death Counts by Demographic 5/11/2023,dataset,Public Health,"covid-19, health and safety",True,True,https://data.cambridgema.gov/d/5rax-scyt
+5rax-scyt,COVID-19 Death Counts by Demographic 5/11/2023,dataset,Public Health,"health and safety, covid-19",True,True,https://data.cambridgema.gov/d/5rax-scyt
 ckq7-kjti,COVID-19 Long Term Care Facility Cases 5/11/2023,dataset,Uncategorized,"health and safety, covid-19",True,True,https://data.cambridgema.gov/d/ckq7-kjti
-7v3g-pi6d,COVID-19 Neighborhood Case Count 5/11/2023,dataset,Uncategorized,"covid-19, health and safety",True,True,https://data.cambridgema.gov/d/7v3g-pi6d
+7v3g-pi6d,COVID-19 Neighborhood Case Count 5/11/2023,dataset,Uncategorized,"health and safety, covid-19",True,True,https://data.cambridgema.gov/d/7v3g-pi6d
 vjta-ktng,COVID-19 New Cases by Date,chart,Public Safety,,False,False,https://data.cambridgema.gov/d/vjta-ktng
-dm97-fm73,COVID-19 Small Business Grant Awards,dataset,Economic Development,"business, covid-19",True,True,https://data.cambridgema.gov/d/dm97-fm73
+dm97-fm73,COVID-19 Small Business Grant Awards,dataset,Economic Development,"covid-19, business",True,True,https://data.cambridgema.gov/d/dm97-fm73
 krhk-3aen,COVID-19 Testing By Week 2/8/2020-6/19/2021 (Historical),dataset,Public Health,"health and safety, covid-19",True,True,https://data.cambridgema.gov/d/krhk-3aen
-74nt-wqhp,COVID-19 University Case Counts 5/11/2023,dataset,Uncategorized,"health and safety, covid-19",True,True,https://data.cambridgema.gov/d/74nt-wqhp
-h6fp-bp8s,CPD Crash Log,dataset,Public Safety,"crash, accidents, motor vehicles, health and safety",True,True,https://data.cambridgema.gov/d/h6fp-bp8s
-vppe-a39w,"Crane, Boom and Pump Truck Permits",dataset,Public Works,"construction, permits",True,True,https://data.cambridgema.gov/d/vppe-a39w
+74nt-wqhp,COVID-19 University Case Counts 5/11/2023,dataset,Uncategorized,"covid-19, health and safety",True,True,https://data.cambridgema.gov/d/74nt-wqhp
+h6fp-bp8s,CPD Crash Log,dataset,Public Safety,"motor vehicles, accidents, crash, health and safety",True,True,https://data.cambridgema.gov/d/h6fp-bp8s
+vppe-a39w,"Crane, Boom and Pump Truck Permits",dataset,Public Works,"permits, construction",True,True,https://data.cambridgema.gov/d/vppe-a39w
 e6tn-zzip,Crashes by Date,chart,Public Safety,,False,False,https://data.cambridgema.gov/d/e6tn-zzip
-xuad-73uj,Crime Reports,dataset,Public Safety,"crime, police, health and safety",True,True,https://data.cambridgema.gov/d/xuad-73uj
+xuad-73uj,Crime Reports,dataset,Public Safety,"police, health and safety, crime",True,True,https://data.cambridgema.gov/d/xuad-73uj
 3ckz-4e9s,Crime Reports by Reporting Area,map,Public Safety,,False,False,https://data.cambridgema.gov/d/3ckz-4e9s
 qns8-34fa,Crime Reports by Type,chart,Public Safety,,False,False,https://data.cambridgema.gov/d/qns8-34fa
-q2hw-5t8j,Curb Cut Permits,dataset,Inspectional Services,"construction, sidewalks, permits",True,True,https://data.cambridgema.gov/d/q2hw-5t8j
+q2hw-5t8j,Curb Cut Permits,dataset,Inspectional Services,"sidewalks, construction, permits",True,True,https://data.cambridgema.gov/d/q2hw-5t8j
 tu72-3w6p,Daily Municipal Compost,dataset,Public Works,"department of public works - dpw, trash, compost",True,True,https://data.cambridgema.gov/d/tu72-3w6p
 3gki-wyrb,Daily Police Log,dataset,Public Safety,"police, crime",True,True,https://data.cambridgema.gov/d/3gki-wyrb
 6g8c-miix,Data Analytics & Open Data Program Strategic Plan,file,Uncategorized,,False,False,https://data.cambridgema.gov/d/6g8c-miix
 tf4j-t8nd,Decennial Census Housing Unit Count by Neighborhood,chart,Neighborhood Census Data,,False,False,https://data.cambridgema.gov/d/tf4j-t8nd
-veht-2mkm,"Decennial Census Housing, Tenure, & Households  1980 - 2020",dataset,Neighborhood Census Data,"households, census, housing and development, population",True,True,https://data.cambridgema.gov/d/veht-2mkm
-rqau-pwa4,"Decennial Census Population, Race & Ethnicity 1980 - 2020",dataset,Neighborhood Census Data,"census, neighborhoods, housing and development, demographics",True,True,https://data.cambridgema.gov/d/rqau-pwa4
-kcfi-ackv,Demolition Permits,dataset,Inspectional Services,"permits, demolition, construction",True,True,https://data.cambridgema.gov/d/kcfi-ackv
+veht-2mkm,"Decennial Census Housing, Tenure, & Households  1980 - 2020",dataset,Neighborhood Census Data,"housing and development, population, census, households",True,True,https://data.cambridgema.gov/d/veht-2mkm
+rqau-pwa4,"Decennial Census Population, Race & Ethnicity 1980 - 2020",dataset,Neighborhood Census Data,"demographics, housing and development, neighborhoods, census",True,True,https://data.cambridgema.gov/d/rqau-pwa4
+kcfi-ackv,Demolition Permits,dataset,Inspectional Services,"permits, construction, demolition",True,True,https://data.cambridgema.gov/d/kcfi-ackv
 9r6v-svhs,Dev Log Projects Completed Since 2020-2024,map,Planning,,False,False,https://data.cambridgema.gov/d/9r6v-svhs
-wjwg-93qh,Development Log Current Edition 2026 Q1,dataset,Planning,"permits, hotel rooms, community development department - cdd, housing and development, development log",True,True,https://data.cambridgema.gov/d/wjwg-93qh
-5nqm-2ns2,Development Log Current Edition Project Use Data 2025 Q4,dataset,Planning,"hotel rooms, housing and development, community development department - cdd",True,True,https://data.cambridgema.gov/d/5nqm-2ns2
+wjwg-93qh,Development Log Current Edition 2026 Q1,dataset,Planning,"housing and development, community development department - cdd, permits, development log, hotel rooms",True,True,https://data.cambridgema.gov/d/wjwg-93qh
+5nqm-2ns2,Development Log Current Edition Project Use Data 2025 Q4,dataset,Planning,"community development department - cdd, hotel rooms, housing and development",True,True,https://data.cambridgema.gov/d/5nqm-2ns2
 a5ud-8kjv,Development Log Historical Projects 1997 - 2025,dataset,Planning,"development log, community development department - cdd, housing and development",True,True,https://data.cambridgema.gov/d/a5ud-8kjv
-5432-hmix,Development Log Historical Projects Additional Details 2011 - 2025,dataset,Planning,"housing and development, community development department - cdd, hotel rooms",True,True,https://data.cambridgema.gov/d/5432-hmix
-r5mv-isth,Development Log Historical Projects Use Data 1997 - 2025,dataset,Planning,"housing and development, community development department - cdd, hotel rooms",True,True,https://data.cambridgema.gov/d/r5mv-isth
-p7te-amec,Development Log MapLots 2011 to Present,dataset,Planning,"community development department - cdd, parcels, housing and development",True,True,https://data.cambridgema.gov/d/p7te-amec
-b4k4-w9fk,Dewatering Permits,dataset,Public Works,"environment, department of public works - dpw, water, permits, environmental protection agency - epa",True,True,https://data.cambridgema.gov/d/b4k4-w9fk
+5432-hmix,Development Log Historical Projects Additional Details 2011 - 2025,dataset,Planning,"community development department - cdd, housing and development, hotel rooms",True,True,https://data.cambridgema.gov/d/5432-hmix
+r5mv-isth,Development Log Historical Projects Use Data 1997 - 2025,dataset,Planning,"housing and development, hotel rooms, community development department - cdd",True,True,https://data.cambridgema.gov/d/r5mv-isth
+p7te-amec,Development Log MapLots 2011 to Present,dataset,Planning,"parcels, community development department - cdd, housing and development",True,True,https://data.cambridgema.gov/d/p7te-amec
+b4k4-w9fk,Dewatering Permits,dataset,Public Works,"water, permits, environmental protection agency - epa, environment, department of public works - dpw",True,True,https://data.cambridgema.gov/d/b4k4-w9fk
 fnh7-s2d6,Distribution of Household Types by Neighborhood,chart,Neighborhood Census Data,,False,False,https://data.cambridgema.gov/d/fnh7-s2d6
 kp74-tuqx,Dog per Neighborhood - Based on Dogs of Cambridge,chart,General Government,,False,False,https://data.cambridgema.gov/d/kp74-tuqx
-sckh-3xyx,Dogs of Cambridge,dataset,General Government,"dogs, featured datasets, dog licenses",True,True,https://data.cambridgema.gov/d/sckh-3xyx
+sckh-3xyx,Dogs of Cambridge,dataset,General Government,"dog licenses, featured datasets, dogs",True,True,https://data.cambridgema.gov/d/sckh-3xyx
 qjvj-bebc,Dogs of Cambridge Data Story,story,Uncategorized,,False,False,https://data.cambridgema.gov/stories/s/qjvj-bebc
 emzx-awst,Dogs of Cambridge Map,map,General Government,,False,False,https://data.cambridgema.gov/d/emzx-awst
-6rcx-ibcs,Dumpster Licenses - Historical,dataset,Inspectional Services,"dumpsters, permits",True,True,https://data.cambridgema.gov/d/6rcx-ibcs
+6rcx-ibcs,Dumpster Licenses - Historical,dataset,Inspectional Services,"permits, dumpsters",True,True,https://data.cambridgema.gov/d/6rcx-ibcs
 8xmj-thsm,Dumpster Parking Permits,dataset,Transportation,"dumpsters, parking",True,True,https://data.cambridgema.gov/d/8xmj-thsm
-h6rx-ind5,Dumpster Permits,dataset,Inspectional Services,"dumpsters, permits, trash, recycling",True,True,https://data.cambridgema.gov/d/h6rx-ind5
+h6rx-ind5,Dumpster Permits,dataset,Inspectional Services,"recycling, permits, dumpsters, trash",True,True,https://data.cambridgema.gov/d/h6rx-ind5
 xd4d-326b,Early Voting for 2016 Presidential Election,dataset,General Government,"elections, government and finance",True,True,https://data.cambridgema.gov/d/xd4d-326b
-q8v9-mcfg,Eco-Totem Broadway Bicycle Count,dataset,Transportation,"vision zero, bicycle count, transportation, kendall square, eco-totem, bicycles",True,True,https://data.cambridgema.gov/d/q8v9-mcfg
+q8v9-mcfg,Eco-Totem Broadway Bicycle Count,dataset,Transportation,"kendall square, eco-totem, bicycles, bicycle count, transportation, vision zero",True,True,https://data.cambridgema.gov/d/q8v9-mcfg
 9yzv-hx4u,Eco-Totem Broadway Bicycle Counts by Date,chart,Uncategorized,,False,False,https://data.cambridgema.gov/d/9yzv-hx4u
 binv-ufey,Election Polling Locations Map,map,General Government,,False,False,https://data.cambridgema.gov/d/binv-ufey
 pnfs-kgh9,Elections - Wards Precincts,dataset,General Government,"government and finance, elections, wards and precincts",True,True,https://data.cambridgema.gov/d/pnfs-kgh9
-skya-cqyb,Elections Polling Locations,dataset,General Government,"elections, address",True,True,https://data.cambridgema.gov/d/skya-cqyb
-erax-f2m6,Elections State Rep Districts,map,General Government,"map, elections",False,False,https://data.cambridgema.gov/d/erax-f2m6
+skya-cqyb,Elections Polling Locations,dataset,General Government,"address, elections",True,True,https://data.cambridgema.gov/d/skya-cqyb
+erax-f2m6,Elections State Rep Districts,map,General Government,"elections, map",False,False,https://data.cambridgema.gov/d/erax-f2m6
 kw9a-9vzu,Elections State Senate Districts,map,General Government,"map, elections",False,False,https://data.cambridgema.gov/d/kw9a-9vzu
 nuse-ieia,ELECTIONS_CongressionalDistricts,dataset,General Government,"map, city of cambridge, gis, congressional districts",True,True,https://data.cambridgema.gov/d/nuse-ieia
 ngci-ravv,ELECTIONS_StateRepDistricts,dataset,General Government,"elections, map",True,True,https://data.cambridgema.gov/d/ngci-ravv
 4eya-y7ji,Electrical Maintenance Agreement,dataset,Inspectional Services,permits,True,True,https://data.cambridgema.gov/d/4eya-y7ji
-hvtc-3ab9,Electrical Permits,dataset,Inspectional Services,"electricity, permits",True,True,https://data.cambridgema.gov/d/hvtc-3ab9
-sx7w-cut7,Envision Cambridge Mobile Engagement Feedback,dataset,Planning,"sustainability, community development department - cdd, equity",True,True,https://data.cambridgema.gov/d/sx7w-cut7
-43k6-pjtt,EPA Air Quality Data - Pollutants,dataset,Energy and the Environment,"environmental protection agency - epa, air quality, health and safety, pollution",True,True,https://data.cambridgema.gov/d/43k6-pjtt
+hvtc-3ab9,Electrical Permits,dataset,Inspectional Services,"permits, electricity",True,True,https://data.cambridgema.gov/d/hvtc-3ab9
+sx7w-cut7,Envision Cambridge Mobile Engagement Feedback,dataset,Planning,"sustainability, equity, community development department - cdd",True,True,https://data.cambridgema.gov/d/sx7w-cut7
+43k6-pjtt,EPA Air Quality Data - Pollutants,dataset,Energy and the Environment,"environmental protection agency - epa, pollution, air quality, health and safety",True,True,https://data.cambridgema.gov/d/43k6-pjtt
 nuxx-d95m,Excavation Permits,dataset,Public Works,"permits, excavation",True,True,https://data.cambridgema.gov/d/nuxx-d95m
-kkbh-kxre,Farmer's Market Permits,dataset,Inspectional Services,"farmers' market, permits, health and safety",True,True,https://data.cambridgema.gov/d/kkbh-kxre
+kkbh-kxre,Farmer's Market Permits,dataset,Inspectional Services,"health and safety, permits, farmers' market",True,True,https://data.cambridgema.gov/d/kkbh-kxre
 qad5-bjue,featured_stories,dataset,Uncategorized,,True,False,https://data.cambridgema.gov/d/qad5-bjue
 evap-ti2v,Find It Cambridge Events & Programs,dataset,Department of Human Service Programs (DHSP),find it,True,True,https://data.cambridgema.gov/d/evap-ti2v
 4ge9-7nps,Fire Engine Districts,map,Public Safety,fire department,False,False,https://data.cambridgema.gov/d/4ge9-7nps
 9w6z-2z73,Fire Ladder Districts,map,Public Safety,fire department,False,False,https://data.cambridgema.gov/d/9w6z-2z73
 ycci-9ude,Fire Rescue Districts,map,Public Safety,fire department,False,False,https://data.cambridgema.gov/d/ycci-9ude
 q3m9-gvcq,Fire Stations,map,Public Safety,fire department,False,False,https://data.cambridgema.gov/d/q3m9-gvcq
-c4us-bahj,Flood Resilience Compliance Confirmation,dataset,Public Works,"buildings, climate, permits",True,True,https://data.cambridgema.gov/d/c4us-bahj
-iect-ma2e,Food Establishment Permits,dataset,Inspectional Services,"permits, restaurants, health and safety",True,True,https://data.cambridgema.gov/d/iect-ma2e
+c4us-bahj,Flood Resilience Compliance Confirmation,dataset,Public Works,"buildings, permits, climate",True,True,https://data.cambridgema.gov/d/c4us-bahj
+iect-ma2e,Food Establishment Permits,dataset,Inspectional Services,"health and safety, restaurants, permits",True,True,https://data.cambridgema.gov/d/iect-ma2e
 utuw-e5ex,Food Establishment Permits Map,map,Inspectional Services,,False,False,https://data.cambridgema.gov/d/utuw-e5ex
-6xy8-cstb,Fresh Pond Reservation Usership,dataset,Uncategorized,"pedestrians, bicycle count, bicycles, eco-totem, fresh pond, pedestrian count",True,True,https://data.cambridgema.gov/d/6xy8-cstb
+6xy8-cstb,Fresh Pond Reservation Usership,dataset,Uncategorized,"bicycles, eco-totem, fresh pond, pedestrian count, pedestrians, bicycle count",True,True,https://data.cambridgema.gov/d/6xy8-cstb
 3tvu-vurw,Funeral and Wake Parking,dataset,Transportation,"parking, permit",True,True,https://data.cambridgema.gov/d/3tvu-vurw
 5cra-jws5,Gas Permits,dataset,Inspectional Services,"permits, construction, plumbing",True,True,https://data.cambridgema.gov/d/5cra-jws5
 hk2d-8z9b,Graffiti Clean Up Requests (HISTORICAL),dataset,Public Works,"department of public works - dpw, graffiti",True,True,https://data.cambridgema.gov/d/hk2d-8z9b
@@ -252,110 +253,110 @@ hk2d-8z9b,Graffiti Clean Up Requests (HISTORICAL),dataset,Public Works,"departme
 s26k-kx4t,Historic Districts,dataset,Planning,"historic districts, housing and development",True,True,https://data.cambridgema.gov/d/s26k-kx4t
 9vpk-eve9,Historical Landmarks and Easements,dataset,General Government,"historical landmarks, housing and development, gis, easements",True,True,https://data.cambridgema.gov/d/9vpk-eve9
 bt5w-u3gu,Historical Landmarks and Easements Map,map,Geographic Information (GIS),,False,False,https://data.cambridgema.gov/d/bt5w-u3gu
-mhxt-fv5h,Historical National Register Historic Places,dataset,General Government,"housing and development, gis, historic places",True,True,https://data.cambridgema.gov/d/mhxt-fv5h
+mhxt-fv5h,Historical National Register Historic Places,dataset,General Government,"historic places, gis, housing and development",True,True,https://data.cambridgema.gov/d/mhxt-fv5h
 mfs6-yu9a,Home Page Featured Story,dataset,Uncategorized,,True,True,https://data.cambridgema.gov/d/mfs6-yu9a
 4y97-6yxc,Home Page Stories,dataset,General Government,open data,True,True,https://data.cambridgema.gov/d/4y97-6yxc
 y896-y3kz,homebase_tiles,dataset,Uncategorized,,True,False,https://data.cambridgema.gov/d/y896-y3kz
-f8su-kv88,Housing Code Violations,dataset,Inspectional Services,"housing and development, violations, housing code, health and safety",True,True,https://data.cambridgema.gov/d/f8su-kv88
+f8su-kv88,Housing Code Violations,dataset,Inspectional Services,"housing code, housing and development, health and safety, violations",True,True,https://data.cambridgema.gov/d/f8su-kv88
 ut5v-r8sp,Housing Foreclosure Actions,chart,Housing,,False,False,https://data.cambridgema.gov/d/ut5v-r8sp
-y82j-c2bw,Housing Foreclosures 2003 - present,dataset,Housing,"housing and development, foreclosure, residential, planning",True,True,https://data.cambridgema.gov/d/y82j-c2bw
-9nnq-4isb,Housing Median Sales Prices,dataset,Housing,"housing and development, community development department - cdd",True,True,https://data.cambridgema.gov/d/9nnq-4isb
+y82j-c2bw,Housing Foreclosures 2003 - present,dataset,Housing,"residential, foreclosure, planning, housing and development",True,True,https://data.cambridgema.gov/d/y82j-c2bw
+9nnq-4isb,Housing Median Sales Prices,dataset,Housing,"community development department - cdd, housing and development",True,True,https://data.cambridgema.gov/d/9nnq-4isb
 buh8-cijh,Housing Median Sales Prices 2002 - 2024,chart,Housing,,False,False,https://data.cambridgema.gov/d/buh8-cijh
-6nxj-uqfe,Housing Permits 1996 - Present,dataset,Housing,"housing and development, residential, construction, demolition, permits",True,True,https://data.cambridgema.gov/d/6nxj-uqfe
+6nxj-uqfe,Housing Permits 1996 - Present,dataset,Housing,"construction, permits, housing and development, demolition, residential",True,True,https://data.cambridgema.gov/d/6nxj-uqfe
 2rxh-46kx,Housing Starts Map,map,Housing,"demolition, housing and development, construction",False,False,https://data.cambridgema.gov/d/2rxh-46kx
 dxpx-c7p4,Housing Starts: Net Change in Units by Year,chart,Housing,,False,False,https://data.cambridgema.gov/d/dxpx-c7p4
-wiba-69ua,Housing Stock and Residential Properties by Neighborhood: 2025,dataset,Housing,"permits, residential, housing and development",True,True,https://data.cambridgema.gov/d/wiba-69ua
+wiba-69ua,Housing Stock and Residential Properties by Neighborhood: 2025,dataset,Housing,"residential, permits, housing and development",True,True,https://data.cambridgema.gov/d/wiba-69ua
 q59s-65w3,Housing Stock by Neighborhood,chart,Housing,,False,False,https://data.cambridgema.gov/d/q59s-65w3
 rcc3-f24c,Housing Unit Density by Neighborhood,chart,Neighborhood Census Data,,False,False,https://data.cambridgema.gov/d/rcc3-f24c
 6sxa-6nuy,Housing Unit Share by Neighborhood,chart,Neighborhood Census Data,,False,False,https://data.cambridgema.gov/d/6sxa-6nuy
 8c9t-wfcx,Hydrant Map,map,Water Department,,False,False,https://data.cambridgema.gov/d/8c9t-wfcx
-b3it-aidj,Hydrants,dataset,Water Department,"glocal, health and safety, fire department, gis, water",True,True,https://data.cambridgema.gov/d/b3it-aidj
+b3it-aidj,Hydrants,dataset,Water Department,"glocal, health and safety, gis, fire department, water",True,True,https://data.cambridgema.gov/d/b3it-aidj
 nydg-hpd8,Icy Streets by Neighborhood,map,Public Works,,False,False,https://data.cambridgema.gov/d/nydg-hpd8
 sqcj-pe5y,Inflation Adjusted (Real) Median Residential Rents 2010 - Present,chart,Housing,,False,False,https://data.cambridgema.gov/d/sqcj-pe5y
-xhx7-spt9,Intersections,dataset,Transportation,"vision zero, gis, map, street intersections",True,True,https://data.cambridgema.gov/d/xhx7-spt9
+xhx7-spt9,Intersections,dataset,Transportation,"map, vision zero, street intersections, gis",True,True,https://data.cambridgema.gov/d/xhx7-spt9
 q9w8-8ma4,Labor Force & Resident Annual Unemployment Rate 1974 - present,dataset,Economic Development,"unemployment, labor force",True,True,https://data.cambridgema.gov/d/q9w8-8ma4
-8acn-zxjt,"Labor Force Commuting Mode Split: 1990, 2000, 2006 - 2010, and 2012 - 2016",dataset,Transportation,"commuting, census, transportation",True,True,https://data.cambridgema.gov/d/8acn-zxjt
-wfre-hbsk,Labor Force Demographic Characteristics by Commuting Mode Split: 2012 - 2016,dataset,Transportation,"annual household income, transportation, labor force, demographics, commuting",True,True,https://data.cambridgema.gov/d/wfre-hbsk
-dnyu-v8e9,Land Use Data 2025,dataset,Planning,"land use, housing and development, planning",True,True,https://data.cambridgema.gov/d/dnyu-v8e9
+8acn-zxjt,"Labor Force Commuting Mode Split: 1990, 2000, 2006 - 2010, and 2012 - 2016",dataset,Transportation,"transportation, commuting, census",True,True,https://data.cambridgema.gov/d/8acn-zxjt
+wfre-hbsk,Labor Force Demographic Characteristics by Commuting Mode Split: 2012 - 2016,dataset,Transportation,"commuting, transportation, demographics, labor force, annual household income",True,True,https://data.cambridgema.gov/d/wfre-hbsk
+dnyu-v8e9,Land Use Data 2025,dataset,Planning,"planning, housing and development, land use",True,True,https://data.cambridgema.gov/d/dnyu-v8e9
 exg5-6cy3,Land Use Map 2025,map,Planning,,False,False,https://data.cambridgema.gov/d/exg5-6cy3
 fzy8-hiv9,LANDMARK_MunicipalBuildings,dataset,General Government,"map, municipal buildings",True,True,https://data.cambridgema.gov/d/fzy8-hiv9
-yrt7-q34w,LANDMARK_YouthCenters,dataset,General Government,"gis, youth center",True,True,https://data.cambridgema.gov/d/yrt7-q34w
-nhwa-9a9p,Life Sciences and Technology Companies Map,map,Economic Development,"map, life sciences, business",False,False,https://data.cambridgema.gov/d/nhwa-9a9p
-fv53-bvhy,Life Sciences and Technology Company Listing,dataset,Economic Development,"sustainability, economic development, life sciences",True,True,https://data.cambridgema.gov/d/fv53-bvhy
+yrt7-q34w,LANDMARK_YouthCenters,dataset,General Government,"youth center, gis",True,True,https://data.cambridgema.gov/d/yrt7-q34w
+nhwa-9a9p,Life Sciences and Technology Companies Map,map,Economic Development,"business, map, life sciences",False,False,https://data.cambridgema.gov/d/nhwa-9a9p
+fv53-bvhy,Life Sciences and Technology Company Listing,dataset,Economic Development,"life sciences, sustainability, economic development",True,True,https://data.cambridgema.gov/d/fv53-bvhy
 swtw-j5xy,March 2016 Primary Election,dataset,General Government,"government and finance, elections",True,True,https://data.cambridgema.gov/d/swtw-j5xy
-vup6-kpwv,Master Addresses List,dataset,General Government,"gis, address, buildings",True,True,https://data.cambridgema.gov/d/vup6-kpwv
-7g3f-rtpe,Master Intersections List,dataset,General Government,"gis, transportation, street intersections, coordinates",True,True,https://data.cambridgema.gov/d/7g3f-rtpe
-4rb4-q8tj,Mechanical Permits,dataset,Inspectional Services,"glocal, electricity, air conditioning, plumbing, permits, hvac, housing and development",True,True,https://data.cambridgema.gov/d/4rb4-q8tj
+vup6-kpwv,Master Addresses List,dataset,General Government,"address, gis, buildings",True,True,https://data.cambridgema.gov/d/vup6-kpwv
+7g3f-rtpe,Master Intersections List,dataset,General Government,"coordinates, street intersections, gis, transportation",True,True,https://data.cambridgema.gov/d/7g3f-rtpe
+4rb4-q8tj,Mechanical Permits,dataset,Inspectional Services,"glocal, electricity, air conditioning, hvac, permits, plumbing, housing and development",True,True,https://data.cambridgema.gov/d/4rb4-q8tj
 n9xk-8wft,Median Residential Rents 2010 - Present,dataset,Housing,"rent, housing and development",True,True,https://data.cambridgema.gov/d/n9xk-8wft
 u7ng-7x7n,Medical Dispatch Counts by Police Neighborhood,map,Public Safety,,False,False,https://data.cambridgema.gov/d/u7ng-7x7n
-4hgq-4f2b,Medical Events,dataset,Public Safety,"police, computer-aided dispatch - cad, health and safety, fire department, ambulance",True,True,https://data.cambridgema.gov/d/4hgq-4f2b
-qn5n-giyy,Memorial Poles,dataset,Public Works,"map, gis",True,True,https://data.cambridgema.gov/d/qn5n-giyy
+4hgq-4f2b,Medical Events,dataset,Public Safety,"ambulance, health and safety, police, fire department, computer-aided dispatch - cad",True,True,https://data.cambridgema.gov/d/4hgq-4f2b
+qn5n-giyy,Memorial Poles,dataset,Public Works,"gis, map",True,True,https://data.cambridgema.gov/d/qn5n-giyy
 8tep-ssh6,Memorial Poles Map,map,Geographic Information (GIS),,False,False,https://data.cambridgema.gov/d/8tep-ssh6
 u4ff-u4iz,Metered Parking Map,map,Transportation,parking,False,False,https://data.cambridgema.gov/d/u4ff-u4iz
 6h7q-rwhf,Metered Parking Spaces,map,Transportation,parking,False,False,https://data.cambridgema.gov/d/6h7q-rwhf
-kvrt-t8v3,Metered Parking Spaces,dataset,Transportation,"parking meter, parking",True,True,https://data.cambridgema.gov/d/kvrt-t8v3
-7zcp-kyfg,MioVision Daily Pedestrian Counts,dataset,Transportation,"transportation, pedestrians",True,True,https://data.cambridgema.gov/d/7zcp-kyfg
-jwtp-n65u,Miovision Traffic Volume Data (All),dataset,Transportation,"traffic counts, street intersections, bicycle count, streets, street lights",True,True,https://data.cambridgema.gov/d/jwtp-n65u
-qweb-m8r8,Mobile Food Truck Permits,dataset,Inspectional Services,"permits, health and safety, restaurants",True,True,https://data.cambridgema.gov/d/qweb-m8r8
+kvrt-t8v3,Metered Parking Spaces,dataset,Transportation,"parking, parking meter",True,True,https://data.cambridgema.gov/d/kvrt-t8v3
+7zcp-kyfg,MioVision Daily Pedestrian Counts,dataset,Transportation,"pedestrians, transportation",True,True,https://data.cambridgema.gov/d/7zcp-kyfg
+jwtp-n65u,Miovision Traffic Volume Data (All),dataset,Transportation,"streets, bicycle count, traffic counts, street intersections, street lights",True,True,https://data.cambridgema.gov/d/jwtp-n65u
+qweb-m8r8,Mobile Food Truck Permits,dataset,Inspectional Services,"health and safety, restaurants, permits",True,True,https://data.cambridgema.gov/d/qweb-m8r8
 sh6q-n4sj,Monthly Municipal Compost,dataset,Public Works,"department of public works - dpw, compost, trash",True,True,https://data.cambridgema.gov/d/sh6q-n4sj
 a249-j2dd,Monthly Municipal Waste,dataset,Public Works,"department of public works - dpw, recycling",True,True,https://data.cambridgema.gov/d/a249-j2dd
 8qbd-p6yz,Motorized Vehicle Counts in September 2024 at Mass Ave and Garden St,chart,Transportation,,False,False,https://data.cambridgema.gov/d/8qbd-p6yz
 k28p-e9kd,Moving Container or Crate parking permit,dataset,Transportation,"parking, permit",True,True,https://data.cambridgema.gov/d/k28p-e9kd
 sr5i-tmfb,Moving Van Permits,dataset,Transportation,"permits, streets, parking",True,True,https://data.cambridgema.gov/d/sr5i-tmfb
 uz5a-t2vj,Municipal Buildings,map,General Government,"municipal buildings, map",False,False,https://data.cambridgema.gov/d/uz5a-t2vj
-27w3-catu,Municipal Parking Lots,map,Transportation,"parking, vision zero, municipal parking lots, gis",False,False,https://data.cambridgema.gov/d/27w3-catu
-ayt4-g2ye,Municipal Wastewater COVID19 Sampling Data 10/1/2020-6/30/2022,dataset,Public Health,"covid-19, wastewater, health and safety",True,True,https://data.cambridgema.gov/d/ayt4-g2ye
+27w3-catu,Municipal Parking Lots,map,Transportation,"municipal parking lots, parking, vision zero, gis",False,False,https://data.cambridgema.gov/d/27w3-catu
+ayt4-g2ye,Municipal Wastewater COVID19 Sampling Data 10/1/2020-6/30/2022,dataset,Public Health,"wastewater, covid-19, health and safety",True,True,https://data.cambridgema.gov/d/ayt4-g2ye
 njvn-npey,Neighborhood Conservation Districts,dataset,Planning,"neighborhoods, gis, housing and development",True,True,https://data.cambridgema.gov/d/njvn-npey
 4k2f-dbtn,Neighborhood Conservation Districts Map,map,Geographic Information (GIS),,False,False,https://data.cambridgema.gov/d/4k2f-dbtn
 mb6n-qshb,Neighborhood Population Density,chart,Neighborhood Census Data,,False,False,https://data.cambridgema.gov/d/mb6n-qshb
 ujtu-gjst,Nominal Median Residential Rents 2010 - Present,chart,Housing,,False,False,https://data.cambridgema.gov/d/ujtu-gjst
-qyv9-s3hq,Non-Profit Corporations,dataset,Economic Development,"non-governmental organization - ngo, economic development, non-profit",True,True,https://data.cambridgema.gov/d/qyv9-s3hq
-998e-s3xs,OBSOLETE - City Owned Publicly Available EV Charging Stations Usage,dataset,Energy and the Environment,"charging station, ev, electric vehicles",True,True,https://data.cambridgema.gov/d/998e-s3xs
+qyv9-s3hq,Non-Profit Corporations,dataset,Economic Development,"non-governmental organization - ngo, non-profit, economic development",True,True,https://data.cambridgema.gov/d/qyv9-s3hq
+998e-s3xs,OBSOLETE - City Owned Publicly Available EV Charging Stations Usage,dataset,Energy and the Environment,"ev, electric vehicles, charging station",True,True,https://data.cambridgema.gov/d/998e-s3xs
 knp2-6d4w,ODRB Meeting Records,file,General Government,open data,False,False,https://data.cambridgema.gov/d/knp2-6d4w
-9q33-qjp4,Open and Closed Businesses During Covid-19 Pandemic 7/1/2021,dataset,Economic Development,"covid-19, business, health and safety, restaurants",True,True,https://data.cambridgema.gov/d/9q33-qjp4
+9q33-qjp4,Open and Closed Businesses During Covid-19 Pandemic 7/1/2021,dataset,Economic Development,"business, health and safety, restaurants, covid-19",True,True,https://data.cambridgema.gov/d/9q33-qjp4
 w7ax-fa5u,Open Data Strategic Plan - FY2020-2022,file,General Government,open data,False,False,https://data.cambridgema.gov/d/w7ax-fa5u
-88i7-ga9f,Open Space,dataset,Planning,"gis, community development department - cdd, parks, housing and development, open space, glocal",True,True,https://data.cambridgema.gov/d/88i7-ga9f
+88i7-ga9f,Open Space,dataset,Planning,"community development department - cdd, gis, glocal, housing and development, parks, open space",True,True,https://data.cambridgema.gov/d/88i7-ga9f
 uarg-65z6,Open Space Map,map,Planning,,False,False,https://data.cambridgema.gov/d/uarg-65z6
 jt69-ftkb,OpenBudget: Long-form Content Configurations,dataset,Uncategorized,,True,False,https://data.cambridgema.gov/d/jt69-ftkb
 9753-viuf,OpenBudget: String Configurations,dataset,Uncategorized,,True,False,https://data.cambridgema.gov/d/9753-viuf
 6jp5-n8h2,Opioid Overdose Incidents (EMS): Annual Citywide Summary by Category,dataset,Public Health,"naloxone, opioids, overdose, public health, ems, health and safety",True,True,https://data.cambridgema.gov/d/6jp5-n8h2
-32dg-u9f8,Opioid Overdose Incidents (EMS): Annual Summary by Neighborhood,dataset,Public Health,"public health, naloxone, health and safety, opioids, ems, neighborhoods, overdose",True,True,https://data.cambridgema.gov/d/32dg-u9f8
-rdsg-px3t,Opioid Overdose Incidents (EMS): Monthly Citywide Summary,dataset,Public Health,"health and safety, opioids, overdose, naloxone, ems, public health",True,True,https://data.cambridgema.gov/d/rdsg-px3t
-wa95-5fg7,Other Street Occupancy Permits,dataset,Transportation,"street, parking, permit",True,True,https://data.cambridgema.gov/d/wa95-5fg7
-qzsr-xrig,Outdoor Dining 6/30/2021 - 7/7/2021,dataset,Licensing,"health and safety, permits, restaurants",True,True,https://data.cambridgema.gov/d/qzsr-xrig
+32dg-u9f8,Opioid Overdose Incidents (EMS): Annual Summary by Neighborhood,dataset,Public Health,"health and safety, public health, overdose, opioids, neighborhoods, naloxone, ems",True,True,https://data.cambridgema.gov/d/32dg-u9f8
+rdsg-px3t,Opioid Overdose Incidents (EMS): Monthly Citywide Summary,dataset,Public Health,"naloxone, ems, health and safety, opioids, overdose, public health",True,True,https://data.cambridgema.gov/d/rdsg-px3t
+wa95-5fg7,Other Street Occupancy Permits,dataset,Transportation,"permit, parking, street",True,True,https://data.cambridgema.gov/d/wa95-5fg7
+qzsr-xrig,Outdoor Dining 6/30/2021 - 7/7/2021,dataset,Licensing,"permits, health and safety, restaurants",True,True,https://data.cambridgema.gov/d/qzsr-xrig
 kthd-bkpb,Outstanding Employee Awards,dataset,General Government,"employees, awards",True,True,https://data.cambridgema.gov/d/kthd-bkpb
-biib-2bsi,Owner Mailing Addresses and Parcel Location Addresses,dataset,Assessing,"address, transportation, housing and development",True,True,https://data.cambridgema.gov/d/biib-2bsi
+biib-2bsi,Owner Mailing Addresses and Parcel Location Addresses,dataset,Assessing,"transportation, address, housing and development",True,True,https://data.cambridgema.gov/d/biib-2bsi
 mg2u-982u,"Park Permit Details, Past Events",dataset,Public Works,"permits, department of public works - dpw, parks",True,True,https://data.cambridgema.gov/d/mg2u-982u
-wsde-3xia,"Park Permits, Future Events",dataset,Public Works,"parks, permits, department of public works - dpw",True,True,https://data.cambridgema.gov/d/wsde-3xia
+wsde-3xia,"Park Permits, Future Events",dataset,Public Works,"parks, department of public works - dpw, permits",True,True,https://data.cambridgema.gov/d/wsde-3xia
 fh3j-96kg,Parking Tickets for Meter Expired Across Cambridge,map,Transportation,"parking, parking meter",False,False,https://data.cambridgema.gov/d/fh3j-96kg
-uhwd-9y6q,Participatory Budgeting Final Ballot Projects,dataset,Budget/Finance,"budget, government and finance, participatory budgeting - pb",True,True,https://data.cambridgema.gov/d/uhwd-9y6q
-54vd-wdqj,Participatory Budgeting Ideas Submitted by Community Members,dataset,Budget/Finance,"budget, government and finance, participatory budgeting - pb",True,True,https://data.cambridgema.gov/d/54vd-wdqj
-fmbp-nphb,"Permanent Labor Certification (PERM) and Labor Condition Application (LCA) Programs (H-1B, H-1B1, E-3) Applications",dataset,Economic Development,"visa, labor force",True,True,https://data.cambridgema.gov/d/fmbp-nphb
+uhwd-9y6q,Participatory Budgeting Final Ballot Projects,dataset,Budget/Finance,"budget, participatory budgeting - pb, government and finance",True,True,https://data.cambridgema.gov/d/uhwd-9y6q
+54vd-wdqj,Participatory Budgeting Ideas Submitted by Community Members,dataset,Budget/Finance,"government and finance, participatory budgeting - pb, budget",True,True,https://data.cambridgema.gov/d/54vd-wdqj
+fmbp-nphb,"Permanent Labor Certification (PERM) and Labor Condition Application (LCA) Programs (H-1B, H-1B1, E-3) Applications",dataset,Economic Development,"labor force, visa",True,True,https://data.cambridgema.gov/d/fmbp-nphb
 8n2m-6rff,Permits for New Building Construction,map,Inspectional Services,,False,False,https://data.cambridgema.gov/d/8n2m-6rff
 mpyp-bjf2,Permits for New Building Construction (Heatmap),map,Inspectional Services,,False,False,https://data.cambridgema.gov/d/mpyp-bjf2
 bv4p-prbt,Playground Map,map,Geographic Information (GIS),,False,False,https://data.cambridgema.gov/d/bv4p-prbt
-ejhd-uvcf,Playgrounds,dataset,Public Works,"planning, housing and development, gis, open space, playgrounds",True,True,https://data.cambridgema.gov/d/ejhd-uvcf
-8793-tet2,Plumbing Permits,dataset,Inspectional Services,"permits, housing and development, plumbing",True,True,https://data.cambridgema.gov/d/8793-tet2
+ejhd-uvcf,Playgrounds,dataset,Public Works,"open space, gis, housing and development, planning, playgrounds",True,True,https://data.cambridgema.gov/d/ejhd-uvcf
+8793-tet2,Plumbing Permits,dataset,Inspectional Services,"permits, plumbing, housing and development",True,True,https://data.cambridgema.gov/d/8793-tet2
 22xf-62vp,Police Business Regions,map,Public Safety,police,False,False,https://data.cambridgema.gov/d/22xf-62vp
 h8w4-wqed,Police Car Routes,map,Public Safety,"public safety, police",False,False,https://data.cambridgema.gov/d/h8w4-wqed
-gmq6-8ver,Police Citations,dataset,Public Safety,"police, vision zero, violations, transportation, health and safety",True,True,https://data.cambridgema.gov/d/gmq6-8ver
-ybny-g9cv,Police Department Crash Data - Historical,dataset,Public Safety,"crash, bicycles, vision zero, police, pedestrians, accidents, motor vehicles, health and safety",True,True,https://data.cambridgema.gov/d/ybny-g9cv
-gb5w-yva3,Police Department Crash Data - Updated,dataset,Public Safety,"health and safety, accidents, crash, transportation, vision zero, motor vehicles",True,True,https://data.cambridgema.gov/d/gb5w-yva3
+gmq6-8ver,Police Citations,dataset,Public Safety,"transportation, vision zero, health and safety, police, violations",True,True,https://data.cambridgema.gov/d/gmq6-8ver
+ybny-g9cv,Police Department Crash Data - Historical,dataset,Public Safety,"bicycles, crash, health and safety, motor vehicles, vision zero, police, pedestrians, accidents",True,True,https://data.cambridgema.gov/d/ybny-g9cv
+gb5w-yva3,Police Department Crash Data - Updated,dataset,Public Safety,"vision zero, crash, accidents, health and safety, motor vehicles, transportation",True,True,https://data.cambridgema.gov/d/gb5w-yva3
 5t2m-mkj7,Police Response Districts,map,Public Safety,police,False,False,https://data.cambridgema.gov/d/5t2m-mkj7
 gfi2-b2j9,Police Sectors,map,Public Safety,police,False,False,https://data.cambridgema.gov/d/gfi2-b2j9
 2dqt-a4fq,Police Station,map,Public Safety,police,False,False,https://data.cambridgema.gov/d/2dqt-a4fq
 ue8g-g6z2,Police Walking Routes,map,Public Safety,police,False,False,https://data.cambridgema.gov/d/ue8g-g6z2
 46mc-c6qf,Population by Neighborhood,chart,Neighborhood Census Data,,False,False,https://data.cambridgema.gov/d/46mc-c6qf
 ibr9-yu5c,Population in Group Quarters by Neighborhood,chart,Neighborhood Census Data,,False,False,https://data.cambridgema.gov/d/ibr9-yu5c
-h2y4-rf5c,Pothole Repair Requests (HISTORICAL),dataset,Public Works,"health and safety, potholes, transportation",True,True,https://data.cambridgema.gov/d/h2y4-rf5c
+h2y4-rf5c,Pothole Repair Requests (HISTORICAL),dataset,Public Works,"transportation, health and safety, potholes",True,True,https://data.cambridgema.gov/d/h2y4-rf5c
 ppei-4pjw,Project Phase List FY15 and FY14 (Historical),dataset,Budget/Finance,"budget, fiscal year",True,False,https://data.cambridgema.gov/d/ppei-4pjw
-taa9-avfg,Public Art Conservation and Maintenance Program,dataset,General Government,"art, public art",True,True,https://data.cambridgema.gov/d/taa9-avfg
+taa9-avfg,Public Art Conservation and Maintenance Program,dataset,General Government,"public art, art",True,True,https://data.cambridgema.gov/d/taa9-avfg
 4f7v-hjxa,Public Art Master Sheet,dataset,General Government,"public art, art",True,True,https://data.cambridgema.gov/d/4f7v-hjxa
-a68d-rnzz,Public Art: Sidewalk Poetry,dataset,General Government,"art, public art, map",True,True,https://data.cambridgema.gov/d/a68d-rnzz
-qnnj-cx7g,Public Footpaths,dataset,Planning,"pedestrians, vision zero, transportation",True,True,https://data.cambridgema.gov/d/qnnj-cx7g
+a68d-rnzz,Public Art: Sidewalk Poetry,dataset,General Government,"public art, map, art",True,True,https://data.cambridgema.gov/d/a68d-rnzz
+qnnj-cx7g,Public Footpaths,dataset,Planning,"transportation, pedestrians, vision zero",True,True,https://data.cambridgema.gov/d/qnnj-cx7g
 csdm-4n42,Public Footpaths Map,map,Geographic Information (GIS),,False,False,https://data.cambridgema.gov/d/csdm-4n42
-q5yt-bvvn,Public Handicap Parking Spaces,dataset,Transportation,"parking, accessible, disabled, vision zero",True,True,https://data.cambridgema.gov/d/q5yt-bvvn
-vkjy-igvt,Public Schools Language Spoken at Home,dataset,Planning,"cambridge public schools - cps, language, equity",True,True,https://data.cambridgema.gov/d/vkjy-igvt
+q5yt-bvvn,Public Handicap Parking Spaces,dataset,Transportation,"accessible, parking, disabled, vision zero",True,True,https://data.cambridgema.gov/d/q5yt-bvvn
+vkjy-igvt,Public Schools Language Spoken at Home,dataset,Planning,"cambridge public schools - cps, equity, language",True,True,https://data.cambridgema.gov/d/vkjy-igvt
 8byj-fcf3,PUBLICSAFETY_FireEngineDistricts,dataset,Public Safety,fire department,True,True,https://data.cambridgema.gov/d/8byj-fcf3
 34x4-d6nv,PUBLICSAFETY_FireLadderDistricts,dataset,Public Safety,fire department,True,True,https://data.cambridgema.gov/d/34x4-d6nv
 gacg-xmqx,PUBLICSAFETY_FireRescueDistricts,dataset,Public Safety,fire department,True,True,https://data.cambridgema.gov/d/gacg-xmqx
@@ -369,62 +370,62 @@ aaqv-qhr2,PUBLICSAFETY_PoliceWalkingRoutes,dataset,Public Safety,police,True,Tru
 py7p-zgpu,Racial Distribution by Neighborhood,chart,Neighborhood Census Data,,False,False,https://data.cambridgema.gov/d/py7p-zgpu
 txis-chvp,Reinhard's Copy of BEUDO Data Story,story,Uncategorized,,False,False,https://data.cambridgema.gov/stories/s/txis-chvp
 tw7x-nv5t,"Resident and Visitor Parking Permit Count, by Permit Type",chart,Transportation,"street, parking",False,False,https://data.cambridgema.gov/d/tw7x-nv5t
-khuw-r9f4,Resident and Visitor Parking Permits,dataset,Transportation,"permits, parking, motor vehicles",True,True,https://data.cambridgema.gov/d/khuw-r9f4
+khuw-r9f4,Resident and Visitor Parking Permits,dataset,Transportation,"parking, motor vehicles, permits",True,True,https://data.cambridgema.gov/d/khuw-r9f4
 4wd7-ic9p,"Resident Workforce Commuting Mode Split by Place of Residence: 1990, 2000, 2006 - 2010 and 2012 - 2016",dataset,Transportation,"transportation, commuting, census",True,True,https://data.cambridgema.gov/d/4wd7-ic9p
-itk2-u4aa,Resident Workforce Demographic Characteristics by Commuting Mode Split : 2012 - 2016 (Historical),dataset,Transportation,"commuting, transportation, labor force, demographics, annual household income",True,True,https://data.cambridgema.gov/d/itk2-u4aa
-xiwh-f97k,Residential Data Report FY2015,dataset,Assessing,"transportation, assessing, housing and development, residential",True,True,https://data.cambridgema.gov/d/xiwh-f97k
-kwuj-dram,Residential Data Report FY2016 (Historical),dataset,Assessing,"housing and development, assessing, residential",True,True,https://data.cambridgema.gov/d/kwuj-dram
-exmr-dxma,Retail Vacant Storefronts - Current Vacancies,dataset,Economic Development,"business, vacancy, economic development, housing and development",True,True,https://data.cambridgema.gov/d/exmr-dxma
-swpv-8j3w,Retail Vacant Storefronts - Historical Vacancies,dataset,Economic Development,"housing and development, economic development, business, vacancy",True,True,https://data.cambridgema.gov/d/swpv-8j3w
+itk2-u4aa,Resident Workforce Demographic Characteristics by Commuting Mode Split : 2012 - 2016 (Historical),dataset,Transportation,"labor force, annual household income, commuting, demographics, transportation",True,True,https://data.cambridgema.gov/d/itk2-u4aa
+xiwh-f97k,Residential Data Report FY2015,dataset,Assessing,"housing and development, transportation, residential, assessing",True,True,https://data.cambridgema.gov/d/xiwh-f97k
+kwuj-dram,Residential Data Report FY2016 (Historical),dataset,Assessing,"residential, assessing, housing and development",True,True,https://data.cambridgema.gov/d/kwuj-dram
+exmr-dxma,Retail Vacant Storefronts - Current Vacancies,dataset,Economic Development,"housing and development, vacancy, business, economic development",True,True,https://data.cambridgema.gov/d/exmr-dxma
+swpv-8j3w,Retail Vacant Storefronts - Historical Vacancies,dataset,Economic Development,"economic development, vacancy, business, housing and development",True,True,https://data.cambridgema.gov/d/swpv-8j3w
 79ih-g44d,Roof - Building Permit,dataset,Inspectional Services,"permits, construction",True,True,https://data.cambridgema.gov/d/79ih-g44d
 cxep-vege,Salt Barrels,dataset,Public Works,salt,True,True,https://data.cambridgema.gov/d/cxep-vege
 xx47-wca4,Salt Barrels Locations,map,Public Works,salt,False,False,https://data.cambridgema.gov/d/xx47-wca4
 ryb9-qzmw,Sanitary Inspections,dataset,Inspectional Services,"restaurants, health and safety",True,True,https://data.cambridgema.gov/d/ryb9-qzmw
 6k5q-pc3y,section_headers,dataset,Uncategorized,,True,False,https://data.cambridgema.gov/d/6k5q-pc3y
 y4sy-53nu,sections,dataset,Uncategorized,,True,False,https://data.cambridgema.gov/d/y4sy-53nu
-cmy2-saf4,Sheet Metal Permits,dataset,Inspectional Services,"permits, construction, hvac",True,True,https://data.cambridgema.gov/d/cmy2-saf4
+cmy2-saf4,Sheet Metal Permits,dataset,Inspectional Services,"hvac, permits, construction",True,True,https://data.cambridgema.gov/d/cmy2-saf4
 ei8q-i63p,Short Term Rental Heat Map,map,Inspectional Services,,False,False,https://data.cambridgema.gov/d/ei8q-i63p
-wxgv-w968,Short Term Rentals,dataset,Inspectional Services,"short-term rental, housing and development, airbnb, tourism",True,True,https://data.cambridgema.gov/d/wxgv-w968
+wxgv-w968,Short Term Rentals,dataset,Inspectional Services,"airbnb, tourism, housing and development, short-term rental",True,True,https://data.cambridgema.gov/d/wxgv-w968
 jnhj-r6qs,Short Term Rentals by Planning Neighborhood,map,Inspectional Services,,False,False,https://data.cambridgema.gov/d/jnhj-r6qs
-vydm-qk5p,Sidewalk Obstruction Permits,dataset,Public Works,"sidewalks, permits",True,True,https://data.cambridgema.gov/d/vydm-qk5p
+vydm-qk5p,Sidewalk Obstruction Permits,dataset,Public Works,"permits, sidewalks",True,True,https://data.cambridgema.gov/d/vydm-qk5p
 f245-t77a,Sidewalks,dataset,Planning,"gis, map, sidewalks",True,True,https://data.cambridgema.gov/d/f245-t77a
 9jpd-7bem,Sidewalks Map,map,Geographic Information (GIS),,False,False,https://data.cambridgema.gov/d/9jpd-7bem
-ddej-349p,Siding - Building Permit,dataset,Inspectional Services,"permits, construction",True,True,https://data.cambridgema.gov/d/ddej-349p
-du4x-rm75,Sign Permits,dataset,Inspectional Services,"sidewalks, business, economic development, housing and development, permits, zoning",True,True,https://data.cambridgema.gov/d/du4x-rm75
-78bs-b5ig,Smart Rat Boxes,dataset,Public Works,"rats, 311",True,True,https://data.cambridgema.gov/d/78bs-b5ig
+ddej-349p,Siding - Building Permit,dataset,Inspectional Services,"construction, permits",True,True,https://data.cambridgema.gov/d/ddej-349p
+du4x-rm75,Sign Permits,dataset,Inspectional Services,"economic development, sidewalks, business, permits, housing and development, zoning",True,True,https://data.cambridgema.gov/d/du4x-rm75
+78bs-b5ig,Smart Rat Boxes,dataset,Public Works,"311, rats",True,True,https://data.cambridgema.gov/d/78bs-b5ig
 88m5-7wg3,Smart Rat Boxes Map,map,Public Works,,False,False,https://data.cambridgema.gov/d/88m5-7wg3
-r6b9-cun5,"SNAP, TAFDC and EAEDC Participation by Cambridge Zip Code 2017 - present",dataset,Planning,"emergency aid to the elderly disabled and children - eaedc, department of transitional assistance - dta, disabled, health and safety",True,True,https://data.cambridgema.gov/d/r6b9-cun5
-6qf3-rbkf,Snow and Ice Code Cases,dataset,Public Works,"snow and ice, sidewalks, citations",True,True,https://data.cambridgema.gov/d/6qf3-rbkf
+r6b9-cun5,"SNAP, TAFDC and EAEDC Participation by Cambridge Zip Code 2017 - present",dataset,Planning,"disabled, department of transitional assistance - dta, emergency aid to the elderly disabled and children - eaedc, health and safety",True,True,https://data.cambridgema.gov/d/r6b9-cun5
+6qf3-rbkf,Snow and Ice Code Cases,dataset,Public Works,"citations, snow and ice, sidewalks",True,True,https://data.cambridgema.gov/d/6qf3-rbkf
 fwzi-s8vx,Snow Emergency Tow Routes,map,Transportation,,False,False,https://data.cambridgema.gov/d/fwzi-s8vx
-h5fm-iiiy,Snow Emergency Tow Routes,dataset,Transportation,"snow and ice, gis, vision zero, health and safety, glocal, map",True,True,https://data.cambridgema.gov/d/h5fm-iiiy
+h5fm-iiiy,Snow Emergency Tow Routes,dataset,Transportation,"vision zero, health and safety, map, snow and ice, gis, glocal",True,True,https://data.cambridgema.gov/d/h5fm-iiiy
 q8b2-58ab,Snow/Ice Sidewalk Ordinance Violations (HISTORICAL),dataset,Public Works,"glocal, health and safety, snow and ice, violations, vision zero",True,True,https://data.cambridgema.gov/d/q8b2-58ab
-whpw-w55x,Solar Installation Permits,dataset,Inspectional Services,"solar, sustainability, energy, permits, electricity, construction",True,True,https://data.cambridgema.gov/d/whpw-w55x
+whpw-w55x,Solar Installation Permits,dataset,Inspectional Services,"sustainability, solar, construction, electricity, permits, energy",True,True,https://data.cambridgema.gov/d/whpw-w55x
 sgft-jn4e,Solar Installation Permits By Capacity and Size,map,Inspectional Services,,False,False,https://data.cambridgema.gov/d/sgft-jn4e
-5a85-fb2s,Solar Installations,dataset,Energy and the Environment,"sustainability, community development department - cdd, solar, energy, environment",True,True,https://data.cambridgema.gov/d/5a85-fb2s
+5a85-fb2s,Solar Installations,dataset,Energy and the Environment,"solar, energy, community development department - cdd, sustainability, environment",True,True,https://data.cambridgema.gov/d/5a85-fb2s
 gzua-ktw6,Solar Installations Map,map,Energy and the Environment,,False,False,https://data.cambridgema.gov/d/gzua-ktw6
 rxwj-ivx8,Solar PV kW Installed by Year,chart,Energy and the Environment,,False,False,https://data.cambridgema.gov/d/rxwj-ivx8
 9i75-vnsg,Solar Types,chart,Inspectional Services,,False,False,https://data.cambridgema.gov/d/9i75-vnsg
-4ixn-jz5x,Special Event Parking Permits,dataset,Transportation,"event, streets, permit, parking",True,True,https://data.cambridgema.gov/d/4ixn-jz5x
-c552-ny5k,Sprinkler and Standpipe Permits,dataset,Inspectional Services,"water, construction, permits, fire department, health and safety",True,True,https://data.cambridgema.gov/d/c552-ny5k
-t4av-baey,"State and Presidential Elections - November 6, 2012",dataset,General Government,"government and finance, elections",True,True,https://data.cambridgema.gov/d/t4av-baey
-rh2v-p4tg,Stormwater Permits,dataset,Public Works,"snow and ice, permits",True,True,https://data.cambridgema.gov/d/rh2v-p4tg
-3d3q-sfd6,Street Centerline,dataset,Transportation,"transportation, map, gis, vision zero",True,True,https://data.cambridgema.gov/d/3d3q-sfd6
+4ixn-jz5x,Special Event Parking Permits,dataset,Transportation,"parking, permit, event, streets",True,True,https://data.cambridgema.gov/d/4ixn-jz5x
+c552-ny5k,Sprinkler and Standpipe Permits,dataset,Inspectional Services,"health and safety, permits, water, construction, fire department",True,True,https://data.cambridgema.gov/d/c552-ny5k
+t4av-baey,"State and Presidential Elections - November 6, 2012",dataset,General Government,"elections, government and finance",True,True,https://data.cambridgema.gov/d/t4av-baey
+rh2v-p4tg,Stormwater Permits,dataset,Public Works,"permits, snow and ice",True,True,https://data.cambridgema.gov/d/rh2v-p4tg
+3d3q-sfd6,Street Centerline,dataset,Transportation,"map, gis, transportation, vision zero",True,True,https://data.cambridgema.gov/d/3d3q-sfd6
 y5sc-z8mp,Street Centerline Map,map,Geographic Information (GIS),,False,False,https://data.cambridgema.gov/d/y5sc-z8mp
-qd7s-qntb,Street Sweeping Districts,dataset,Public Works,"department of public works - dpw, gis, streets, map, street sweeping",True,True,https://data.cambridgema.gov/d/qd7s-qntb
+qd7s-qntb,Street Sweeping Districts,dataset,Public Works,"streets, gis, map, street sweeping, department of public works - dpw",True,True,https://data.cambridgema.gov/d/qd7s-qntb
 qpqg-6rb7,Street Sweeping Districts Map,map,Geographic Information (GIS),,False,False,https://data.cambridgema.gov/d/qpqg-6rb7
 ympr-x3we,Street Tree Map,map,Public Works,,False,False,https://data.cambridgema.gov/d/ympr-x3we
-82zb-7qc9,Street Trees,dataset,Public Works,"gis, glocal, sustainability, trees, department of public works - dpw",True,True,https://data.cambridgema.gov/d/82zb-7qc9
+82zb-7qc9,Street Trees,dataset,Public Works,"sustainability, department of public works - dpw, gis, glocal, trees",True,True,https://data.cambridgema.gov/d/82zb-7qc9
 tkr2-uxd8,Students from Local Educational Institutions Housed in Cambridge,chart,Planning,,False,False,https://data.cambridgema.gov/d/tkr2-uxd8
 m56g-gj9h,Summer 2016 Open Data Collaboration Research Report,file,General Government,"information technology - it, open data",False,False,https://data.cambridgema.gov/d/m56g-gj9h
-agj6-qs4q,Swimming Pool Permits,dataset,Inspectional Services,"health and safety, glocal, sustainability, permits",True,True,https://data.cambridgema.gov/d/agj6-qs4q
+agj6-qs4q,Swimming Pool Permits,dataset,Inspectional Services,"permits, health and safety, sustainability, glocal",True,True,https://data.cambridgema.gov/d/agj6-qs4q
 8p8s-6brw,Taxi Cab Stand Map,map,Licensing,,False,False,https://data.cambridgema.gov/d/8p8s-6brw
 pijs-whfb,Taxi Cab Stands,dataset,Licensing,"transportation, taxi cab",True,True,https://data.cambridgema.gov/d/pijs-whfb
 yi2w-fz46,"Technology, Biotech Companies in Cambridge",map,Economic Development,,False,False,https://data.cambridgema.gov/d/yi2w-fz46
-ix2w-bkix,Temporary Food Service Permits,dataset,Inspectional Services,"catering, temporary permits, permits, health and safety",True,True,https://data.cambridgema.gov/d/ix2w-bkix
+ix2w-bkix,Temporary Food Service Permits,dataset,Inspectional Services,"health and safety, temporary permits, permits, catering",True,True,https://data.cambridgema.gov/d/ix2w-bkix
 4bmb-xuad,Tent - Building Permits,dataset,Inspectional Services,permits,True,True,https://data.cambridgema.gov/d/4bmb-xuad
 udzu-gad5,TEST - Mock Library Checkouts by Title (Seattle-derived),dataset,Uncategorized,"cambridge public library, test dataset, seattle derived, internal review, confidentiality protected",True,True,https://data.cambridgema.gov/d/udzu-gad5
 ryaf-48sr,Tobacco Licenses without Food Service,dataset,Inspectional Services,"tobacco, permits",True,True,https://data.cambridgema.gov/d/ryaf-48sr
-a5s6-4529,Tool Truck Parking Permits,dataset,Transportation,"streets, permit, parking",True,True,https://data.cambridgema.gov/d/a5s6-4529
+a5s6-4529,Tool Truck Parking Permits,dataset,Transportation,"parking, streets, permit",True,True,https://data.cambridgema.gov/d/a5s6-4529
 arg9-yvw8,Top 10 Service Requests,chart,Public Works,,False,False,https://data.cambridgema.gov/d/arg9-yvw8
 77wt-9zvn,Top 25 Employers: 1995 - present,dataset,Economic Development,"business, labor force",True,True,https://data.cambridgema.gov/d/77wt-9zvn
 vnzc-c8yn,Top Dog Breeds in Cambridge,chart,General Government,,False,False,https://data.cambridgema.gov/d/vnzc-c8yn
@@ -432,32 +433,32 @@ h6kb-zgjn,Top Dog Names in Cambridge,chart,General Government,,False,False,https
 9t5g-p6u6,Total Number of Short Term Rentals by Property Type,chart,Inspectional Services,,False,False,https://data.cambridgema.gov/d/9t5g-p6u6
 sxcy-ifwu,Total Requests Over Time -- by month,chart,Public Works,,False,False,https://data.cambridgema.gov/d/sxcy-ifwu
 d264-by6q,Total Short Term Rentals by Number of Bedrooms,chart,Inspectional Services,,False,False,https://data.cambridgema.gov/d/d264-by6q
-aa6j-h24p,Tow Log,dataset,Public Safety,"parking, motor vehicles, transportation",True,True,https://data.cambridgema.gov/d/aa6j-h24p
-d89e-7wmt,Traffic Clearance Permits,dataset,Transportation,"street, parking, permit",True,True,https://data.cambridgema.gov/d/d89e-7wmt
-k7qr-u489,Traffic Speed Studies (Historical),dataset,Transportation,"vision zero, health and safety, motor vehicles, traffic",True,True,https://data.cambridgema.gov/d/k7qr-u489
+aa6j-h24p,Tow Log,dataset,Public Safety,"transportation, parking, motor vehicles",True,True,https://data.cambridgema.gov/d/aa6j-h24p
+d89e-7wmt,Traffic Clearance Permits,dataset,Transportation,"parking, permit, street",True,True,https://data.cambridgema.gov/d/d89e-7wmt
+k7qr-u489,Traffic Speed Studies (Historical),dataset,Transportation,"vision zero, health and safety, traffic, motor vehicles",True,True,https://data.cambridgema.gov/d/k7qr-u489
 vr3p-e9ke,TRAFFIC_CommercialParking,dataset,Transportation,"map, gis, parking",True,True,https://data.cambridgema.gov/d/vr3p-e9ke
-up94-ihbw,TRAFFIC_MeteredParkingSpaces,dataset,Transportation,"parking, parking meter, streets, gis",True,True,https://data.cambridgema.gov/d/up94-ihbw
+up94-ihbw,TRAFFIC_MeteredParkingSpaces,dataset,Transportation,"parking, streets, parking meter, gis",True,True,https://data.cambridgema.gov/d/up94-ihbw
 gpw8-aqjv,TRAFFIC_MunicipalParkingLots,dataset,Transportation,"vision zero, gis, municipal parking lots, parking",True,True,https://data.cambridgema.gov/d/gpw8-aqjv
 8im6-ehk8,Tree Planting Requests Around the City,map,Public Works,,False,False,https://data.cambridgema.gov/d/8im6-ehk8
-vj95-me7d,Tree Removal Permits,dataset,Public Works,"climate, department of public works - dpw, permits, trees",True,True,https://data.cambridgema.gov/d/vj95-me7d
-72bt-ct3c,Unshoveled/Icy Sidewalk Complaints (HISTORICAL),dataset,Public Works,"snow and ice, vision zero, transportation, sidewalks, health and safety",True,True,https://data.cambridgema.gov/d/72bt-ct3c
-eqvn-nsmf,"Voter Turnout - November 6, 2012",dataset,General Government,"elections, government and finance, voter turnout",True,True,https://data.cambridgema.gov/d/eqvn-nsmf
-4bq3-vfga,"Voter Turnout, 1999 - Present",dataset,General Government,"government and finance, voter turnout, elections",True,True,https://data.cambridgema.gov/d/4bq3-vfga
+vj95-me7d,Tree Removal Permits,dataset,Public Works,"permits, climate, department of public works - dpw, trees",True,True,https://data.cambridgema.gov/d/vj95-me7d
+72bt-ct3c,Unshoveled/Icy Sidewalk Complaints (HISTORICAL),dataset,Public Works,"health and safety, sidewalks, transportation, vision zero, snow and ice",True,True,https://data.cambridgema.gov/d/72bt-ct3c
+eqvn-nsmf,"Voter Turnout - November 6, 2012",dataset,General Government,"government and finance, voter turnout, elections",True,True,https://data.cambridgema.gov/d/eqvn-nsmf
+4bq3-vfga,"Voter Turnout, 1999 - Present",dataset,General Government,"voter turnout, government and finance, elections",True,True,https://data.cambridgema.gov/d/4bq3-vfga
 drs9-agak,wallpaper_banner,dataset,Uncategorized,,True,False,https://data.cambridgema.gov/d/drs9-agak
 f7zt-hv4j,Ward and Precinct Map,map,General Government,,False,False,https://data.cambridgema.gov/d/f7zt-hv4j
-fkyf-pvm6,Wards and Precincts,dataset,General Government,"gis, map, elections, wards and precincts",True,True,https://data.cambridgema.gov/d/fkyf-pvm6
+fkyf-pvm6,Wards and Precincts,dataset,General Government,"map, gis, elections, wards and precincts",True,True,https://data.cambridgema.gov/d/fkyf-pvm6
 pi6x-n5th,Wards and Precincts Map,map,General Government,,False,False,https://data.cambridgema.gov/d/pi6x-n5th
 8vjb-gcum,Waterplay Park Locations,dataset,Public Works,"gis, parks, playgrounds",True,True,https://data.cambridgema.gov/d/8vjb-gcum
 v4jy-a5uu,Waterplay Park Map,map,Public Works,,False,False,https://data.cambridgema.gov/d/v4jy-a5uu
-agyh-ujkr,Wetlands,dataset,Water Department,"gis, wetlands, map",True,True,https://data.cambridgema.gov/d/agyh-ujkr
+agyh-ujkr,Wetlands,dataset,Water Department,"wetlands, map, gis",True,True,https://data.cambridgema.gov/d/agyh-ujkr
 r9hs-ptz4,Wetlands Map,map,Geographic Information (GIS),,False,False,https://data.cambridgema.gov/d/r9hs-ptz4
 pb99-d47j,Workforce By Industry: 1967 - 2001,dataset,Economic Development,labor force,True,True,https://data.cambridgema.gov/d/pb99-d47j
 cmjx-t9pi,Workforce By Industry: 2001 - Present,dataset,Economic Development,labor force,True,True,https://data.cambridgema.gov/d/cmjx-t9pi
-eae8-5e88,"Workforce Commuting Mode Split: 1990, 2000, 2006 - 2010, and 2012 - 2016",dataset,Transportation,"transportation, commuting, census",True,True,https://data.cambridgema.gov/d/eae8-5e88
-6d2u-pxfn,Workforce Demographic Characteristics by Commuting Mode Split : 2012 - 2016,dataset,Transportation,"commuting, annual household income, demographics, labor force, transportation",True,True,https://data.cambridgema.gov/d/6d2u-pxfn
+eae8-5e88,"Workforce Commuting Mode Split: 1990, 2000, 2006 - 2010, and 2012 - 2016",dataset,Transportation,"census, transportation, commuting",True,True,https://data.cambridgema.gov/d/eae8-5e88
+6d2u-pxfn,Workforce Demographic Characteristics by Commuting Mode Split : 2012 - 2016,dataset,Transportation,"transportation, annual household income, labor force, demographics, commuting",True,True,https://data.cambridgema.gov/d/6d2u-pxfn
 jyn5-q2qz,Yearly Municipal Waste Summary,dataset,Public Works,"recycling, compost, trash",True,True,https://data.cambridgema.gov/d/jyn5-q2qz
 rgpk-2men,Youth Center Locations,map,General Government,"gis, youth center",False,False,https://data.cambridgema.gov/d/rgpk-2men
 ixb7-daef,Zip Code Map,map,Geographic Information (GIS),,False,False,https://data.cambridgema.gov/d/ixb7-daef
-yntz-ub27,ZIP Codes,dataset,General Government,"map, gis",True,True,https://data.cambridgema.gov/d/yntz-ub27
+yntz-ub27,ZIP Codes,dataset,General Government,"gis, map",True,True,https://data.cambridgema.gov/d/yntz-ub27
 4puj-mk9g,Zoning Overlay District Map,map,Geographic Information (GIS),,False,False,https://data.cambridgema.gov/d/4puj-mk9g
 bxi3-5pn3,Zoning Overlay Districts,dataset,Planning,"housing and development, zoning, gis",True,True,https://data.cambridgema.gov/d/bxi3-5pn3
