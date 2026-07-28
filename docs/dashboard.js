@@ -9,6 +9,10 @@ const state = {
   snapshotDatasetPage: 1,
   snapshotDatasetFilter: "",
   snapshotCategoryFilter: "",
+  permitExpanded: new Set(),
+  permitMissingOnly: false,
+  permitSortKey: "permitTypeCount",
+  permitSortDir: "desc",
 };
 
 const SNAPSHOT_DATASET_PAGE_SIZE = 50;
@@ -1286,7 +1290,167 @@ function renderBars(target, rows, labelKey, valueKey, limit = 18) {
   }).join("");
 }
 
+function permitCoverageData() {
+  const coverage = state.data.permitCoverage;
+  if (!coverage || !Array.isArray(coverage.departments)) return null;
+  return coverage;
+}
+
+function permitSortIndicator(key) {
+  if (state.permitSortKey !== key) return "";
+  return state.permitSortDir === "asc" ? " ↑" : " ↓";
+}
+
+function sortPermitDepartments(departments) {
+  const key = state.permitSortKey;
+  const direction = state.permitSortDir === "asc" ? 1 : -1;
+  return [...departments].sort((a, b) => {
+    if (key === "department") {
+      return direction * a.department.localeCompare(b.department);
+    }
+    const left = Number(permitSortValue(a, key));
+    const right = Number(permitSortValue(b, key));
+    if (left !== right) return direction * (left - right);
+    return a.department.localeCompare(b.department);
+  });
+}
+
+function permitSortValue(department, key) {
+  const total = Number(department.permitTypeCount) || 0;
+  const matched = Number(department.matchedPermitTypeCount) || 0;
+  if (key === "matchedPermitTypeCount") return matched;
+  if (key === "unmatchedPermitTypeCount") return total - matched;
+  if (key === "coveragePercent") return total ? (matched / total) * 100 : 0;
+  return total;
+}
+
+function renderPermitDepartmentRows(department) {
+  const total = Number(department.permitTypeCount) || 0;
+  const matched = Number(department.matchedPermitTypeCount) || 0;
+  const percent = total ? (matched / total) * 100 : 0;
+  const key = department.department;
+  const isOpen = state.permitExpanded.has(key);
+  const permits = state.permitMissingOnly
+    ? department.permits.filter((permit) => !permit.hasOpenData)
+    : department.permits;
+
+  const permitItems = permits.length
+    ? permits.map((permit) => {
+      const datasets = (permit.datasets || []).map((dataset) => `
+            <a class="permit-dataset" href="${escapeHtml(dataset.url)}" target="_blank" rel="noreferrer">${escapeHtml(dataset.name)}</a>
+          `).join("");
+      const detail = permit.hasOpenData
+        ? `<div class="permit-datasets">${datasets}</div>`
+        : `<div class="permit-datasets is-empty">No matching open dataset</div>`;
+      return `
+          <li class="permit-item ${permit.hasOpenData ? "is-matched" : "is-unmatched"}">
+            <a class="permit-name" href="${escapeHtml(permit.url)}" target="_blank" rel="noreferrer">${escapeHtml(permit.permitType)}</a>
+            ${detail}
+          </li>
+        `;
+    }).join("")
+    : `<li class="permit-item is-note">Every permit type in this department has a matching open dataset.</li>`;
+
+  return `
+    <tr class="permit-row ${isOpen ? "is-open" : ""}" data-department="${escapeHtml(key)}" tabindex="0" role="button" aria-expanded="${isOpen}">
+      <td>
+        <span class="permit-dept-cell">
+          <span class="permit-caret" aria-hidden="true">${isOpen ? "▾" : "▸"}</span>
+          <span class="permit-dept-name">${escapeHtml(key)}</span>
+        </span>
+      </td>
+      <td class="metric-cell">${formatNumber(total)}</td>
+      <td class="metric-cell is-matched-count">${formatNumber(matched)}</td>
+      <td class="metric-cell is-unmatched-count">${formatNumber(total - matched)}</td>
+      <td class="permit-coverage-td" style="background:${colorForScore(percent)}">
+        <span class="permit-coverage-cell">
+          <span class="permit-track"><span class="permit-fill" style="width:${percent}%"></span></span>
+          <span class="permit-percent">${formatNumber(percent, "percent")}</span>
+        </span>
+      </td>
+    </tr>
+    <tr class="permit-detail-row" ${isOpen ? "" : "hidden"}>
+      <td colspan="5">
+        <div class="permit-dept-links">
+          <a href="${escapeHtml(department.categoryUrl)}" target="_blank" rel="noreferrer">${escapeHtml(department.opengovCategory || key)} on the permit portal</a>
+        </div>
+        <ul class="permit-list">${permitItems}</ul>
+      </td>
+    </tr>
+  `;
+}
+
+function renderPermitCoverage() {
+  const container = document.querySelector("#permitCoverage");
+  const note = document.querySelector("#permitCoverageNote");
+  if (!container) return;
+  const coverage = permitCoverageData();
+  if (!coverage || !["ok", "stale"].includes(coverage.status) || !coverage.departments.length) {
+    container.innerHTML = `<div class="empty">Permit coverage data is not available in this build.</div>`;
+    if (note) note.textContent = coverage && coverage.notes ? coverage.notes : "";
+    return;
+  }
+
+  if (note) {
+    const portal = escapeHtml(coverage.portalUrl || "https://cambridgema.portal.opengov.com/");
+    const staleNote = coverage.status === "stale"
+      ? ` <em>${escapeHtml(coverage.notes || "Showing the previous permit coverage build.")}</em>`
+      : "";
+    note.innerHTML = `
+      ${formatNumber(coverage.matchedPermitTypeCount)} of ${formatNumber(coverage.permitTypeCount)}
+      permit and license types on the
+      <a href="${portal}" target="_blank" rel="noreferrer">OpenGov permitting portal</a>
+      (${formatNumber(coverage.coveragePercent, "percent")}) have a matching public dataset.
+      Click a column header to sort, or a department row to see which permits do and do not.${staleNote}
+    `;
+  }
+
+  const departments = sortPermitDepartments(coverage.departments);
+  container.innerHTML = `
+    <div class="permit-legend">
+      <span class="permit-legend-item is-matched">Matching open dataset</span>
+      <span class="permit-legend-item is-unmatched">No matching open dataset</span>
+    </div>
+    <div class="table-wrap">
+      <table class="permit-table" id="permitCoverageTable">
+        <thead>
+          <tr>
+            <th class="sortable" data-sort="department">Department${permitSortIndicator("department")}</th>
+            <th class="sortable" data-sort="permitTypeCount">Permit Types${permitSortIndicator("permitTypeCount")}</th>
+            <th class="sortable" data-sort="matchedPermitTypeCount">With Open Data${permitSortIndicator("matchedPermitTypeCount")}</th>
+            <th class="sortable" data-sort="unmatchedPermitTypeCount">Without Open Data${permitSortIndicator("unmatchedPermitTypeCount")}</th>
+            <th class="sortable" data-sort="coveragePercent">Coverage${permitSortIndicator("coveragePercent")}</th>
+          </tr>
+        </thead>
+        <tbody>${departments.map(renderPermitDepartmentRows).join("")}</tbody>
+      </table>
+    </div>
+  `;
+}
+
+function togglePermitDepartment(key) {
+  if (!key) return;
+  if (state.permitExpanded.has(key)) {
+    state.permitExpanded.delete(key);
+  } else {
+    state.permitExpanded.add(key);
+  }
+  renderPermitCoverage();
+}
+
+function togglePermitSort(sortKey) {
+  if (!sortKey) return;
+  if (state.permitSortKey === sortKey) {
+    state.permitSortDir = state.permitSortDir === "asc" ? "desc" : "asc";
+  } else {
+    state.permitSortKey = sortKey;
+    state.permitSortDir = sortKey === "department" ? "asc" : "desc";
+  }
+  renderPermitCoverage();
+}
+
 function renderCoverage() {
+  renderPermitCoverage();
   renderBars("#categoryChart", state.data.categories, "category", "public_dataset_count");
   renderBars("#keywordChart", state.data.keywords, "keyword", "public_dataset_count");
   const updateFrequencyRows = buildUpdateFrequencyRows();
@@ -1408,6 +1572,34 @@ function bindEvents() {
     const element = document.querySelector(selector);
     if (element) element.addEventListener("change", updateOverviewTrend);
   });
+
+  const permitCoverageEl = document.querySelector("#permitCoverage");
+  if (permitCoverageEl) {
+    permitCoverageEl.addEventListener("click", (event) => {
+      const header = event.target.closest("th.sortable");
+      if (header) {
+        togglePermitSort(header.dataset.sort);
+        return;
+      }
+      if (event.target.closest("a")) return;
+      const row = event.target.closest(".permit-row");
+      if (row) togglePermitDepartment(row.dataset.department);
+    });
+    permitCoverageEl.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      const row = event.target.closest(".permit-row");
+      if (!row) return;
+      event.preventDefault();
+      togglePermitDepartment(row.dataset.department);
+    });
+  }
+  const permitMissingOnlyEl = document.querySelector("#permitMissingOnlyToggle");
+  if (permitMissingOnlyEl) {
+    permitMissingOnlyEl.addEventListener("change", () => {
+      state.permitMissingOnly = permitMissingOnlyEl.checked;
+      renderPermitCoverage();
+    });
+  }
 }
 
 async function init() {

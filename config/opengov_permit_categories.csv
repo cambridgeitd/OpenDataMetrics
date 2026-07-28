@@ -1,0 +1,15 @@
+opengov_category_id,opengov_category,department,include_in_coverage,notes
+1123,Animal Care and Control,Animal Commission,yes,
+1127,Assessing,Assessing,yes,
+1135,Cambridge Arts,Cambridge Arts,yes,
+1129,City Clerk's Office,City Clerk's Office,yes,
+1131,Department of Human Service Programs,Human Service Programs,yes,
+1141,Emergency Communications,Emergency Communications,yes,
+1125,Fire Department,Fire Department,yes,
+1132,Housing Department,Community Development,yes,Housing programs are administered through Community Development.
+1118,Inspectional Services,Inspectional Services,yes,
+1096,License Commission,License Commission,yes,
+1101,Public Works,Public Works (DPW),yes,
+1122,"Traffic, Parking, and Transportation",Transportation,yes,
+1134,Water Department,Water Department,yes,
+1119,Frequently Asked Questions and Useful Documents,,no,Help articles rather than permit or license application types.

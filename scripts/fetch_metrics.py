@@ -40,6 +40,12 @@ CONFIG_DIR = ROOT / "config"
 DOMAIN = os.environ.get("SOCRATA_DOMAIN", "data.cambridgema.gov")
 ANALYTICS_STORY_ID = os.environ.get("SOCRATA_ANALYTICS_STORY_ID", "r6yq-fzqd")
 
+# Cambridge's OpenGov (ViewPoint Cloud) permitting storefront. The record type and
+# category endpoints are unauthenticated and back the public portal.
+OPENGOV_COMMUNITY = os.environ.get("OPENGOV_COMMUNITY", "cambridgema")
+OPENGOV_API_BASE = os.environ.get("OPENGOV_API_BASE", "https://api-east.viewpointcloud.com/v2")
+OPENGOV_PORTAL_BASE = os.environ.get("OPENGOV_PORTAL_BASE", "https://cambridgema.portal.opengov.com")
+
 FALLBACK_SYSTEM_IDS = {
     "asset_access": "te8d-2w5t",
     "asset_inventory": "rkcc-jee9",
@@ -68,6 +74,22 @@ FRESHNESS_DAYS = {
     "annually": 400,
     "yearly": 400,
 }
+
+# Tokens that carry no signal when comparing an OpenGov permit type name with an
+# open dataset title, e.g. "Electrical Permit" vs "Electrical Permits".
+PERMIT_MATCH_STOPWORDS = {
+    "a", "an", "and", "annual", "application", "applications", "apply", "by",
+    "cambridge", "certificate", "certificates", "city", "current", "data",
+    "dataset", "day", "deprecated", "detail", "details", "edition", "existing",
+    "for", "form", "forms", "future", "historical", "history", "in", "license",
+    "licenses", "licence", "licensing", "new", "obsolete", "of", "one", "or",
+    "past", "permit", "permits", "permitting", "present", "program", "programs",
+    "record", "records", "registration", "registrations", "request", "requests",
+    "requirements", "temporary", "the", "to",
+}
+# An auto match needs every meaningful permit token to appear in the dataset title
+# plus this much overall token overlap. Curated matches always win.
+PERMIT_AUTO_MATCH_MIN_SCORE = 0.5
 
 
 METRIC_DEFINITIONS = [
@@ -302,6 +324,39 @@ METRIC_DEFINITIONS = [
         "source": "Socrata Asset Inventory custom metadata",
         "notes": "Measures whether a structured department field is populated, not inferred ownership.",
     },
+    {
+        "metric_id": "opengov_permit_types",
+        "metric_name": "OpenGov permit and license application types",
+        "priority": "Priority 4",
+        "period_type": "snapshot",
+        "unit": "permit types",
+        "aggregation": "last",
+        "status": "populated_current",
+        "source": "OpenGov (ViewPoint Cloud) public record type API",
+        "notes": "Publicly applicable record types on the Cambridge OpenGov permitting portal, excluding help articles. Acts as the denominator for permit open data coverage.",
+    },
+    {
+        "metric_id": "opengov_permit_types_with_open_data",
+        "metric_name": "OpenGov permit types with a matching open dataset",
+        "priority": "Priority 4",
+        "period_type": "snapshot",
+        "unit": "permit types",
+        "aggregation": "last",
+        "status": "populated_current",
+        "source": "OpenGov record type API matched to the Socrata public catalog",
+        "notes": "Uses curated matches in config/opengov_permit_dataset_matches.csv, with token-similarity matching as a fallback for new permit types.",
+    },
+    {
+        "metric_id": "opengov_permit_types_with_open_data_pct",
+        "metric_name": "Percent of OpenGov permit types with a matching open dataset",
+        "priority": "Priority 4",
+        "period_type": "snapshot",
+        "unit": "percent",
+        "aggregation": "last",
+        "status": "populated_current",
+        "source": "OpenGov record type API matched to the Socrata public catalog",
+        "notes": "Share of publicly applicable permit and license types that have a corresponding public dataset.",
+    },
 ]
 
 MANUAL_METRICS = [
@@ -367,6 +422,23 @@ def auth_headers(accept: str = "application/json") -> dict[str, str]:
 
 def get_json(url: str, timeout: int = 60) -> Any:
     req = urllib.request.Request(url, headers=auth_headers())
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as response:
+            return json.load(response)
+    except urllib.error.HTTPError as exc:
+        body = exc.read(1000).decode("utf-8", errors="replace")
+        raise RuntimeError(f"HTTP {exc.code} for {url}: {body}") from exc
+
+
+def get_public_json(url: str, timeout: int = 60) -> Any:
+    """Fetch JSON from an unauthenticated endpoint such as the OpenGov portal API."""
+    req = urllib.request.Request(
+        url,
+        headers={
+            "Accept": "application/json",
+            "User-Agent": "cambridge-open-data-metrics/1.0 (+https://github.com/cambridgeitd/OpenDataMetrics)",
+        },
+    )
     try:
         with urllib.request.urlopen(req, timeout=timeout) as response:
             return json.load(response)
@@ -596,6 +668,287 @@ def infer_department(asset: dict[str, Any], official_departments: set[str]) -> t
         if needle in haystack and department in official_departments:
             return department, "inferred_from_metadata"
     return "Unassigned/Unknown", "missing"
+
+
+def permit_match_tokens(text: Any) -> set[str]:
+    """Reduce a permit type or dataset title to comparable meaning-bearing tokens."""
+    normalized = re.sub(r"[^a-z0-9]+", " ", clean_text(text).lower())
+    tokens: set[str] = set()
+    for raw in normalized.split():
+        token = raw
+        if len(token) > 4 and token.endswith("ies"):
+            token = f"{token[:-3]}y"
+        elif len(token) > 3 and token.endswith("s") and not token.endswith("ss"):
+            token = token[:-1]
+        if len(token) > 1 and token not in PERMIT_MATCH_STOPWORDS:
+            tokens.add(token)
+    return tokens
+
+
+def auto_match_permit_datasets(permit_name: str, dataset_tokens: list[tuple[str, set[str]]]) -> list[str]:
+    """Best-effort dataset match for permit types that are not curated yet."""
+    permit_tokens = permit_match_tokens(permit_name)
+    if not permit_tokens:
+        return []
+    scored: list[tuple[float, str]] = []
+    for uid, tokens in dataset_tokens:
+        if not tokens or not permit_tokens.issubset(tokens):
+            continue
+        score = len(permit_tokens) / len(permit_tokens | tokens)
+        if score >= PERMIT_AUTO_MATCH_MIN_SCORE:
+            scored.append((score, uid))
+    scored.sort(key=lambda item: (-item[0], item[1]))
+    return [uid for _, uid in scored[:3]]
+
+
+def load_permit_category_config() -> dict[str, dict[str, str]]:
+    path = CONFIG_DIR / "opengov_permit_categories.csv"
+    if not path.exists():
+        return {}
+    config: dict[str, dict[str, str]] = {}
+    for row in read_csv(path):
+        category_id = clean_text(row.get("opengov_category_id"))
+        if category_id:
+            config[category_id] = row
+    return config
+
+
+def load_permit_match_config() -> dict[str, dict[str, str]]:
+    path = CONFIG_DIR / "opengov_permit_dataset_matches.csv"
+    if not path.exists():
+        return {}
+    config: dict[str, dict[str, str]] = {}
+    for row in read_csv(path):
+        record_type_id = clean_text(row.get("record_type_id"))
+        if record_type_id:
+            config[record_type_id] = row
+    return config
+
+
+def build_permit_coverage(public_datasets: list[dict[str, Any]], generated_at: str) -> dict[str, Any]:
+    """Compare OpenGov permit/license application types with matching open datasets.
+
+    The OpenGov storefront record types are the denominator: every permit or license
+    a resident can apply for online. The numerator is the subset that has a matching
+    public dataset on the open data portal.
+    """
+    portal_base = OPENGOV_PORTAL_BASE.rstrip("/")
+    api_base = f"{OPENGOV_API_BASE.rstrip('/')}/{OPENGOV_COMMUNITY}"
+    coverage: dict[str, Any] = {
+        "status": "unavailable",
+        "generatedAt": generated_at,
+        "portalUrl": f"{portal_base}/",
+        "apiUrl": f"{api_base}/record_types",
+        "permitTypeCount": 0,
+        "matchedPermitTypeCount": 0,
+        "coveragePercent": None,
+        "departments": [],
+        "notes": "",
+    }
+
+    try:
+        categories_payload = get_public_json(f"{api_base}/categories")
+        record_types_payload = get_public_json(f"{api_base}/record_types", timeout=120)
+    except Exception as exc:  # noqa: BLE001
+        print(f"Warning: OpenGov permit catalog unavailable: {exc}", file=sys.stderr)
+        coverage["notes"] = f"OpenGov permit catalog could not be read: {exc}"
+        return reuse_previous_permit_coverage(coverage, exc)
+
+    category_names = {
+        clean_text(item.get("id")): clean_text((item.get("attributes") or {}).get("name"))
+        for item in (categories_payload or {}).get("data", [])
+    }
+    category_config = load_permit_category_config()
+    match_config = load_permit_match_config()
+
+    dataset_by_uid = {
+        clean_text(asset.get("uid")): {
+            "uid": clean_text(asset.get("uid")),
+            "name": clean_text(asset.get("name")),
+            "url": clean_text(asset.get("url")) or f"https://{DOMAIN}/d/{clean_text(asset.get('uid'))}",
+            "department": asset.get("department_inferred", ""),
+        }
+        for asset in public_datasets
+        if clean_text(asset.get("uid"))
+    }
+    dataset_tokens = [(uid, permit_match_tokens(row["name"])) for uid, row in dataset_by_uid.items()]
+
+    permits_by_department: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    department_meta: dict[str, dict[str, Any]] = {}
+    excluded_categories: set[str] = set()
+
+    for item in (record_types_payload or {}).get("data", []):
+        attributes = item.get("attributes") or {}
+        if not truthy(attributes.get("isEnabled")):
+            continue
+        if clean_text(attributes.get("ApplyAccessID")).lower() != "public":
+            continue
+        category_id = clean_text(attributes.get("categoryID"))
+        category_name = category_names.get(category_id, "")
+        config_row = category_config.get(category_id, {})
+        if config_row and clean_text(config_row.get("include_in_coverage")).lower() not in ("yes", "true", "1"):
+            excluded_categories.add(category_name or category_id)
+            continue
+        department = clean_text(config_row.get("department")) or category_name or "Unassigned/Unknown"
+
+        record_type_id = clean_text(attributes.get("recordTypeID"))
+        permit_name = " ".join(clean_text(attributes.get("name")).split())
+        match_row = match_config.get(record_type_id)
+        if match_row is not None:
+            uids = [uid for uid in re.split(r"[;,]", clean_text(match_row.get("dataset_uids"))) if uid]
+            match_source = "curated"
+            match_note = clean_text(match_row.get("notes"))
+        else:
+            uids = auto_match_permit_datasets(permit_name, dataset_tokens)
+            match_source = "auto" if uids else "unreviewed"
+            match_note = "Matched by name similarity; not yet reviewed." if uids else "Not yet reviewed."
+
+        datasets = []
+        missing_uids = []
+        for uid in uids:
+            dataset = dataset_by_uid.get(uid)
+            if dataset is None:
+                missing_uids.append(uid)
+                continue
+            datasets.append({"uid": uid, "name": dataset["name"], "url": dataset["url"]})
+        if missing_uids:
+            retired = ", ".join(missing_uids)
+            match_note = f"{match_note} Configured dataset(s) not in the current public catalog: {retired}.".strip()
+
+        permits_by_department[department].append(
+            {
+                "recordTypeId": record_type_id,
+                "permitType": permit_name,
+                "opengovCategory": category_name,
+                "url": f"{portal_base}/categories/{category_id}/record-types/{record_type_id}",
+                "hasOpenData": bool(datasets),
+                "matchSource": match_source,
+                "notes": match_note,
+                "datasets": datasets,
+            }
+        )
+        department_meta.setdefault(
+            department,
+            {
+                "opengovCategory": category_name,
+                "opengovCategoryId": category_id,
+                "categoryUrl": f"{portal_base}/categories/{category_id}",
+            },
+        )
+
+    departments = []
+    for department, permits in permits_by_department.items():
+        permits.sort(key=lambda row: (not row["hasOpenData"], row["permitType"].lower()))
+        matched = sum(1 for row in permits if row["hasOpenData"])
+        departments.append(
+            {
+                "department": department,
+                **department_meta[department],
+                "permitTypeCount": len(permits),
+                "matchedPermitTypeCount": matched,
+                "coveragePercent": pct(matched, len(permits)),
+                "permits": permits,
+            }
+        )
+    departments.sort(key=lambda row: (-row["permitTypeCount"], row["department"]))
+
+    total = sum(row["permitTypeCount"] for row in departments)
+    matched_total = sum(row["matchedPermitTypeCount"] for row in departments)
+    coverage.update(
+        {
+            "status": "ok" if total else "unavailable",
+            "permitTypeCount": total,
+            "matchedPermitTypeCount": matched_total,
+            "coveragePercent": pct(matched_total, total),
+            "departments": departments,
+        }
+    )
+    if excluded_categories:
+        coverage["notes"] = f"Excluded non-permit OpenGov categories: {', '.join(sorted(excluded_categories))}."
+    return coverage
+
+
+def reuse_previous_permit_coverage(coverage: dict[str, Any], error: Exception) -> dict[str, Any]:
+    """Fall back to the last generated permit coverage when OpenGov is unreachable.
+
+    A transient portal outage should not blank the dashboard panel until the next run.
+    """
+    path = PROCESSED_DIR / "permit_type_dataset_coverage.csv"
+    if not path.exists():
+        return coverage
+    try:
+        previous_rows = read_csv(path)
+    except OSError:
+        return coverage
+    if not previous_rows:
+        return coverage
+
+    permits_by_department: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    department_meta: dict[str, dict[str, Any]] = {}
+    for row in previous_rows:
+        department = clean_text(row.get("department")) or "Unassigned/Unknown"
+        uids = [uid for uid in clean_text(row.get("dataset_uids")).split(";") if uid.strip()]
+        names = [name for name in clean_text(row.get("dataset_names")).split(";")]
+        urls = [url for url in clean_text(row.get("dataset_urls")).split(";")]
+        datasets = [
+            {
+                "uid": uids[index].strip(),
+                "name": names[index].strip() if index < len(names) else uids[index].strip(),
+                "url": urls[index].strip() if index < len(urls) else "",
+            }
+            for index in range(len(uids))
+        ]
+        permit_url = clean_text(row.get("permit_url"))
+        permits_by_department[department].append(
+            {
+                "recordTypeId": clean_text(row.get("record_type_id")),
+                "permitType": clean_text(row.get("permit_type")),
+                "opengovCategory": clean_text(row.get("opengov_category")),
+                "url": permit_url,
+                "hasOpenData": bool(datasets),
+                "matchSource": clean_text(row.get("match_source")),
+                "notes": clean_text(row.get("notes")),
+                "datasets": datasets,
+            }
+        )
+        department_meta.setdefault(
+            department,
+            {
+                "opengovCategory": clean_text(row.get("opengov_category")),
+                "opengovCategoryId": permit_url.split("/categories/")[-1].split("/")[0] if "/categories/" in permit_url else "",
+                "categoryUrl": permit_url.split("/record-types/")[0] if "/record-types/" in permit_url else "",
+            },
+        )
+
+    departments = []
+    for department, permits in permits_by_department.items():
+        permits.sort(key=lambda item: (not item["hasOpenData"], item["permitType"].lower()))
+        matched = sum(1 for item in permits if item["hasOpenData"])
+        departments.append(
+            {
+                "department": department,
+                **department_meta[department],
+                "permitTypeCount": len(permits),
+                "matchedPermitTypeCount": matched,
+                "coveragePercent": pct(matched, len(permits)),
+                "permits": permits,
+            }
+        )
+    departments.sort(key=lambda item: (-item["permitTypeCount"], item["department"]))
+    total = sum(item["permitTypeCount"] for item in departments)
+    matched_total = sum(item["matchedPermitTypeCount"] for item in departments)
+    coverage.update(
+        {
+            "status": "stale",
+            "permitTypeCount": total,
+            "matchedPermitTypeCount": matched_total,
+            "coveragePercent": pct(matched_total, total),
+            "departments": departments,
+            "notes": f"Showing the previous permit coverage build; OpenGov could not be read ({error}).",
+        }
+    )
+    print("Reused the previous permit coverage snapshot.", file=sys.stderr)
+    return coverage
 
 
 def is_public_base_dataset(asset: dict[str, Any]) -> bool:
@@ -1086,6 +1439,25 @@ def main() -> None:
     for metric_id, value in snapshot_values.items():
         add_observation(observations, generated_at, metric_id, "snapshot", snapshot_date, value, source_detail=system_ids.get("asset_inventory", ""))
 
+    print("Fetching OpenGov permit and license application types...")
+    permit_coverage = build_permit_coverage(public_datasets, generated_at)
+    if permit_coverage["status"] in ("ok", "stale"):
+        permit_snapshot_values = {
+            "opengov_permit_types": permit_coverage["permitTypeCount"],
+            "opengov_permit_types_with_open_data": permit_coverage["matchedPermitTypeCount"],
+            "opengov_permit_types_with_open_data_pct": permit_coverage["coveragePercent"],
+        }
+        for metric_id, value in permit_snapshot_values.items():
+            add_observation(
+                observations,
+                generated_at,
+                metric_id,
+                "snapshot",
+                snapshot_date,
+                value,
+                source_detail=permit_coverage["apiUrl"],
+            )
+
     monthly_metric_ids = {
         row["metric_id"]
         for row in METRIC_DEFINITIONS
@@ -1177,6 +1549,36 @@ def main() -> None:
             }
         )
     department_rows.sort(key=lambda row: (-row["public_dataset_count"], row["department"]))
+
+    permit_department_rows = [
+        {
+            "department": row["department"],
+            "opengov_category": row["opengovCategory"],
+            "permit_type_count": row["permitTypeCount"],
+            "matched_permit_type_count": row["matchedPermitTypeCount"],
+            "unmatched_permit_type_count": row["permitTypeCount"] - row["matchedPermitTypeCount"],
+            "coverage_percent": "" if row["coveragePercent"] is None else row["coveragePercent"],
+            "opengov_category_url": row["categoryUrl"],
+        }
+        for row in permit_coverage["departments"]
+    ]
+    permit_type_rows = [
+        {
+            "department": department["department"],
+            "opengov_category": permit["opengovCategory"],
+            "record_type_id": permit["recordTypeId"],
+            "permit_type": permit["permitType"],
+            "permit_url": permit["url"],
+            "has_open_dataset": permit["hasOpenData"],
+            "match_source": permit["matchSource"],
+            "dataset_uids": "; ".join(dataset["uid"] for dataset in permit["datasets"]),
+            "dataset_names": "; ".join(dataset["name"] for dataset in permit["datasets"]),
+            "dataset_urls": "; ".join(dataset["url"] for dataset in permit["datasets"]),
+            "notes": permit["notes"],
+        }
+        for department in permit_coverage["departments"]
+        for permit in department["permits"]
+    ]
 
     asset_filter_rows = []
     asset_filter_csv_rows = []
@@ -1394,6 +1796,36 @@ def main() -> None:
         ],
     )
     write_csv(
+        PROCESSED_DIR / "permit_department_coverage.csv",
+        permit_department_rows,
+        [
+            "department",
+            "opengov_category",
+            "permit_type_count",
+            "matched_permit_type_count",
+            "unmatched_permit_type_count",
+            "coverage_percent",
+            "opengov_category_url",
+        ],
+    )
+    write_csv(
+        PROCESSED_DIR / "permit_type_dataset_coverage.csv",
+        permit_type_rows,
+        [
+            "department",
+            "opengov_category",
+            "record_type_id",
+            "permit_type",
+            "permit_url",
+            "has_open_dataset",
+            "match_source",
+            "dataset_uids",
+            "dataset_names",
+            "dataset_urls",
+            "notes",
+        ],
+    )
+    write_csv(
         PROCESSED_DIR / "data_gaps.csv",
         data_gaps,
         ["metric_id", "priority", "gap_type", "status", "recommended_source", "notes"],
@@ -1408,6 +1840,7 @@ def main() -> None:
             "assetAccessDocs": "https://support.socrata.com/hc/en-us/articles/360051223314-Site-Analytics-Asset-Access",
             "cambridgeDepartments": "https://www.cambridgema.gov/Departments",
             "strategicPlan": "input/cambridgeopendatastrategicplan2026-2028.pdf",
+            "opengovPermitPortal": f"{OPENGOV_PORTAL_BASE.rstrip('/')}/",
         },
         "summary": {
             "totalPublicDatasets": total_public_datasets,
@@ -1424,6 +1857,9 @@ def main() -> None:
             "freshnessPercent": pct(fresh_count, len(scheduled)),
             "privacyNotesDatasets": privacy_count,
             "departmentMetadataDatasets": department_metadata_count,
+            "opengovPermitTypes": permit_coverage["permitTypeCount"],
+            "opengovPermitTypesWithOpenData": permit_coverage["matchedPermitTypeCount"],
+            "opengovPermitCoveragePercent": permit_coverage["coveragePercent"],
             "manualFilesLoaded": manual_files,
         },
         "definitions": METRIC_DEFINITIONS,
@@ -1435,6 +1871,7 @@ def main() -> None:
         "keywords": keyword_rows,
         "updateFrequencies": update_frequency_rows,
         "departments": department_rows,
+        "permitCoverage": permit_coverage,
         "assets": asset_filter_rows,
         "topDatasets": top_datasets,
         "staleDatasets": stale_datasets,
@@ -1450,6 +1887,10 @@ def main() -> None:
     print(f"Current Public Catalog Datasets: {total_public_datasets:,}")
     print(f"Public-readable hidden base datasets excluded from dataset counts: {len(hidden_public_datasets):,}")
     print(f"Monthly Socrata usage history begins: {min(access_by_month) if access_by_month else 'n/a'}")
+    print(
+        "OpenGov permit types with a matching open dataset: "
+        f"{permit_coverage['matchedPermitTypeCount']:,} of {permit_coverage['permitTypeCount']:,}"
+    )
     print(f"Manual files loaded: {', '.join(manual_files) if manual_files else 'none'}")
 
 

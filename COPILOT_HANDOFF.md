@@ -21,6 +21,7 @@ The project combines:
 
 - Socrata system datasets from `data.cambridgema.gov`
 - Cambridge department configuration in `config/cambridge_departments.csv`
+- OpenGov (ViewPoint Cloud) permit type configuration in `config/opengov_permit_categories.csv` and `config/opengov_permit_dataset_matches.csv`
 - Manual program inputs under `input/manual/`
 - Generated processed CSVs under `data/processed/`
 - Generated dashboard JSON under `docs/data/dashboard_data.json`
@@ -34,6 +35,7 @@ The project combines:
 - `docs/index.html`, `docs/dashboard.js`, `docs/styles.css`: static dashboard.
 - `data/processed/open_data_program_metrics.csv`: long-format Socrata-ready metric observations.
 - `data/processed/open_data_program_metric_definitions.csv`: definitions, statuses, sources, caveats.
+- `data/processed/permit_department_coverage.csv`, `data/processed/permit_type_dataset_coverage.csv`: OpenGov permit/license types compared with matching open datasets.
 - `data/processed/data_gaps.csv`: known gaps and recommended data sources.
 - `input/manual/training_events.csv`: real and planned event tracking.
 - `input/manual/newsletter_subscribers.csv`: newsletter subscriber snapshots.
@@ -117,6 +119,10 @@ Recent code in `docs/dashboard.js` supports:
 - Metric links such as `?tab=timeline&metric=public_dataset_page_views&period=month&range=all`.
 - Hidden/greyed timeline metric behavior for metrics that are unavailable or sparse.
 - Snapshot sorting/filtering through dashboard state.
+- Coverage tab permit coverage: sortable per-department table (department name, permit type
+  count, matched/unmatched counts, coverage percent) whose rows expand to the OpenGov permit
+  types, green when a matching open dataset exists and red when it does not, reading
+  `permitCoverage` from the dashboard JSON.
 
 If changing dashboard behavior, test by serving or opening `docs/index.html` with the generated JSON available under `docs/data/`.
 

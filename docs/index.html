@@ -96,6 +96,19 @@
 
       <section class="tab-panel" id="coverage">
         <section class="layout two-col">
+          <div class="panel coverage-wide">
+            <div class="panel-head">
+              <h2>Permit Types With Matching Open Data</h2>
+              <div class="controls">
+                <label class="toggle-control">
+                  <input id="permitMissingOnlyToggle" type="checkbox" />
+                  <span>Only permits without open data</span>
+                </label>
+              </div>
+            </div>
+            <div class="filter-note" id="permitCoverageNote"></div>
+            <div class="permit-coverage" id="permitCoverage"></div>
+          </div>
           <div class="panel">
             <div class="panel-head">
               <h2>Datasets By Category</h2>
@@ -151,7 +164,7 @@
               </li>
               <li class="priority-item">
                 <strong>Empower City Departments as a Connector and Enabler</strong>
-                <span>Tracks internal portal accounts, logins, department metadata coverage, staff trainings, and staff training attendance. Missing: CDAG meetings, CDAG attendance, and departments represented.</span>
+                <span>Tracks internal portal accounts, logins, department metadata coverage, staff trainings, staff training attendance, and the share of OpenGov permit and license types that have a matching open dataset. Missing: CDAG meetings, CDAG attendance, and departments represented.</span>
               </li>
               <li class="priority-item">
                 <strong>Encourage Responsible Innovation</strong>
