@@ -66,6 +66,14 @@ how they roll up:
   name-similarity matching and are reported with a `match_source` of `auto` or
   `unreviewed`, which is the signal to curate them.
 
+A curated "no dataset" row is still scored on every build so a dataset published later
+cannot stay hidden behind an old decision. When a match now looks likely, the build
+prints a `Review:` line, records the candidate in the `review_candidate_uids` column of
+`data/processed/permit_type_dataset_coverage.csv`, and the dashboard shows a "Possible
+match to review" hint on that permit. Either fill in `dataset_uids` to accept it, or list
+the uid in `review_suppressed_uids` with a note to record that it was reviewed and
+rejected.
+
 Override the endpoints with `OPENGOV_COMMUNITY`, `OPENGOV_API_BASE`, and
 `OPENGOV_PORTAL_BASE` if the portal moves. The permit coverage rebuilds on every
 `scripts/fetch_metrics.py` run, which the `Refresh metrics and publish Pages` workflow

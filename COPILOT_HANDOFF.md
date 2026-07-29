@@ -122,7 +122,10 @@ Recent code in `docs/dashboard.js` supports:
 - Coverage tab permit coverage: sortable per-department table (department name, permit type
   count, matched/unmatched counts, coverage percent) whose rows expand to the OpenGov permit
   types, green when a matching open dataset exists and red when it does not, reading
-  `permitCoverage` from the dashboard JSON.
+  `permitCoverage` from the dashboard JSON. Sorting defaults to matched dataset count
+  descending, and the sort key, direction, and missing-only filter round trip through the
+  `permitSort`, `permitDir`, and `permitMissing` query parameters so a specific view can be
+  linked to.
 
 If changing dashboard behavior, test by serving or opening `docs/index.html` with the generated JSON available under `docs/data/`.
 

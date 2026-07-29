@@ -1,133 +1,133 @@
-record_type_id,opengov_category,permit_type,dataset_uids,notes
-6728,Animal Care and Control,Dog License,sckh-3xyx,Dog License applications publish as Dogs of Cambridge.
-6866,Animal Care and Control,Helen K. Holland Animal Care Trust Fund,,Trust fund request; no permit output dataset.
-7031,Animal Care and Control,Kennel Application,,No kennel license dataset published.
-6875,Assessing,Change Mailing Address Request Form,,"Taxpayer service request, not a permit record set."
-6846,Assessing,Personal Exemption,,Exemption application; no published dataset.
-7035,Assessing,Residential Exemption,,Exemption application; no published dataset.
-7008,Assessing,Sales Verification Form,,Assessing intake form; no published dataset.
-7009,Cambridge Arts,Pre-Fabrication Review,,Public art fabrication review; no published dataset.
-6855,Cambridge Arts,Street Performers Permit,x55n-q9yc,Street performer permits published through 2016 only.
-6783,City Clerk's Office,Business Certificate,,Business certificates (DBA) are not published as open data.
-7030,Department of Human Service Programs,2026-2027 DHSP Afterschool Programs Lottery,,Program lottery application; no published dataset.
-7032,Department of Human Service Programs,2026–2027 Non-Resident Employee Lottery,,Program lottery application; no published dataset.
-7029,Department of Human Service Programs,Cambridge DHSP Camp Rainbow 2026,,Camp registration; no published dataset.
-6975,Emergency Communications,Emergency Contact Information,,Emergency contact intake; not publishable.
-6763,Fire Department,Bi-Directional Amplifier Permit,,No Fire Department permit datasets are published.
-6795,Fire Department,Carbon Monoxide Technical Option Permit,,No Fire Department permit datasets are published.
-6796,Fire Department,Cryogenic & Compressed Gas Permit,,No Fire Department permit datasets are published.
-6797,Fire Department,Cutting & Welding/Hot Work Permit,,No Fire Department permit datasets are published.
-6798,Fire Department,Fire Alarm System Modification Permit,,No Fire Department permit datasets are published.
-6808,Fire Department,Flammable & Combustible Material Permit,,No Fire Department permit datasets are published.
-6810,Fire Department,Fuel Oil Burner & Storage Permit,,No Fire Department permit datasets are published.
-6812,Fire Department,Hazardous Material Processing Permit,,No Fire Department permit datasets are published.
-6807,Fire Department,Non-water Based Fire Protection System Permit,,No Fire Department permit datasets are published.
-6774,Fire Department,Sale and Transfer Smoke/CO Certificate (26F-26F 1/2),,No Fire Department permit datasets are published.
-6813,Fire Department,State Mandated Fire Inspection Registration,,No Fire Department permit datasets are published.
-6814,Fire Department,Tank Installation Permit UST/AST,,No Fire Department permit datasets are published.
-6815,Fire Department,Tank Removal Permit,,No Fire Department permit datasets are published.
-6817,Fire Department,Temporary Fuel Storage Permit,,No Fire Department permit datasets are published.
-6820,Fire Department,Temporary Heat Permit,,No Fire Department permit datasets are published.
-6818,Fire Department,Unvented Propane or Natural Gas Fired Space Heater Permit,,No Fire Department permit datasets are published.
-6801,Fire Department,Water Based Fire Protection System Modification Permit,,No Fire Department permit datasets are published.
-6874,Housing Department,HomeBridge Application,,HomeBridge applications are not published as open data.
-6658,Inspectional Services,"Application to Modify Building Plans, Including Change of Contractor, etc.",tdg3-whvc,
-6604,Inspectional Services,Asbestos Permit,jrxr-y9ty,
-6606,Inspectional Services,Board of Appeal (BZA) Special Permit/Variance,urfm-usws,BZA petitions publish as Board of Zoning Appeal Requests.
-6659,Inspectional Services,Building Permit - Addition / Alteration,qu2z-8suj,
-6668,Inspectional Services,Building Permit - New Construction,9qm7-wbdc,
-7040,Inspectional Services,Building Permit - Short Form,,Short form building permits are not broken out on the portal.
-6743,Inspectional Services,Cannabis Business Permit,,No cannabis business permit dataset published.
-6619,Inspectional Services,Catering Registration,b395-a6b2,
-6778,Inspectional Services,Certificate of Inspection,,Certificates of inspection are not published as open data.
-6632,Inspectional Services,Certificate of Occupancy,qwvv-deed,
-6827,Inspectional Services,Cottage Food Operation Permit,q9yz-5w2v,
-6601,Inspectional Services,Curb Cut,q2hw-5t8j,
-6615,Inspectional Services,Demolition Permit,kcfi-ackv,
-6584,Inspectional Services,Dumpster License,h6rx-ind5,Current ISD dumpster permits; historical set is 6rcx-ibcs.
-6718,Inspectional Services,Electrical Maintenance Agreement,4eya-y7ji,
-6552,Inspectional Services,Electrical Permit,hvtc-3ab9,
-6655,Inspectional Services,Farmers Market,kkbh-kxre,
-6607,Inspectional Services,Food Establishment,iect-ma2e,
-6688,Inspectional Services,Gas Permit,5cra-jws5,
-6643,Inspectional Services,Mechanical Permit,4rb4-q8tj,
-6622,Inspectional Services,Mobile Food Truck,qweb-m8r8,
-6686,Inspectional Services,Plumbing Permit,8793-tet2,
-6834,Inspectional Services,Private Property Rodent Control,,No rodent control permit dataset published.
-6616,Inspectional Services,Recreational Camp License,,No recreational camp license dataset published.
-6666,Inspectional Services,Roof Permit,79ih-g44d,
-6617,Inspectional Services,Sheet Metal,cmy2-saf4,
-6571,Inspectional Services,Short-Term Rentals,wxgv-w968,
-6667,Inspectional Services,Siding Permit,ddej-349p,
-6628,Inspectional Services,Sign/Awning Permit,du4x-rm75,
-6651,Inspectional Services,Solar Panel Permit,whpw-w55x,
-6568,Inspectional Services,Sprinkler/Standpipe Permit,c552-ny5k,
-6646,Inspectional Services,Swimming Pool Permit,agj6-qs4q,
-6654,Inspectional Services,Temporary Food Service,ix2w-bkix,
-6649,Inspectional Services,Tent Permit,4bmb-xuad,
-6623,Inspectional Services,Tobacco License Without Food Establishment License,ryaf-48sr,
-6831,License Commission,Acoustical Music with No Amplification Except One Microphone Application,,No License Commission permit datasets are published.
-6555,License Commission,"Annual Common Victualler, Alcohol and/or Entertainment License",,No License Commission permit datasets are published.
-6625,License Commission,Auctioneer Permit (Annual),,No License Commission permit datasets are published.
-6687,License Commission,Change to an Existing License Application,,No License Commission permit datasets are published.
-6747,License Commission,Dispatch Service Application,,No License Commission permit datasets are published.
-6636,License Commission,Disposal/Solid Waste Hauler License,,No License Commission permit datasets are published.
-6626,License Commission,Fortune Teller License,,No License Commission permit datasets are published.
-6633,License Commission,Garage and/or Flammables License,,No License Commission permit datasets are published.
-6726,License Commission,Hackney Driver Application,,No License Commission permit datasets are published.
-6630,License Commission,Hawker/Peddler License,,No License Commission permit datasets are published.
-6565,License Commission,Innholder - Lodging House,,No License Commission permit datasets are published.
-6750,License Commission,Jitney,,No License Commission permit datasets are published.
-6573,License Commission,Leaf Blower Permit,,No License Commission permit datasets are published.
-6627,License Commission,Letting of Motor Vehicles License,,No License Commission permit datasets are published.
-6759,License Commission,Livery Application,,No License Commission permit datasets are published.
-6725,License Commission,Medallion Holder Application,,No License Commission permit datasets are published.
-6661,License Commission,One Day Alcoholic and/or Entertainment License,,No License Commission permit datasets are published.
-6662,License Commission,One Day Amendment to an Existing License,,No License Commission permit datasets are published.
-6665,License Commission,One Day Hawker/Peddler License Application,,No License Commission permit datasets are published.
-6663,License Commission,One Day Temporary Amusement Application,,No License Commission permit datasets are published.
-6664,License Commission,One Day Temporary Auctioneer Application,,No License Commission permit datasets are published.
-6638,License Commission,Open Air Parking License,,No License Commission permit datasets are published.
-6629,License Commission,Pawnbroker License,,No License Commission permit datasets are published.
-6689,License Commission,Pole and Conduit,,No License Commission permit datasets are published.
-6832,License Commission,Raffle and/or Bazaar Application,,No License Commission permit datasets are published.
-6635,License Commission,"Second Hand Goods, Junk Dealers and/or Antiques",,No License Commission permit datasets are published.
-6745,License Commission,Small Cell Wireless Installation,,No License Commission permit datasets are published.
-6829,License Commission,Special Licenses Application (Charity Wine or Farmer's Market),,No License Commission permit datasets are published.
-6690,License Commission,Special Noise Variance,,No License Commission permit datasets are published.
-6572,License Commission,Used Car Dealer License,,No License Commission permit datasets are published.
-6871,Public Works,Across Sidewalk Electric Vehicle Charging (EV) Permit,,No EV across-sidewalk charging permit dataset published.
-6612,Public Works,Appliance/Large Items,rrgw-vvzj,
-6727,Public Works,Banner Permit,,No banner permit dataset published.
-6729,Public Works,Contractor Registration,,No DPW contractor registration dataset published.
-6710,Public Works,"Crane, Boom, Pump Truck (CBP) Permit",vppe-a39w,
-6715,Public Works,Dewatering Permit,b4k4-w9fk,
-6713,Public Works,Excavation Permit,nuxx-d95m,
-6878,Public Works,Flood Resilience Compliance Confirmation,c4us-bahj,
-6721,Public Works,Newsrack Permit,,No newsrack permit dataset published.
-6708,Public Works,Park Permit,wsde-3xia;mg2u-982u,Future and past park permit events.
-6870,Public Works,Sewer Use Abatement Application,,No sewer use abatement dataset published.
-6732,Public Works,Short Term / Special Event Sidewalk Business Use Permit,,No short term sidewalk business use dataset published.
-6722,Public Works,Sidewalk and Street Business Use Permit (Annual),,No annual sidewalk/street business use dataset published.
-6719,Public Works,Sidewalk Obstruction Permit (Construction),vydm-qk5p,
-6720,Public Works,Special Events Committee Application,,DPW special events committee applications are not published.
-6712,Public Works,Stormwater Control Permit,rh2v-p4tg,
-6714,Public Works,Temporary Construction Access,,No temporary construction access dataset published.
-6723,Public Works,Tree Removal Permit,vj95-me7d,
-6691,"Traffic, Parking, and Transportation",Block Party Permit,i2em-9w6g,
-6749,"Traffic, Parking, and Transportation",Dumpster Permit,8xmj-thsm,
-6851,"Traffic, Parking, and Transportation",Food Truck Program,,Food truck program licensing is not published separately from ISD permits.
-6753,"Traffic, Parking, and Transportation",Funeral/Wake Parking Permit,3tvu-vurw,
-6700,"Traffic, Parking, and Transportation",Moving Container or Crate Permit,k28p-e9kd,
-6705,"Traffic, Parking, and Transportation",Moving Van,sr5i-tmfb,
-6825,"Traffic, Parking, and Transportation",Non-Resident Parking Permit,,Non-resident parking permits are not in the resident/visitor dataset.
-6754,"Traffic, Parking, and Transportation",Other Street Occupancy Parking Permit,wa95-5fg7,
-6724,"Traffic, Parking, and Transportation",Parking Consideration,,Parking consideration requests are not published.
-6770,"Traffic, Parking, and Transportation",Parking Permit,khuw-r9f4,Resident and visitor parking permits.
-6844,"Traffic, Parking, and Transportation",Special Events Committee Application,,Traffic special events committee applications are not published.
-6698,"Traffic, Parking, and Transportation",Tool Truck,a5s6-4529,
-6697,"Traffic, Parking, and Transportation",Traffic Clearance Permit,d89e-7wmt,
-6752,"Traffic, Parking, and Transportation",Traffic Special Event Permit,4ixn-jz5x,
-6841,Water Department,Backflow/Cross Connection Permit,,No backflow/cross connection permit dataset published.
-6864,Water Department,Fire Pump Test,,No fire pump test dataset published.
-6856,Water Department,Lab Tests for Distribution Work,,No distribution work lab test dataset published.
+record_type_id,opengov_category,permit_type,dataset_uids,review_suppressed_uids,notes
+6728,Animal Care and Control,Dog License,sckh-3xyx,,Dog License applications publish as Dogs of Cambridge.
+6866,Animal Care and Control,Helen K. Holland Animal Care Trust Fund,,,Trust fund request; no permit output dataset.
+7031,Animal Care and Control,Kennel Application,,,No kennel license dataset published.
+6875,Assessing,Change Mailing Address Request Form,,,"Taxpayer service request, not a permit record set."
+6846,Assessing,Personal Exemption,,,Exemption application; no published dataset.
+7035,Assessing,Residential Exemption,,,Exemption application; no published dataset.
+7008,Assessing,Sales Verification Form,,,Assessing intake form; no published dataset.
+7009,Cambridge Arts,Pre-Fabrication Review,,,Public art fabrication review; no published dataset.
+6855,Cambridge Arts,Street Performers Permit,x55n-q9yc,,Street performer permits published through 2016 only.
+6783,City Clerk's Office,Business Certificate,,,Business certificates (DBA) are not published as open data.
+7030,Department of Human Service Programs,2026-2027 DHSP Afterschool Programs Lottery,,,Program lottery application; no published dataset.
+7032,Department of Human Service Programs,2026–2027 Non-Resident Employee Lottery,,,Program lottery application; no published dataset.
+7029,Department of Human Service Programs,Cambridge DHSP Camp Rainbow 2026,,,Camp registration; no published dataset.
+6975,Emergency Communications,Emergency Contact Information,,,Emergency contact intake; not publishable.
+6763,Fire Department,Bi-Directional Amplifier Permit,,,No Fire Department permit datasets are published.
+6795,Fire Department,Carbon Monoxide Technical Option Permit,,,No Fire Department permit datasets are published.
+6796,Fire Department,Cryogenic & Compressed Gas Permit,,,No Fire Department permit datasets are published.
+6797,Fire Department,Cutting & Welding/Hot Work Permit,,,No Fire Department permit datasets are published.
+6798,Fire Department,Fire Alarm System Modification Permit,,,No Fire Department permit datasets are published.
+6808,Fire Department,Flammable & Combustible Material Permit,,,No Fire Department permit datasets are published.
+6810,Fire Department,Fuel Oil Burner & Storage Permit,,,No Fire Department permit datasets are published.
+6812,Fire Department,Hazardous Material Processing Permit,,,No Fire Department permit datasets are published.
+6807,Fire Department,Non-water Based Fire Protection System Permit,,,No Fire Department permit datasets are published.
+6774,Fire Department,Sale and Transfer Smoke/CO Certificate (26F-26F 1/2),,,No Fire Department permit datasets are published.
+6813,Fire Department,State Mandated Fire Inspection Registration,,,No Fire Department permit datasets are published.
+6814,Fire Department,Tank Installation Permit UST/AST,,,No Fire Department permit datasets are published.
+6815,Fire Department,Tank Removal Permit,,,No Fire Department permit datasets are published.
+6817,Fire Department,Temporary Fuel Storage Permit,,,No Fire Department permit datasets are published.
+6820,Fire Department,Temporary Heat Permit,,,No Fire Department permit datasets are published.
+6818,Fire Department,Unvented Propane or Natural Gas Fired Space Heater Permit,,,No Fire Department permit datasets are published.
+6801,Fire Department,Water Based Fire Protection System Modification Permit,,,No Fire Department permit datasets are published.
+6874,Housing Department,HomeBridge Application,,,HomeBridge applications are not published as open data.
+6658,Inspectional Services,"Application to Modify Building Plans, Including Change of Contractor, etc.",tdg3-whvc,,
+6604,Inspectional Services,Asbestos Permit,jrxr-y9ty,,
+6606,Inspectional Services,Board of Appeal (BZA) Special Permit/Variance,urfm-usws,,BZA petitions publish as Board of Zoning Appeal Requests.
+6659,Inspectional Services,Building Permit - Addition / Alteration,qu2z-8suj,,
+6668,Inspectional Services,Building Permit - New Construction,9qm7-wbdc,,
+7040,Inspectional Services,Building Permit - Short Form,ex75-8iwq,,
+6743,Inspectional Services,Cannabis Business Permit,,,No cannabis business permit dataset published.
+6619,Inspectional Services,Catering Registration,b395-a6b2,,
+6778,Inspectional Services,Certificate of Inspection,,ryb9-qzmw,"Reviewed: Sanitary Inspections covers food establishment inspections, not the annual ISD certificate of inspection."
+6632,Inspectional Services,Certificate of Occupancy,qwvv-deed,,
+6827,Inspectional Services,Cottage Food Operation Permit,q9yz-5w2v,,
+6601,Inspectional Services,Curb Cut,q2hw-5t8j,,
+6615,Inspectional Services,Demolition Permit,kcfi-ackv,,
+6584,Inspectional Services,Dumpster License,h6rx-ind5,,Current ISD dumpster permits; historical set is 6rcx-ibcs.
+6718,Inspectional Services,Electrical Maintenance Agreement,4eya-y7ji,,
+6552,Inspectional Services,Electrical Permit,hvtc-3ab9,,
+6655,Inspectional Services,Farmers Market,kkbh-kxre,,
+6607,Inspectional Services,Food Establishment,iect-ma2e,,
+6688,Inspectional Services,Gas Permit,5cra-jws5,,
+6643,Inspectional Services,Mechanical Permit,4rb4-q8tj,,
+6622,Inspectional Services,Mobile Food Truck,qweb-m8r8,,
+6686,Inspectional Services,Plumbing Permit,8793-tet2,,
+6834,Inspectional Services,Private Property Rodent Control,,,No rodent control permit dataset published.
+6616,Inspectional Services,Recreational Camp License,,,No recreational camp license dataset published.
+6666,Inspectional Services,Roof Permit,79ih-g44d,,
+6617,Inspectional Services,Sheet Metal,cmy2-saf4,,
+6571,Inspectional Services,Short-Term Rentals,wxgv-w968,,
+6667,Inspectional Services,Siding Permit,ddej-349p,,
+6628,Inspectional Services,Sign/Awning Permit,du4x-rm75,,
+6651,Inspectional Services,Solar Panel Permit,whpw-w55x,,
+6568,Inspectional Services,Sprinkler/Standpipe Permit,c552-ny5k,,
+6646,Inspectional Services,Swimming Pool Permit,agj6-qs4q,,
+6654,Inspectional Services,Temporary Food Service,ix2w-bkix,,
+6649,Inspectional Services,Tent Permit,4bmb-xuad,,
+6623,Inspectional Services,Tobacco License Without Food Establishment License,ryaf-48sr,,
+6831,License Commission,Acoustical Music with No Amplification Except One Microphone Application,,,No License Commission permit datasets are published.
+6555,License Commission,"Annual Common Victualler, Alcohol and/or Entertainment License",,,No License Commission permit datasets are published.
+6625,License Commission,Auctioneer Permit (Annual),,,No License Commission permit datasets are published.
+6687,License Commission,Change to an Existing License Application,,,No License Commission permit datasets are published.
+6747,License Commission,Dispatch Service Application,,,No License Commission permit datasets are published.
+6636,License Commission,Disposal/Solid Waste Hauler License,,,No License Commission permit datasets are published.
+6626,License Commission,Fortune Teller License,,,No License Commission permit datasets are published.
+6633,License Commission,Garage and/or Flammables License,,,No License Commission permit datasets are published.
+6726,License Commission,Hackney Driver Application,,,No License Commission permit datasets are published.
+6630,License Commission,Hawker/Peddler License,,,No License Commission permit datasets are published.
+6565,License Commission,Innholder - Lodging House,,,No License Commission permit datasets are published.
+6750,License Commission,Jitney,,,No License Commission permit datasets are published.
+6573,License Commission,Leaf Blower Permit,,,No License Commission permit datasets are published.
+6627,License Commission,Letting of Motor Vehicles License,,,No License Commission permit datasets are published.
+6759,License Commission,Livery Application,,,No License Commission permit datasets are published.
+6725,License Commission,Medallion Holder Application,,,No License Commission permit datasets are published.
+6661,License Commission,One Day Alcoholic and/or Entertainment License,,,No License Commission permit datasets are published.
+6662,License Commission,One Day Amendment to an Existing License,,,No License Commission permit datasets are published.
+6665,License Commission,One Day Hawker/Peddler License Application,,,No License Commission permit datasets are published.
+6663,License Commission,One Day Temporary Amusement Application,,,No License Commission permit datasets are published.
+6664,License Commission,One Day Temporary Auctioneer Application,,,No License Commission permit datasets are published.
+6638,License Commission,Open Air Parking License,,,No License Commission permit datasets are published.
+6629,License Commission,Pawnbroker License,,,No License Commission permit datasets are published.
+6689,License Commission,Pole and Conduit,,,No License Commission permit datasets are published.
+6832,License Commission,Raffle and/or Bazaar Application,,,No License Commission permit datasets are published.
+6635,License Commission,"Second Hand Goods, Junk Dealers and/or Antiques",,,No License Commission permit datasets are published.
+6745,License Commission,Small Cell Wireless Installation,,,No License Commission permit datasets are published.
+6829,License Commission,Special Licenses Application (Charity Wine or Farmer's Market),,,No License Commission permit datasets are published.
+6690,License Commission,Special Noise Variance,,,No License Commission permit datasets are published.
+6572,License Commission,Used Car Dealer License,,,No License Commission permit datasets are published.
+6871,Public Works,Across Sidewalk Electric Vehicle Charging (EV) Permit,,,No EV across-sidewalk charging permit dataset published.
+6612,Public Works,Appliance/Large Items,rrgw-vvzj,,
+6727,Public Works,Banner Permit,,,No banner permit dataset published.
+6729,Public Works,Contractor Registration,,,No DPW contractor registration dataset published.
+6710,Public Works,"Crane, Boom, Pump Truck (CBP) Permit",vppe-a39w,,
+6715,Public Works,Dewatering Permit,b4k4-w9fk,,
+6713,Public Works,Excavation Permit,nuxx-d95m,,
+6878,Public Works,Flood Resilience Compliance Confirmation,c4us-bahj,,
+6721,Public Works,Newsrack Permit,,,No newsrack permit dataset published.
+6708,Public Works,Park Permit,wsde-3xia;mg2u-982u,,Future and past park permit events.
+6870,Public Works,Sewer Use Abatement Application,,,No sewer use abatement dataset published.
+6732,Public Works,Short Term / Special Event Sidewalk Business Use Permit,,,No short term sidewalk business use dataset published.
+6722,Public Works,Sidewalk and Street Business Use Permit (Annual),,,No annual sidewalk/street business use dataset published.
+6719,Public Works,Sidewalk Obstruction Permit (Construction),vydm-qk5p,,
+6720,Public Works,Special Events Committee Application,,,DPW special events committee applications are not published.
+6712,Public Works,Stormwater Control Permit,rh2v-p4tg,,
+6714,Public Works,Temporary Construction Access,,,No temporary construction access dataset published.
+6723,Public Works,Tree Removal Permit,vj95-me7d,,
+6691,"Traffic, Parking, and Transportation",Block Party Permit,i2em-9w6g,,
+6749,"Traffic, Parking, and Transportation",Dumpster Permit,8xmj-thsm,,
+6851,"Traffic, Parking, and Transportation",Food Truck Program,,qweb-m8r8,Reviewed: Mobile Food Truck Permits is the ISD food safety permit (record type 6622); the TPT vending program has no dataset.
+6753,"Traffic, Parking, and Transportation",Funeral/Wake Parking Permit,3tvu-vurw,,
+6700,"Traffic, Parking, and Transportation",Moving Container or Crate Permit,k28p-e9kd,,
+6705,"Traffic, Parking, and Transportation",Moving Van,sr5i-tmfb,,
+6825,"Traffic, Parking, and Transportation",Non-Resident Parking Permit,,,Non-resident parking permits are not in the resident/visitor dataset.
+6754,"Traffic, Parking, and Transportation",Other Street Occupancy Parking Permit,wa95-5fg7,,
+6724,"Traffic, Parking, and Transportation",Parking Consideration,,,Parking consideration requests are not published.
+6770,"Traffic, Parking, and Transportation",Parking Permit,khuw-r9f4,,Resident and visitor parking permits.
+6844,"Traffic, Parking, and Transportation",Special Events Committee Application,,,Traffic special events committee applications are not published.
+6698,"Traffic, Parking, and Transportation",Tool Truck,a5s6-4529,,
+6697,"Traffic, Parking, and Transportation",Traffic Clearance Permit,d89e-7wmt,,
+6752,"Traffic, Parking, and Transportation",Traffic Special Event Permit,4ixn-jz5x,,
+6841,Water Department,Backflow/Cross Connection Permit,,,No backflow/cross connection permit dataset published.
+6864,Water Department,Fire Pump Test,,,No fire pump test dataset published.
+6856,Water Department,Lab Tests for Distribution Work,,,No distribution work lab test dataset published.

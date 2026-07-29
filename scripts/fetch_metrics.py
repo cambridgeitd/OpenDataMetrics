@@ -743,6 +743,7 @@ def build_permit_coverage(public_datasets: list[dict[str, Any]], generated_at: s
         "matchedPermitTypeCount": 0,
         "coveragePercent": None,
         "departments": [],
+        "reviewCandidateCount": 0,
         "notes": "",
     }
 
@@ -794,10 +795,25 @@ def build_permit_coverage(public_datasets: list[dict[str, Any]], generated_at: s
         record_type_id = clean_text(attributes.get("recordTypeID"))
         permit_name = " ".join(clean_text(attributes.get("name")).split())
         match_row = match_config.get(record_type_id)
+        review_candidates: list[dict[str, str]] = []
         if match_row is not None:
             uids = [uid for uid in re.split(r"[;,]", clean_text(match_row.get("dataset_uids"))) if uid]
             match_source = "curated"
             match_note = clean_text(match_row.get("notes"))
+            if not uids:
+                # A curated "no dataset" row must not permanently hide a dataset that
+                # gets published later, so keep scoring it and surface any candidate
+                # that has not already been reviewed and rejected.
+                suppressed = {
+                    uid
+                    for uid in re.split(r"[;,]", clean_text(match_row.get("review_suppressed_uids")))
+                    if uid
+                }
+                review_candidates = [
+                    {"uid": uid, "name": dataset_by_uid[uid]["name"], "url": dataset_by_uid[uid]["url"]}
+                    for uid in auto_match_permit_datasets(permit_name, dataset_tokens)
+                    if uid in dataset_by_uid and uid not in suppressed
+                ]
         else:
             uids = auto_match_permit_datasets(permit_name, dataset_tokens)
             match_source = "auto" if uids else "unreviewed"
@@ -825,6 +841,7 @@ def build_permit_coverage(public_datasets: list[dict[str, Any]], generated_at: s
                 "matchSource": match_source,
                 "notes": match_note,
                 "datasets": datasets,
+                "reviewCandidates": review_candidates,
             }
         )
         department_meta.setdefault(
@@ -865,6 +882,19 @@ def build_permit_coverage(public_datasets: list[dict[str, Any]], generated_at: s
     )
     if excluded_categories:
         coverage["notes"] = f"Excluded non-permit OpenGov categories: {', '.join(sorted(excluded_categories))}."
+    review_queue = [
+        (row["department"], permit)
+        for row in departments
+        for permit in row["permits"]
+        if permit["reviewCandidates"]
+    ]
+    coverage["reviewCandidateCount"] = len(review_queue)
+    for department, permit in review_queue:
+        candidates = ", ".join(f"{item['name']} ({item['uid']})" for item in permit["reviewCandidates"])
+        print(
+            f"Review: [{department}] '{permit['permitType']}' is curated as having no open dataset, "
+            f"but now looks like a match for {candidates}."
+        )
     return coverage
 
 
@@ -909,6 +939,11 @@ def reuse_previous_permit_coverage(coverage: dict[str, Any], error: Exception) -
                 "matchSource": clean_text(row.get("match_source")),
                 "notes": clean_text(row.get("notes")),
                 "datasets": datasets,
+                "reviewCandidates": [
+                    {"uid": uid.strip(), "name": uid.strip(), "url": f"https://{DOMAIN}/d/{uid.strip()}"}
+                    for uid in clean_text(row.get("review_candidate_uids")).split(";")
+                    if uid.strip()
+                ],
             }
         )
         department_meta.setdefault(
@@ -944,6 +979,9 @@ def reuse_previous_permit_coverage(coverage: dict[str, Any], error: Exception) -
             "matchedPermitTypeCount": matched_total,
             "coveragePercent": pct(matched_total, total),
             "departments": departments,
+            "reviewCandidateCount": sum(
+                1 for item in departments for permit in item["permits"] if permit["reviewCandidates"]
+            ),
             "notes": f"Showing the previous permit coverage build; OpenGov could not be read ({error}).",
         }
     )
@@ -1574,6 +1612,7 @@ def main() -> None:
             "dataset_uids": "; ".join(dataset["uid"] for dataset in permit["datasets"]),
             "dataset_names": "; ".join(dataset["name"] for dataset in permit["datasets"]),
             "dataset_urls": "; ".join(dataset["url"] for dataset in permit["datasets"]),
+            "review_candidate_uids": "; ".join(item["uid"] for item in permit.get("reviewCandidates", [])),
             "notes": permit["notes"],
         }
         for department in permit_coverage["departments"]
@@ -1822,6 +1861,7 @@ def main() -> None:
             "dataset_uids",
             "dataset_names",
             "dataset_urls",
+            "review_candidate_uids",
             "notes",
         ],
     )

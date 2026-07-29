@@ -1,3 +1,18 @@
+const COVERAGE_TAB_ID = "coverage";
+const PERMIT_SORT_PARAM = "permitSort";
+const PERMIT_DIR_PARAM = "permitDir";
+const PERMIT_MISSING_PARAM = "permitMissing";
+const PERMIT_SORT_KEYS = [
+  "department",
+  "permitTypeCount",
+  "matchedPermitTypeCount",
+  "unmatchedPermitTypeCount",
+  "coveragePercent",
+];
+const PERMIT_DEFAULT_SORT_KEY = "matchedPermitTypeCount";
+const PERMIT_DEFAULT_SORT_DIR = "desc";
+const permitDefaultDirFor = (sortKey) => (sortKey === "department" ? "asc" : "desc");
+
 const state = {
   data: null,
   metricId: "public_dataset_page_views",
@@ -11,8 +26,8 @@ const state = {
   snapshotCategoryFilter: "",
   permitExpanded: new Set(),
   permitMissingOnly: false,
-  permitSortKey: "permitTypeCount",
-  permitSortDir: "desc",
+  permitSortKey: PERMIT_DEFAULT_SORT_KEY,
+  permitSortDir: PERMIT_DEFAULT_SORT_DIR,
 };
 
 const SNAPSHOT_DATASET_PAGE_SIZE = 50;
@@ -123,6 +138,8 @@ const canonicalTabId = (tabId) => {
 const validTabId = (tabId) => canonicalTabId(tabId) || DEFAULT_TAB_ID;
 
 const hasTimelineUrlState = (params) => TIMELINE_QUERY_PARAMS.some((param) => params.has(param));
+const hasPermitUrlState = (params) =>
+  [PERMIT_SORT_PARAM, PERMIT_DIR_PARAM, PERMIT_MISSING_PARAM].some((param) => params.has(param));
 
 function tabIdFromUrl() {
   const params = new URLSearchParams(window.location.search);
@@ -130,6 +147,7 @@ function tabIdFromUrl() {
   if (tabParam) return tabParam;
   const hashParam = window.location.hash.replace(/^#/, "");
   if (hashParam) return hashParam;
+  if (hasPermitUrlState(params)) return COVERAGE_TAB_ID;
   return hasTimelineUrlState(params) ? TIMELINE_TAB_ID : "";
 }
 
@@ -231,8 +249,44 @@ function normalizeTimelineUrlFromControls() {
   }
 }
 
-function timelineHref(metricId, period = "month", range = "all") {
-  const params = new URLSearchParams();
+function applyPermitStateFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const sortKey = urlParam(params, PERMIT_SORT_PARAM);
+  if (PERMIT_SORT_KEYS.includes(sortKey)) {
+    state.permitSortKey = sortKey;
+    state.permitSortDir = permitDefaultDirFor(sortKey);
+  }
+  const sortDir = urlParam(params, PERMIT_DIR_PARAM).toLowerCase();
+  if (sortDir === "asc" || sortDir === "desc") state.permitSortDir = sortDir;
+  state.permitMissingOnly = ["1", "true", "yes"].includes(urlParam(params, PERMIT_MISSING_PARAM).toLowerCase());
+  const toggle = document.querySelector("#permitMissingOnlyToggle");
+  if (toggle) toggle.checked = state.permitMissingOnly;
+}
+
+function updatePermitUrl(replace = true) {
+  const url = new URL(window.location.href);
+  const params = url.searchParams;
+  params.set(TAB_QUERY_PARAM, COVERAGE_TAB_ID);
+  const isDefault =
+    state.permitSortKey === PERMIT_DEFAULT_SORT_KEY && state.permitSortDir === PERMIT_DEFAULT_SORT_DIR;
+  if (isDefault) {
+    params.delete(PERMIT_SORT_PARAM);
+    params.delete(PERMIT_DIR_PARAM);
+  } else {
+    params.set(PERMIT_SORT_PARAM, state.permitSortKey);
+    params.set(PERMIT_DIR_PARAM, state.permitSortDir);
+  }
+  if (state.permitMissingOnly) {
+    params.set(PERMIT_MISSING_PARAM, "1");
+  } else {
+    params.delete(PERMIT_MISSING_PARAM);
+  }
+  if (canonicalTabId(url.hash.replace(/^#/, "")) === COVERAGE_TAB_ID) url.hash = "";
+  const method = replace ? "replaceState" : "pushState";
+  window.history[method]({ tab: COVERAGE_TAB_ID }, "", url);
+}
+
+function timelineHref(metricId, period = "month", range = "all") {  const params = new URLSearchParams();
   params.set(TAB_QUERY_PARAM, TIMELINE_TAB_ID);
   params.set("metric", metricId);
   params.set("period", period);
@@ -1324,6 +1378,15 @@ function permitSortValue(department, key) {
   return total;
 }
 
+function permitReviewHint(permit) {
+  const candidates = permit.reviewCandidates || [];
+  if (!candidates.length) return "No matching open dataset";
+  const links = candidates
+    .map((item) => `<a class="permit-dataset" href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(item.name)}</a>`)
+    .join(" ");
+  return `<span class="permit-review">Possible match to review:</span> ${links}`;
+}
+
 function renderPermitDepartmentRows(department) {
   const total = Number(department.permitTypeCount) || 0;
   const matched = Number(department.matchedPermitTypeCount) || 0;
@@ -1341,7 +1404,7 @@ function renderPermitDepartmentRows(department) {
           `).join("");
       const detail = permit.hasOpenData
         ? `<div class="permit-datasets">${datasets}</div>`
-        : `<div class="permit-datasets is-empty">No matching open dataset</div>`;
+        : `<div class="permit-datasets is-empty">${permitReviewHint(permit)}</div>`;
       return `
           <li class="permit-item ${permit.hasOpenData ? "is-matched" : "is-unmatched"}">
             <a class="permit-name" href="${escapeHtml(permit.url)}" target="_blank" rel="noreferrer">${escapeHtml(permit.permitType)}</a>
@@ -1439,13 +1502,14 @@ function togglePermitDepartment(key) {
 }
 
 function togglePermitSort(sortKey) {
-  if (!sortKey) return;
+  if (!sortKey || !PERMIT_SORT_KEYS.includes(sortKey)) return;
   if (state.permitSortKey === sortKey) {
     state.permitSortDir = state.permitSortDir === "asc" ? "desc" : "asc";
   } else {
     state.permitSortKey = sortKey;
-    state.permitSortDir = sortKey === "department" ? "asc" : "desc";
+    state.permitSortDir = permitDefaultDirFor(sortKey);
   }
+  updatePermitUrl();
   renderPermitCoverage();
 }
 
@@ -1506,7 +1570,9 @@ function bindEvents() {
   window.addEventListener("popstate", () => {
     syncInitialTabFromUrl();
     applyTimelineStateFromUrl();
+    applyPermitStateFromUrl();
     updateExplorer();
+    renderPermitCoverage();
   });
 
   ["#metricSelect", "#periodSelect", "#rangeSelect"].forEach((selector) => {
@@ -1597,6 +1663,7 @@ function bindEvents() {
   if (permitMissingOnlyEl) {
     permitMissingOnlyEl.addEventListener("change", () => {
       state.permitMissingOnly = permitMissingOnlyEl.checked;
+      updatePermitUrl();
       renderPermitCoverage();
     });
   }
@@ -1611,6 +1678,7 @@ async function init() {
   populateMetricSelects();
   applyTimelineStateFromUrl();
   normalizeTimelineUrlFromControls();
+  applyPermitStateFromUrl();
   populateSnapshotFilters();
   renderSnapshot();
   updateExplorer();
