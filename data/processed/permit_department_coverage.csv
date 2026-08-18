@@ -1,7 +1,7 @@
 department,opengov_category,permit_type_count,matched_permit_type_count,unmatched_permit_type_count,coverage_percent,opengov_category_url
 Inspectional Services,Inspectional Services,35,31,4,88.57,https://cambridgema.portal.opengov.com/categories/1118
 License Commission,License Commission,30,0,30,0.0,https://cambridgema.portal.opengov.com/categories/1096
-Public Works (DPW),Public Works,18,9,9,50.0,https://cambridgema.portal.opengov.com/categories/1101
+Public Works (DPW),Public Works,20,9,11,45.0,https://cambridgema.portal.opengov.com/categories/1101
 Fire Department,Fire Department,17,0,17,0.0,https://cambridgema.portal.opengov.com/categories/1125
 Transportation,"Traffic, Parking, and Transportation",14,10,4,71.43,https://cambridgema.portal.opengov.com/categories/1122
 Assessing,Assessing,4,0,4,0.0,https://cambridgema.portal.opengov.com/categories/1127
