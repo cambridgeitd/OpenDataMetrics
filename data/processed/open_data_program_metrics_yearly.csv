@@ -1,254 +1,254 @@
 metric_id,period_type,period_start,value,dimension,dimension_value,source_detail,notes,generated_at
-active_internal_portal_accounts,year,2020-01-01,11,,,,Aggregated from monthly values using max.,2026-08-22T08:51:30+00:00
-active_internal_portal_accounts,year,2021-01-01,14,,,,Aggregated from monthly values using max.,2026-08-22T08:51:30+00:00
-active_internal_portal_accounts,year,2022-01-01,17,,,,Aggregated from monthly values using max.,2026-08-22T08:51:30+00:00
-active_internal_portal_accounts,year,2023-01-01,13,,,,Aggregated from monthly values using max.,2026-08-22T08:51:30+00:00
-active_internal_portal_accounts,year,2024-01-01,13,,,,Aggregated from monthly values using max.,2026-08-22T08:51:30+00:00
-active_internal_portal_accounts,year,2025-01-01,16,,,,Aggregated from monthly values using max.,2026-08-22T08:51:30+00:00
-active_internal_portal_accounts,year,2026-01-01,11,,,,Aggregated from monthly values using max.,2026-08-22T08:51:30+00:00
-catalog_searches,year,2020-01-01,397368,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-catalog_searches,year,2021-01-01,506193,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-catalog_searches,year,2022-01-01,145219,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-catalog_searches,year,2023-01-01,245695,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-catalog_searches,year,2024-01-01,242178,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-catalog_searches,year,2025-01-01,7936,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-catalog_searches,year,2026-01-01,16291,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-distinct_catalog_search_terms,year,2020-01-01,344,,,,Aggregated from monthly values using max.,2026-08-22T08:51:30+00:00
-distinct_catalog_search_terms,year,2021-01-01,474,,,,Aggregated from monthly values using max.,2026-08-22T08:51:30+00:00
-distinct_catalog_search_terms,year,2022-01-01,9093,,,,Aggregated from monthly values using max.,2026-08-22T08:51:30+00:00
-distinct_catalog_search_terms,year,2023-01-01,7436,,,,Aggregated from monthly values using max.,2026-08-22T08:51:30+00:00
-distinct_catalog_search_terms,year,2024-01-01,2057,,,,Aggregated from monthly values using max.,2026-08-22T08:51:30+00:00
-distinct_catalog_search_terms,year,2025-01-01,519,,,,Aggregated from monthly values using max.,2026-08-22T08:51:30+00:00
-distinct_catalog_search_terms,year,2026-01-01,649,,,,Aggregated from monthly values using max.,2026-08-22T08:51:30+00:00
-distinct_referrers,year,2021-01-01,66,,,,Aggregated from monthly values using max.,2026-08-22T08:51:30+00:00
-distinct_referrers,year,2022-01-01,134,,,,Aggregated from monthly values using max.,2026-08-22T08:51:30+00:00
-distinct_referrers,year,2023-01-01,83,,,,Aggregated from monthly values using max.,2026-08-22T08:51:30+00:00
-distinct_referrers,year,2024-01-01,91,,,,Aggregated from monthly values using max.,2026-08-22T08:51:30+00:00
-distinct_referrers,year,2025-01-01,323,,,,Aggregated from monthly values using max.,2026-08-22T08:51:30+00:00
-distinct_referrers,year,2026-01-01,162,,,,Aggregated from monthly values using max.,2026-08-22T08:51:30+00:00
-newsletter_subscribers,year,2024-01-01,701,,,,Aggregated from monthly values using last.,2026-08-22T08:51:30+00:00
-newsletter_subscribers,year,2025-01-01,742,,,,Aggregated from monthly values using last.,2026-08-22T08:51:30+00:00
-newsletter_subscribers,year,2026-01-01,785,,,,Aggregated from monthly values using last.,2026-08-22T08:51:30+00:00
-portal_logins,year,2020-01-01,440,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-portal_logins,year,2021-01-01,449,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-portal_logins,year,2022-01-01,677,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-portal_logins,year,2023-01-01,783,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-portal_logins,year,2024-01-01,1150,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-portal_logins,year,2025-01-01,1313,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-portal_logins,year,2026-01-01,893,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-program_event_attendance,year,2024-01-01,36,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-program_event_attendance,year,2025-01-01,275,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-program_event_attendance,year,2026-01-01,132,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-program_events,year,2024-01-01,1,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-program_events,year,2025-01-01,9,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-program_events,year,2026-01-01,4,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_asset_api_reads,year,2020-01-01,849108,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_asset_api_reads,year,2021-01-01,1065489,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_asset_api_reads,year,2022-01-01,2162106,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_asset_api_reads,year,2023-01-01,1165704,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_asset_api_reads,year,2024-01-01,1415955,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_asset_api_reads,year,2025-01-01,1876436,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_asset_api_reads,year,2026-01-01,2550217,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_asset_downloads,year,2020-01-01,11391,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_asset_downloads,year,2021-01-01,9564,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_asset_downloads,year,2022-01-01,13403,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_asset_downloads,year,2023-01-01,13256,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_asset_downloads,year,2024-01-01,40709,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_asset_downloads,year,2025-01-01,114843,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_asset_downloads,year,2026-01-01,219676,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_asset_views,year,2020-01-01,36919,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_asset_views,year,2021-01-01,55280,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_asset_views,year,2022-01-01,64220,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_asset_views,year,2023-01-01,76048,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_asset_views,year,2024-01-01,133722,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_asset_views,year,2025-01-01,220938,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_asset_views,year,2026-01-01,223965,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_dataset_api_reads,year,2020-01-01,848327,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_dataset_api_reads,year,2021-01-01,1063037,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_dataset_api_reads,year,2022-01-01,2156480,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_dataset_api_reads,year,2023-01-01,1138581,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_dataset_api_reads,year,2024-01-01,1335487,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_dataset_api_reads,year,2025-01-01,1755143,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_dataset_api_reads,year,2026-01-01,2502709,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_dataset_downloads,year,2020-01-01,10860,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_dataset_downloads,year,2021-01-01,8634,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_dataset_downloads,year,2022-01-01,9630,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_dataset_downloads,year,2023-01-01,9791,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_dataset_downloads,year,2024-01-01,24890,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_dataset_downloads,year,2025-01-01,104227,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_dataset_downloads,year,2026-01-01,191429,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_dataset_page_views,year,2020-01-01,30703,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_dataset_page_views,year,2021-01-01,46254,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_dataset_page_views,year,2022-01-01,53454,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_dataset_page_views,year,2023-01-01,60381,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_dataset_page_views,year,2024-01-01,105349,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_dataset_page_views,year,2025-01-01,169586,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_dataset_page_views,year,2026-01-01,160368,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_datasets_created,year,2013-01-01,3,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_datasets_created,year,2014-01-01,34,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_datasets_created,year,2015-01-01,26,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_datasets_created,year,2016-01-01,23,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_datasets_created,year,2017-01-01,19,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_datasets_created,year,2018-01-01,27,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_datasets_created,year,2019-01-01,17,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_datasets_created,year,2020-01-01,18,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_datasets_created,year,2021-01-01,25,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_datasets_created,year,2022-01-01,23,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_datasets_created,year,2023-01-01,21,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_datasets_created,year,2024-01-01,20,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_datasets_created,year,2025-01-01,15,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_datasets_created,year,2026-01-01,10,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_datasets_cumulative,year,2013-01-01,3,,,,Aggregated from monthly values using last.,2026-08-22T08:51:30+00:00
-public_datasets_cumulative,year,2014-01-01,37,,,,Aggregated from monthly values using last.,2026-08-22T08:51:30+00:00
-public_datasets_cumulative,year,2015-01-01,63,,,,Aggregated from monthly values using last.,2026-08-22T08:51:30+00:00
-public_datasets_cumulative,year,2016-01-01,86,,,,Aggregated from monthly values using last.,2026-08-22T08:51:30+00:00
-public_datasets_cumulative,year,2017-01-01,105,,,,Aggregated from monthly values using last.,2026-08-22T08:51:30+00:00
-public_datasets_cumulative,year,2018-01-01,132,,,,Aggregated from monthly values using last.,2026-08-22T08:51:30+00:00
-public_datasets_cumulative,year,2019-01-01,149,,,,Aggregated from monthly values using last.,2026-08-22T08:51:30+00:00
-public_datasets_cumulative,year,2020-01-01,167,,,,Aggregated from monthly values using last.,2026-08-22T08:51:30+00:00
-public_datasets_cumulative,year,2021-01-01,192,,,,Aggregated from monthly values using last.,2026-08-22T08:51:30+00:00
-public_datasets_cumulative,year,2022-01-01,215,,,,Aggregated from monthly values using last.,2026-08-22T08:51:30+00:00
-public_datasets_cumulative,year,2023-01-01,236,,,,Aggregated from monthly values using last.,2026-08-22T08:51:30+00:00
-public_datasets_cumulative,year,2024-01-01,256,,,,Aggregated from monthly values using last.,2026-08-22T08:51:30+00:00
-public_datasets_cumulative,year,2025-01-01,271,,,,Aggregated from monthly values using last.,2026-08-22T08:51:30+00:00
-public_datasets_cumulative,year,2026-01-01,281,,,,Aggregated from monthly values using last.,2026-08-22T08:51:30+00:00
-public_workshop_attendance,year,2024-01-01,36,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_workshop_attendance,year,2025-01-01,99,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_workshop_attendance,year,2026-01-01,115,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_workshops,year,2024-01-01,1,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_workshops,year,2025-01-01,4,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-public_workshops,year,2026-01-01,3,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-referrer_visits,year,2021-01-01,9414,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-referrer_visits,year,2022-01-01,19909,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-referrer_visits,year,2023-01-01,20728,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-referrer_visits,year,2024-01-01,38740,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-referrer_visits,year,2025-01-01,51018,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-referrer_visits,year,2026-01-01,74693,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-staff_training_attendance,year,2025-01-01,60,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-staff_training_attendance,year,2026-01-01,17,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-staff_trainings,year,2025-01-01,2,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-staff_trainings,year,2026-01-01,1,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-targeted_outreach_attendance,year,2025-01-01,116,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-targeted_outreach_events,year,2025-01-01,3,,,,Aggregated from monthly values using sum.,2026-08-22T08:51:30+00:00
-academic_collaborations,year,2013-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-academic_collaborations,year,2014-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-academic_collaborations,year,2015-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-academic_collaborations,year,2016-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-academic_collaborations,year,2017-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-academic_collaborations,year,2018-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-academic_collaborations,year,2019-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-academic_collaborations,year,2020-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-academic_collaborations,year,2021-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-academic_collaborations,year,2022-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-academic_collaborations,year,2023-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-academic_collaborations,year,2024-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-academic_collaborations,year,2025-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-academic_collaborations,year,2026-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-civic_tech_collaborations,year,2013-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-civic_tech_collaborations,year,2014-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-civic_tech_collaborations,year,2015-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-civic_tech_collaborations,year,2016-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-civic_tech_collaborations,year,2017-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-civic_tech_collaborations,year,2018-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-civic_tech_collaborations,year,2019-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-civic_tech_collaborations,year,2020-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-civic_tech_collaborations,year,2021-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-civic_tech_collaborations,year,2022-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-civic_tech_collaborations,year,2023-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-civic_tech_collaborations,year,2024-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-civic_tech_collaborations,year,2025-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-civic_tech_collaborations,year,2026-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-documented_pilots,year,2013-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-documented_pilots,year,2014-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-documented_pilots,year,2015-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-documented_pilots,year,2016-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-documented_pilots,year,2017-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-documented_pilots,year,2018-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-documented_pilots,year,2019-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-documented_pilots,year,2020-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-documented_pilots,year,2021-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-documented_pilots,year,2022-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-documented_pilots,year,2023-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-documented_pilots,year,2024-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-documented_pilots,year,2025-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-documented_pilots,year,2026-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-emerging_tool_evaluations,year,2013-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-emerging_tool_evaluations,year,2014-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-emerging_tool_evaluations,year,2015-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-emerging_tool_evaluations,year,2016-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-emerging_tool_evaluations,year,2017-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-emerging_tool_evaluations,year,2018-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-emerging_tool_evaluations,year,2019-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-emerging_tool_evaluations,year,2020-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-emerging_tool_evaluations,year,2021-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-emerging_tool_evaluations,year,2022-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-emerging_tool_evaluations,year,2023-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-emerging_tool_evaluations,year,2024-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-emerging_tool_evaluations,year,2025-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-emerging_tool_evaluations,year,2026-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-external_references,year,2013-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-external_references,year,2014-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-external_references,year,2015-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-external_references,year,2016-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-external_references,year,2017-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-external_references,year,2018-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-external_references,year,2019-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-external_references,year,2020-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-external_references,year,2021-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-external_references,year,2022-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-external_references,year,2023-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-external_references,year,2024-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-external_references,year,2025-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-external_references,year,2026-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-regional_national_convenings,year,2013-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-regional_national_convenings,year,2014-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-regional_national_convenings,year,2015-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-regional_national_convenings,year,2016-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-regional_national_convenings,year,2017-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-regional_national_convenings,year,2018-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-regional_national_convenings,year,2019-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-regional_national_convenings,year,2020-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-regional_national_convenings,year,2021-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-regional_national_convenings,year,2022-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-regional_national_convenings,year,2023-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-regional_national_convenings,year,2024-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-regional_national_convenings,year,2025-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-regional_national_convenings,year,2026-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-shared_outputs_with_partners,year,2013-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-shared_outputs_with_partners,year,2014-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-shared_outputs_with_partners,year,2015-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-shared_outputs_with_partners,year,2016-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-shared_outputs_with_partners,year,2017-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-shared_outputs_with_partners,year,2018-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-shared_outputs_with_partners,year,2019-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-shared_outputs_with_partners,year,2020-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-shared_outputs_with_partners,year,2021-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-shared_outputs_with_partners,year,2022-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-shared_outputs_with_partners,year,2023-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-shared_outputs_with_partners,year,2024-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-shared_outputs_with_partners,year,2025-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-shared_outputs_with_partners,year,2026-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-tools_methods_adopted,year,2013-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-tools_methods_adopted,year,2014-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-tools_methods_adopted,year,2015-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-tools_methods_adopted,year,2016-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-tools_methods_adopted,year,2017-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-tools_methods_adopted,year,2018-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-tools_methods_adopted,year,2019-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-tools_methods_adopted,year,2020-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-tools_methods_adopted,year,2021-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-tools_methods_adopted,year,2022-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-tools_methods_adopted,year,2023-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-tools_methods_adopted,year,2024-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-tools_methods_adopted,year,2025-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-tools_methods_adopted,year,2026-01-01,,,,,Manual metric not yet captured.,2026-08-22T08:51:30+00:00
-discovery_api_public_datasets,snapshot,2026-08-22,281,,,rkcc-jee9,,2026-08-22T08:51:30+00:00
-datasets_with_pddl_license,snapshot,2026-08-22,210,,,rkcc-jee9,,2026-08-22T08:51:30+00:00
-datasets_with_pddl_license_pct,snapshot,2026-08-22,74.73,,,rkcc-jee9,,2026-08-22T08:51:30+00:00
-datasets_with_automated_refresh,snapshot,2026-08-22,79,,,rkcc-jee9,,2026-08-22T08:51:30+00:00
-dataset_freshness_pct,snapshot,2026-08-22,97.78,,,rkcc-jee9,,2026-08-22T08:51:30+00:00
-datasets_with_privacy_geomasking_notes,snapshot,2026-08-22,2,,,rkcc-jee9,,2026-08-22T08:51:30+00:00
-datasets_with_department_metadata,snapshot,2026-08-22,1,,,rkcc-jee9,,2026-08-22T08:51:30+00:00
-opengov_permit_types,snapshot,2026-08-22,134,,,https://api-east.viewpointcloud.com/v2/cambridgema/record_types,,2026-08-22T08:51:30+00:00
-opengov_permit_types_with_open_data,snapshot,2026-08-22,52,,,https://api-east.viewpointcloud.com/v2/cambridgema/record_types,,2026-08-22T08:51:30+00:00
-opengov_permit_types_with_open_data_pct,snapshot,2026-08-22,38.81,,,https://api-east.viewpointcloud.com/v2/cambridgema/record_types,,2026-08-22T08:51:30+00:00
+active_internal_portal_accounts,year,2020-01-01,11,,,,Aggregated from monthly values using max.,2026-08-23T08:52:38+00:00
+active_internal_portal_accounts,year,2021-01-01,14,,,,Aggregated from monthly values using max.,2026-08-23T08:52:38+00:00
+active_internal_portal_accounts,year,2022-01-01,17,,,,Aggregated from monthly values using max.,2026-08-23T08:52:38+00:00
+active_internal_portal_accounts,year,2023-01-01,13,,,,Aggregated from monthly values using max.,2026-08-23T08:52:38+00:00
+active_internal_portal_accounts,year,2024-01-01,13,,,,Aggregated from monthly values using max.,2026-08-23T08:52:38+00:00
+active_internal_portal_accounts,year,2025-01-01,16,,,,Aggregated from monthly values using max.,2026-08-23T08:52:38+00:00
+active_internal_portal_accounts,year,2026-01-01,11,,,,Aggregated from monthly values using max.,2026-08-23T08:52:38+00:00
+catalog_searches,year,2020-01-01,397368,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+catalog_searches,year,2021-01-01,506193,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+catalog_searches,year,2022-01-01,145219,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+catalog_searches,year,2023-01-01,245695,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+catalog_searches,year,2024-01-01,242178,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+catalog_searches,year,2025-01-01,7936,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+catalog_searches,year,2026-01-01,16340,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+distinct_catalog_search_terms,year,2020-01-01,344,,,,Aggregated from monthly values using max.,2026-08-23T08:52:38+00:00
+distinct_catalog_search_terms,year,2021-01-01,474,,,,Aggregated from monthly values using max.,2026-08-23T08:52:38+00:00
+distinct_catalog_search_terms,year,2022-01-01,9093,,,,Aggregated from monthly values using max.,2026-08-23T08:52:38+00:00
+distinct_catalog_search_terms,year,2023-01-01,7436,,,,Aggregated from monthly values using max.,2026-08-23T08:52:38+00:00
+distinct_catalog_search_terms,year,2024-01-01,2057,,,,Aggregated from monthly values using max.,2026-08-23T08:52:38+00:00
+distinct_catalog_search_terms,year,2025-01-01,519,,,,Aggregated from monthly values using max.,2026-08-23T08:52:38+00:00
+distinct_catalog_search_terms,year,2026-01-01,649,,,,Aggregated from monthly values using max.,2026-08-23T08:52:38+00:00
+distinct_referrers,year,2021-01-01,66,,,,Aggregated from monthly values using max.,2026-08-23T08:52:38+00:00
+distinct_referrers,year,2022-01-01,134,,,,Aggregated from monthly values using max.,2026-08-23T08:52:38+00:00
+distinct_referrers,year,2023-01-01,83,,,,Aggregated from monthly values using max.,2026-08-23T08:52:38+00:00
+distinct_referrers,year,2024-01-01,91,,,,Aggregated from monthly values using max.,2026-08-23T08:52:38+00:00
+distinct_referrers,year,2025-01-01,323,,,,Aggregated from monthly values using max.,2026-08-23T08:52:38+00:00
+distinct_referrers,year,2026-01-01,162,,,,Aggregated from monthly values using max.,2026-08-23T08:52:38+00:00
+newsletter_subscribers,year,2024-01-01,701,,,,Aggregated from monthly values using last.,2026-08-23T08:52:38+00:00
+newsletter_subscribers,year,2025-01-01,742,,,,Aggregated from monthly values using last.,2026-08-23T08:52:38+00:00
+newsletter_subscribers,year,2026-01-01,785,,,,Aggregated from monthly values using last.,2026-08-23T08:52:38+00:00
+portal_logins,year,2020-01-01,440,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+portal_logins,year,2021-01-01,449,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+portal_logins,year,2022-01-01,677,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+portal_logins,year,2023-01-01,783,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+portal_logins,year,2024-01-01,1150,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+portal_logins,year,2025-01-01,1313,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+portal_logins,year,2026-01-01,893,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+program_event_attendance,year,2024-01-01,36,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+program_event_attendance,year,2025-01-01,275,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+program_event_attendance,year,2026-01-01,132,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+program_events,year,2024-01-01,1,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+program_events,year,2025-01-01,9,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+program_events,year,2026-01-01,4,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_asset_api_reads,year,2020-01-01,849108,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_asset_api_reads,year,2021-01-01,1065489,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_asset_api_reads,year,2022-01-01,2162106,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_asset_api_reads,year,2023-01-01,1165704,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_asset_api_reads,year,2024-01-01,1415955,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_asset_api_reads,year,2025-01-01,1876436,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_asset_api_reads,year,2026-01-01,2568577,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_asset_downloads,year,2020-01-01,11391,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_asset_downloads,year,2021-01-01,9564,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_asset_downloads,year,2022-01-01,13403,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_asset_downloads,year,2023-01-01,13256,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_asset_downloads,year,2024-01-01,40709,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_asset_downloads,year,2025-01-01,114843,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_asset_downloads,year,2026-01-01,220002,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_asset_views,year,2020-01-01,36919,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_asset_views,year,2021-01-01,55280,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_asset_views,year,2022-01-01,64220,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_asset_views,year,2023-01-01,76048,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_asset_views,year,2024-01-01,133722,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_asset_views,year,2025-01-01,220938,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_asset_views,year,2026-01-01,225058,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_dataset_api_reads,year,2020-01-01,848327,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_dataset_api_reads,year,2021-01-01,1063037,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_dataset_api_reads,year,2022-01-01,2156480,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_dataset_api_reads,year,2023-01-01,1138581,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_dataset_api_reads,year,2024-01-01,1335487,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_dataset_api_reads,year,2025-01-01,1755143,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_dataset_api_reads,year,2026-01-01,2520745,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_dataset_downloads,year,2020-01-01,10860,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_dataset_downloads,year,2021-01-01,8634,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_dataset_downloads,year,2022-01-01,9630,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_dataset_downloads,year,2023-01-01,9791,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_dataset_downloads,year,2024-01-01,24890,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_dataset_downloads,year,2025-01-01,104227,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_dataset_downloads,year,2026-01-01,191667,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_dataset_page_views,year,2020-01-01,30703,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_dataset_page_views,year,2021-01-01,46254,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_dataset_page_views,year,2022-01-01,53454,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_dataset_page_views,year,2023-01-01,60381,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_dataset_page_views,year,2024-01-01,105349,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_dataset_page_views,year,2025-01-01,169586,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_dataset_page_views,year,2026-01-01,161278,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_datasets_created,year,2013-01-01,3,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_datasets_created,year,2014-01-01,34,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_datasets_created,year,2015-01-01,26,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_datasets_created,year,2016-01-01,23,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_datasets_created,year,2017-01-01,19,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_datasets_created,year,2018-01-01,27,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_datasets_created,year,2019-01-01,17,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_datasets_created,year,2020-01-01,18,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_datasets_created,year,2021-01-01,25,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_datasets_created,year,2022-01-01,23,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_datasets_created,year,2023-01-01,21,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_datasets_created,year,2024-01-01,20,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_datasets_created,year,2025-01-01,15,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_datasets_created,year,2026-01-01,10,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_datasets_cumulative,year,2013-01-01,3,,,,Aggregated from monthly values using last.,2026-08-23T08:52:38+00:00
+public_datasets_cumulative,year,2014-01-01,37,,,,Aggregated from monthly values using last.,2026-08-23T08:52:38+00:00
+public_datasets_cumulative,year,2015-01-01,63,,,,Aggregated from monthly values using last.,2026-08-23T08:52:38+00:00
+public_datasets_cumulative,year,2016-01-01,86,,,,Aggregated from monthly values using last.,2026-08-23T08:52:38+00:00
+public_datasets_cumulative,year,2017-01-01,105,,,,Aggregated from monthly values using last.,2026-08-23T08:52:38+00:00
+public_datasets_cumulative,year,2018-01-01,132,,,,Aggregated from monthly values using last.,2026-08-23T08:52:38+00:00
+public_datasets_cumulative,year,2019-01-01,149,,,,Aggregated from monthly values using last.,2026-08-23T08:52:38+00:00
+public_datasets_cumulative,year,2020-01-01,167,,,,Aggregated from monthly values using last.,2026-08-23T08:52:38+00:00
+public_datasets_cumulative,year,2021-01-01,192,,,,Aggregated from monthly values using last.,2026-08-23T08:52:38+00:00
+public_datasets_cumulative,year,2022-01-01,215,,,,Aggregated from monthly values using last.,2026-08-23T08:52:38+00:00
+public_datasets_cumulative,year,2023-01-01,236,,,,Aggregated from monthly values using last.,2026-08-23T08:52:38+00:00
+public_datasets_cumulative,year,2024-01-01,256,,,,Aggregated from monthly values using last.,2026-08-23T08:52:38+00:00
+public_datasets_cumulative,year,2025-01-01,271,,,,Aggregated from monthly values using last.,2026-08-23T08:52:38+00:00
+public_datasets_cumulative,year,2026-01-01,281,,,,Aggregated from monthly values using last.,2026-08-23T08:52:38+00:00
+public_workshop_attendance,year,2024-01-01,36,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_workshop_attendance,year,2025-01-01,99,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_workshop_attendance,year,2026-01-01,115,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_workshops,year,2024-01-01,1,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_workshops,year,2025-01-01,4,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+public_workshops,year,2026-01-01,3,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+referrer_visits,year,2021-01-01,9414,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+referrer_visits,year,2022-01-01,19909,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+referrer_visits,year,2023-01-01,20728,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+referrer_visits,year,2024-01-01,38740,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+referrer_visits,year,2025-01-01,51018,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+referrer_visits,year,2026-01-01,74929,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+staff_training_attendance,year,2025-01-01,60,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+staff_training_attendance,year,2026-01-01,17,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+staff_trainings,year,2025-01-01,2,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+staff_trainings,year,2026-01-01,1,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+targeted_outreach_attendance,year,2025-01-01,116,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+targeted_outreach_events,year,2025-01-01,3,,,,Aggregated from monthly values using sum.,2026-08-23T08:52:38+00:00
+academic_collaborations,year,2013-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+academic_collaborations,year,2014-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+academic_collaborations,year,2015-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+academic_collaborations,year,2016-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+academic_collaborations,year,2017-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+academic_collaborations,year,2018-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+academic_collaborations,year,2019-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+academic_collaborations,year,2020-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+academic_collaborations,year,2021-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+academic_collaborations,year,2022-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+academic_collaborations,year,2023-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+academic_collaborations,year,2024-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+academic_collaborations,year,2025-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+academic_collaborations,year,2026-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+civic_tech_collaborations,year,2013-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+civic_tech_collaborations,year,2014-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+civic_tech_collaborations,year,2015-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+civic_tech_collaborations,year,2016-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+civic_tech_collaborations,year,2017-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+civic_tech_collaborations,year,2018-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+civic_tech_collaborations,year,2019-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+civic_tech_collaborations,year,2020-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+civic_tech_collaborations,year,2021-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+civic_tech_collaborations,year,2022-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+civic_tech_collaborations,year,2023-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+civic_tech_collaborations,year,2024-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+civic_tech_collaborations,year,2025-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+civic_tech_collaborations,year,2026-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+documented_pilots,year,2013-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+documented_pilots,year,2014-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+documented_pilots,year,2015-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+documented_pilots,year,2016-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+documented_pilots,year,2017-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+documented_pilots,year,2018-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+documented_pilots,year,2019-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+documented_pilots,year,2020-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+documented_pilots,year,2021-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+documented_pilots,year,2022-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+documented_pilots,year,2023-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+documented_pilots,year,2024-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+documented_pilots,year,2025-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+documented_pilots,year,2026-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+emerging_tool_evaluations,year,2013-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+emerging_tool_evaluations,year,2014-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+emerging_tool_evaluations,year,2015-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+emerging_tool_evaluations,year,2016-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+emerging_tool_evaluations,year,2017-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+emerging_tool_evaluations,year,2018-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+emerging_tool_evaluations,year,2019-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+emerging_tool_evaluations,year,2020-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+emerging_tool_evaluations,year,2021-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+emerging_tool_evaluations,year,2022-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+emerging_tool_evaluations,year,2023-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+emerging_tool_evaluations,year,2024-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+emerging_tool_evaluations,year,2025-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+emerging_tool_evaluations,year,2026-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+external_references,year,2013-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+external_references,year,2014-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+external_references,year,2015-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+external_references,year,2016-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+external_references,year,2017-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+external_references,year,2018-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+external_references,year,2019-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+external_references,year,2020-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+external_references,year,2021-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+external_references,year,2022-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+external_references,year,2023-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+external_references,year,2024-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+external_references,year,2025-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+external_references,year,2026-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+regional_national_convenings,year,2013-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+regional_national_convenings,year,2014-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+regional_national_convenings,year,2015-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+regional_national_convenings,year,2016-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+regional_national_convenings,year,2017-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+regional_national_convenings,year,2018-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+regional_national_convenings,year,2019-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+regional_national_convenings,year,2020-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+regional_national_convenings,year,2021-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+regional_national_convenings,year,2022-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+regional_national_convenings,year,2023-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+regional_national_convenings,year,2024-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+regional_national_convenings,year,2025-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+regional_national_convenings,year,2026-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+shared_outputs_with_partners,year,2013-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+shared_outputs_with_partners,year,2014-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+shared_outputs_with_partners,year,2015-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+shared_outputs_with_partners,year,2016-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+shared_outputs_with_partners,year,2017-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+shared_outputs_with_partners,year,2018-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+shared_outputs_with_partners,year,2019-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+shared_outputs_with_partners,year,2020-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+shared_outputs_with_partners,year,2021-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+shared_outputs_with_partners,year,2022-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+shared_outputs_with_partners,year,2023-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+shared_outputs_with_partners,year,2024-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+shared_outputs_with_partners,year,2025-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+shared_outputs_with_partners,year,2026-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+tools_methods_adopted,year,2013-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+tools_methods_adopted,year,2014-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+tools_methods_adopted,year,2015-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+tools_methods_adopted,year,2016-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+tools_methods_adopted,year,2017-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+tools_methods_adopted,year,2018-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+tools_methods_adopted,year,2019-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+tools_methods_adopted,year,2020-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+tools_methods_adopted,year,2021-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+tools_methods_adopted,year,2022-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+tools_methods_adopted,year,2023-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+tools_methods_adopted,year,2024-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+tools_methods_adopted,year,2025-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+tools_methods_adopted,year,2026-01-01,,,,,Manual metric not yet captured.,2026-08-23T08:52:38+00:00
+discovery_api_public_datasets,snapshot,2026-08-23,281,,,rkcc-jee9,,2026-08-23T08:52:38+00:00
+datasets_with_pddl_license,snapshot,2026-08-23,210,,,rkcc-jee9,,2026-08-23T08:52:38+00:00
+datasets_with_pddl_license_pct,snapshot,2026-08-23,74.73,,,rkcc-jee9,,2026-08-23T08:52:38+00:00
+datasets_with_automated_refresh,snapshot,2026-08-23,79,,,rkcc-jee9,,2026-08-23T08:52:38+00:00
+dataset_freshness_pct,snapshot,2026-08-23,97.78,,,rkcc-jee9,,2026-08-23T08:52:38+00:00
+datasets_with_privacy_geomasking_notes,snapshot,2026-08-23,2,,,rkcc-jee9,,2026-08-23T08:52:38+00:00
+datasets_with_department_metadata,snapshot,2026-08-23,1,,,rkcc-jee9,,2026-08-23T08:52:38+00:00
+opengov_permit_types,snapshot,2026-08-23,134,,,https://api-east.viewpointcloud.com/v2/cambridgema/record_types,,2026-08-23T08:52:38+00:00
+opengov_permit_types_with_open_data,snapshot,2026-08-23,52,,,https://api-east.viewpointcloud.com/v2/cambridgema/record_types,,2026-08-23T08:52:38+00:00
+opengov_permit_types_with_open_data_pct,snapshot,2026-08-23,38.81,,,https://api-east.viewpointcloud.com/v2/cambridgema/record_types,,2026-08-23T08:52:38+00:00
