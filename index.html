@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cambridge Open Data Metrics</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="header-brand">
+        <img class="city-seal" src="assets/cambridge-seal.png" alt="City of Cambridge seal" width="232" height="231" />
+        <div class="header-title">
+          <p class="eyebrow">Data Analytics & Open Data Program</p>
+          <h1>Cambridge Open Data Metrics</h1>
+        </div>
+      </div>
+      <div class="header-meta">
+        <span id="generatedAt">Loading...</span>
+        <a href="https://data.cambridgema.gov" target="_blank" rel="noreferrer">Open Data Portal</a>
+      </div>
+    </header>
+
+    <main>
+      <nav class="tabs" aria-label="Dashboard sections">
+        <button class="tab is-active" data-tab="snapshot">Snapshot</button>
+        <button class="tab" data-tab="timeline">Timeline</button>
+        <button class="tab" data-tab="coverage">Coverage</button>
+        <button class="tab" data-tab="about">About</button>
+      </nav>
+
+      <section class="tab-panel is-active" id="snapshot">
+        <div class="snapshot-controls">
+          <h2>Snapshot Period</h2>
+          <div class="segmented-control" id="snapshotWindowControl" aria-label="Snapshot activity period">
+            <button class="segment is-active" type="button" data-days="365">12 months</button>
+            <button class="segment" type="button" data-days="90">90 days</button>
+            <button class="segment" type="button" data-days="30">30 days</button>
+          </div>
+        </div>
+        <section class="kpi-grid" id="kpiGrid"></section>
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Dataset Activity</h2>
+            <div class="controls snapshot-table-filters">
+              <input id="snapshotDatasetFilter" type="search" list="snapshotDatasetOptions" placeholder="Filter dataset..." aria-label="Filter by dataset name" autocomplete="off" />
+              <select id="snapshotCategoryFilter" aria-label="Filter by category">
+                <option value="">All categories</option>
+              </select>
+            </div>
+          </div>
+          <datalist id="snapshotDatasetOptions"></datalist>
+          <div class="filter-note" id="datasetActivityNote"></div>
+          <div class="table-wrap">
+            <table id="snapshotDatasetTable"></table>
+          </div>
+          <div class="pagination" id="snapshotDatasetPagination" aria-label="Dataset table pagination"></div>
+        </section>
+      </section>
+
+      <section class="tab-panel" id="timeline">
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Explore Metrics</h2>
+            <div class="controls">
+              <select id="metricSelect"></select>
+              <select id="periodSelect">
+                <option value="month">Monthly</option>
+                <option value="year">Yearly</option>
+              </select>
+              <select id="rangeSelect">
+                <option value="36">36 months</option>
+                <option value="12">12 months</option>
+                <option value="60">60 months</option>
+                <option value="all">All</option>
+              </select>
+              <label class="toggle-control">
+                <input id="movingAverageToggle" type="checkbox" checked />
+                <span>Moving average</span>
+              </label>
+            </div>
+          </div>
+          <div class="usage-filters" id="usageFilters">
+            <input id="assetFilter" type="search" list="assetOptions" placeholder="Filter asset name..." aria-label="Asset name filter" autocomplete="off" />
+            <input id="categoryFilter" type="search" list="categoryOptions" placeholder="Filter category..." aria-label="Category filter" autocomplete="off" />
+            <input id="keywordFilter" type="search" list="keywordOptions" placeholder="Filter keyword..." aria-label="Keyword filter" autocomplete="off" />
+            <button class="clear-button" id="clearUsageFilters" type="button">Clear filters</button>
+          </div>
+          <datalist id="assetOptions"></datalist>
+          <datalist id="categoryOptions"></datalist>
+          <datalist id="keywordOptions"></datalist>
+          <div class="filter-note" id="usageFilterNote"></div>
+          <div class="chart tall" id="metricChart"></div>
+        </section>
+      </section>
+
+      <section class="tab-panel" id="coverage">
+        <section class="layout two-col">
+          <div class="panel coverage-wide">
+            <div class="panel-head">
+              <h2>Permit Types With Matching Open Data</h2>
+              <div class="controls">
+                <label class="toggle-control">
+                  <input id="permitMissingOnlyToggle" type="checkbox" />
+                  <span>Only permits without open data</span>
+                </label>
+              </div>
+            </div>
+            <div class="filter-note" id="permitCoverageNote"></div>
+            <div class="permit-coverage" id="permitCoverage"></div>
+          </div>
+          <div class="panel">
+            <div class="panel-head">
+              <h2>Datasets By Category</h2>
+            </div>
+            <div class="bar-chart" id="categoryChart"></div>
+          </div>
+          <div class="panel">
+            <div class="panel-head">
+              <h2>Datasets By Keyword</h2>
+            </div>
+            <div class="bar-chart" id="keywordChart"></div>
+          </div>
+          <div class="panel coverage-wide">
+            <div class="panel-head">
+              <h2>Datasets By Estimated Update Frequency</h2>
+            </div>
+            <div class="filter-note" id="updateFrequencyNote"></div>
+            <div class="bar-chart is-compact" id="updateFrequencyChart"></div>
+          </div>
+        </section>
+      </section>
+
+      <section class="tab-panel" id="about">
+        <section class="layout about-layout">
+          <div class="panel about-copy">
+            <div class="panel-head">
+              <h2>About This Dashboard</h2>
+            </div>
+            <p>
+              This dashboard tracks selected measures for Cambridge's Open Data Program, aligning with the FY 2026-2028 strategic plan's focus on cultivating a sustainable data ecosystem. The plan frames open datasets as the "soil" that supports public transparency, City decision-making, community research, and responsible innovation.
+            </p>
+            <p>
+              The Open Data Program is the City's central hub for sharing and using data to improve transparency, collaboration, and decision-making. This placeholder should eventually summarize the metric sources, refresh cadence, and how the dashboard will be used to monitor progress.
+              <a href="https://www.cambridgema.gov/-/media/Files/informationtechnologydepartment/opendata/plans/cambridgeopendatastrategicplan2026%E2%80%932028.pdf" target="_blank" rel="noreferrer">Read the full Cambridge Open Data Strategic Plan 2026-2028.</a>
+            </p>
+          </div>
+          <div class="panel">
+            <div class="panel-head">
+              <h2>Strategic Priorities and Metrics</h2>
+            </div>
+            <ol class="priority-list">
+              <li class="priority-item">
+                <strong>Cultivate a Sustainable Data Ecosystem</strong>
+                <span>Tracks dataset inventory, dataset creation, usage, searches, licensing, automated refresh, freshness, categories, and keywords. Missing: pre-2020 usage history and fuller lifecycle or retirement measures.</span>
+              </li>
+              <li class="priority-item">
+                <strong>Strengthen Data Governance and Protect Privacy</strong>
+                <span>Tracks datasets with privacy or geomasking notes. Missing: privacy inquiries, published governance updates, and public attendance at Open Data Review Board meetings.</span>
+              </li>
+              <li class="priority-item">
+                <strong>Engage Consistently with the Public</strong>
+                <span>Tracks indirect engagement through referrer visits and referring domains, newsletter subscribers, workshops, targeted outreach, and attendance from manual trackers. Missing: newsletter issues and Big Issues talks.</span>
+              </li>
+              <li class="priority-item">
+                <strong>Empower City Departments as a Connector and Enabler</strong>
+                <span>Tracks internal portal accounts, logins, department metadata coverage, staff trainings, staff training attendance, and the share of OpenGov permit and license types that have a matching open dataset. Missing: CDAG meetings, CDAG attendance, and departments represented.</span>
+              </li>
+              <li class="priority-item">
+                <strong>Encourage Responsible Innovation</strong>
+                <span>Planned metrics cover emerging tool evaluations, documented pilots, and tools or methods adopted. These are not yet populated from portal data and need a program tracker or manual source.</span>
+              </li>
+              <li class="priority-item">
+                <strong>Strengthen Partnerships in the Broader Data Ecosystem</strong>
+                <span>Planned metrics cover academic collaborations, civic tech collaborations, regional or national convenings, shared outputs, and external references. These also need tracking outside the portal.</span>
+              </li>
+            </ol>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="dashboard.js"></script>
+  </body>
+</html>
